@@ -109,6 +109,20 @@ MonoBehaviour:
     - c1ec2fe28634fe0459c24ff2427fcacf
     - a30278c39b259ea49894cc5348e4246a
     - ad9436da7f57fb34baad1e8a260b8814
+    - c59bf781346584943b2e97b7141d0725
+    - 5278e6872edf24f93b9800464cc6dd7e
+    - cc42cd662cf7640889ce69969daa6e5a
+    - 84fb7a25bc575446db228b9a82281ce4
+    - 7f423ef6c81094526b95600b458228c7
+    - 339634f02489346dba84a87310ea7b27
+    - 69834115bc7f14ff380bc3043a8dc3c7
+    - 7a0fd05fd87614b9895bf6133ed86e12
+    - e982af7ba80df42f3a53614c80a415eb
+    - f54d1bd14bd3ca042bd867b519fee8cc
+    - e9ddb85ddc07d6944a77eb7a87183d43
+    - 2ab30bef956d19d49b11d35e6f8c6ca4
+    - 423d8788f31b22e47bf73bdb14bf49b2
+    - 7e6657651a0203d4cba66b3fddefcb37
     values:
     - guid: 00000000000000001000000000000000
       iColor: 0
@@ -583,5 +597,75 @@ MonoBehaviour:
     - guid: ad9436da7f57fb34baad1e8a260b8814
       iColor: 0
       autoIcon: Prefab Icon
+      customIcon: 
+      autoIconDirty: 0
+    - guid: c59bf781346584943b2e97b7141d0725
+      iColor: 8
+      autoIcon: 
+      customIcon: 
+      autoIconDirty: 0
+    - guid: 5278e6872edf24f93b9800464cc6dd7e
+      iColor: 0
+      autoIcon: 
+      customIcon: 
+      autoIconDirty: 0
+    - guid: cc42cd662cf7640889ce69969daa6e5a
+      iColor: 0
+      autoIcon: 
+      customIcon: 
+      autoIconDirty: 1
+    - guid: 84fb7a25bc575446db228b9a82281ce4
+      iColor: 0
+      autoIcon: 
+      customIcon: 
+      autoIconDirty: 1
+    - guid: 7f423ef6c81094526b95600b458228c7
+      iColor: 0
+      autoIcon: 
+      customIcon: 
+      autoIconDirty: 1
+    - guid: 339634f02489346dba84a87310ea7b27
+      iColor: 0
+      autoIcon: 
+      customIcon: 
+      autoIconDirty: 1
+    - guid: 69834115bc7f14ff380bc3043a8dc3c7
+      iColor: 0
+      autoIcon: 
+      customIcon: 
+      autoIconDirty: 1
+    - guid: 7a0fd05fd87614b9895bf6133ed86e12
+      iColor: 0
+      autoIcon: 
+      customIcon: 
+      autoIconDirty: 1
+    - guid: e982af7ba80df42f3a53614c80a415eb
+      iColor: 0
+      autoIcon: cs Script Icon
+      customIcon: 
+      autoIconDirty: 1
+    - guid: f54d1bd14bd3ca042bd867b519fee8cc
+      iColor: 0
+      autoIcon: 
+      customIcon: 
+      autoIconDirty: 0
+    - guid: e9ddb85ddc07d6944a77eb7a87183d43
+      iColor: 5
+      autoIcon: 
+      customIcon: 
+      autoIconDirty: 0
+    - guid: 2ab30bef956d19d49b11d35e6f8c6ca4
+      iColor: 0
+      autoIcon: SceneAsset Icon
+      customIcon: 
+      autoIconDirty: 0
+    - guid: 423d8788f31b22e47bf73bdb14bf49b2
+      iColor: 0
+      autoIcon: 
+      customIcon: 
+      autoIconDirty: 0
+    - guid: 7e6657651a0203d4cba66b3fddefcb37
+      iColor: 0
+      autoIcon: 
       customIcon: 
       autoIconDirty: 0
