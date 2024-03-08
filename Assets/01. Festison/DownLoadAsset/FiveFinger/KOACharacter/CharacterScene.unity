@@ -2767,7 +2767,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 8b3499d46dae305429f4cf0c0c2a9f62, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -2779,7 +2779,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Walk
+  m_Text: "\uAC77\uB2E4\n"
 --- !u!222 &1251378679
 CanvasRenderer:
   m_ObjectHideFlags: 0
