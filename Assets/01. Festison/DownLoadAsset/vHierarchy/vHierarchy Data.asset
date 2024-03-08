@@ -22,6 +22,7 @@ MonoBehaviour:
     - 87cb81f77b9e4994e802a0aa3ccbf797
     - 37a577e3f2ca5c54db63a2a46b96b8cc
     - 1a3e3b0c573ed2b4baf2fface5c50876
+    - 862dfad60db784e18b3f86ec58785669
     values:
     - goDatasByGlobalId:
         keys: []
@@ -57,7 +58,7 @@ MonoBehaviour:
         - iColor: 4
           icon: Camera Icon
       goDatasByInstanceId:
-        keys: 9e740000
+        keys: b0740000
         values:
         - iColor: 4
           icon: Camera Icon
@@ -79,3 +80,14 @@ MonoBehaviour:
       goDatasByInstanceId:
         keys: 
         values: []
+    - goDatasByGlobalId:
+        keys:
+        - GlobalObjectId_V1-2-862dfad60db784e18b3f86ec58785669-1109510235518212375-0
+        values:
+        - iColor: 0
+          icon: 
+      goDatasByInstanceId:
+        keys: e27b0000
+        values:
+        - iColor: 0
+          icon: 
