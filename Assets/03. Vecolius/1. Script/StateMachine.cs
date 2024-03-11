@@ -10,7 +10,7 @@ namespace Veco
         void SetState(string stateName);
 
         /// <summary>
-        /// 상태머신 반환 함수
+        /// StateMachine return Method
         /// </summary>
         /// <returns></returns>
         object GetOwner();
@@ -26,7 +26,7 @@ namespace Veco
         }
 
         /// <summary>
-        /// 상태에 진입할 때,
+        /// State Enter Method
         /// </summary>
         public virtual void Enter()
         {
@@ -34,7 +34,7 @@ namespace Veco
         }
 
         /// <summary>
-        /// 상태를 유지할 때,
+        /// State Update Method
         /// </summary>
         public virtual void Update()
         {
@@ -42,7 +42,7 @@ namespace Veco
         }
 
         /// <summary>
-        /// 상태가 종료될 때,
+        /// State Exit Method
         /// </summary>
         public virtual void Exit()
         {
@@ -60,10 +60,10 @@ namespace Veco
         }
 
         /// <summary>
-        /// 현재 상태머신에 상태 추가 함수
+        /// Current State Add Method
         /// </summary>
-        /// <param name="name"> 저장할 키 값 </param>
-        /// <param name="state"> 상태 클래스 이름 </param>
+        /// <param name="name"> Save Dictionary Key name </param>
+        /// <param name="state"> State Class Name </param>
         public void AddState(string name, State state)
         {
             if (stateDic.ContainsKey(name)) return;
@@ -77,9 +77,9 @@ namespace Veco
         }
 
         /// <summary>
-        /// 상태 변경 함수
+        /// State Change Method
         /// </summary>
-        /// <param name="stateName"> 변경할 상태의 키 값 </param>
+        /// <param name="stateName"> Change State Key Name </param>
         public void SetState(string stateName)
         {
             if (stateDic.ContainsKey(stateName))
