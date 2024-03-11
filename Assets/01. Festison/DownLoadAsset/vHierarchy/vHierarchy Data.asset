@@ -83,11 +83,35 @@ MonoBehaviour:
     - goDatasByGlobalId:
         keys:
         - GlobalObjectId_V1-2-862dfad60db784e18b3f86ec58785669-1109510235518212375-0
+        - GlobalObjectId_V1-2-862dfad60db784e18b3f86ec58785669-1722776143-0
+        - GlobalObjectId_V1-2-862dfad60db784e18b3f86ec58785669-1751339318-0
+        - GlobalObjectId_V1-2-862dfad60db784e18b3f86ec58785669-1413655042-0
+        - GlobalObjectId_V1-2-862dfad60db784e18b3f86ec58785669-278659839-0
         values:
         - iColor: 0
           icon: 
+        - iColor: 6
+          icon: Canvas Icon
+        - iColor: 8
+          icon: cs Script Icon
+        - iColor: 0
+          icon: Camera Icon
+        - iColor: 0
+          icon: ParticleSystem Icon
       goDatasByInstanceId:
-        keys: e27b0000
+        keys: e27b00005c4701007ac4fdffc0c3fdff5ea5feff4046010030460100
         values:
         - iColor: 0
           icon: 
+        - iColor: 0
+          icon: 
+        - iColor: 6
+          icon: Canvas Icon
+        - iColor: 8
+          icon: cs Script Icon
+        - iColor: 1
+          icon: AvatarMask On Icon
+        - iColor: 0
+          icon: Camera Icon
+        - iColor: 0
+          icon: ParticleSystem Icon
