@@ -11,6 +11,13 @@ public class UIManager : SingleTon<UIManager>
     [Header("메뉴 UI 버튼")] public Button menuBtn;
     [SerializeField] private bool isSetmenu = false;
 
+    [Header("캐릭터 버튼")] public Button infoBtn;
+
+    public void Start()
+    {
+        infoBtn.Select();
+    }
+
     public void OnClickMenu()
     {
         //dotUi.SetActive(false);
