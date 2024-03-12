@@ -5,16 +5,6 @@ using UnityEngine;
 
 namespace Veco
 {
-    public interface IStateMachine
-    {
-        void SetState(string stateName);
-
-        /// <summary>
-        /// StateMachine return Method
-        /// </summary>
-        /// <returns></returns>
-        object GetOwner();
-    }
     public class State
     {
         public IStateMachine sm;
@@ -77,7 +67,7 @@ namespace Veco
         }
 
         /// <summary>
-        /// State Change Method
+        /// State Change Method 
         /// </summary>
         /// <param name="stateName"> Change State Key Name </param>
         public void SetState(string stateName)
