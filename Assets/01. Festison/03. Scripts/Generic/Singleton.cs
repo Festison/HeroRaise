@@ -13,7 +13,7 @@ public class SingleTon<T> : MonoBehaviour where T : SingleTon<T>
         if (instance == null)
         {
             instance = (T)this;
-            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(this.gameObject);
         }
         else
         {
