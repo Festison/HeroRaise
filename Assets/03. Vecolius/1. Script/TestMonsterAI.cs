@@ -5,6 +5,14 @@ using UnityEngine;
 
 namespace Veco
 {
+    public enum MonsterState
+    {
+        idle,
+        run,
+        attack,
+        die,
+    }
+
     [Serializable]
     public class MonsterStatus
     {
@@ -39,6 +47,7 @@ namespace Veco
     {
         [SerializeField] MonsterStatusSO so;
         public MonsterStatus status;
+        [SerializeField] MonsterState state;
 
         public Animator animator;
         void Awake()
@@ -47,13 +56,38 @@ namespace Veco
         }
         void Start()
         {
-            //status = new MonsterStatus(so, Time.time);
-            status = new MonsterStatus(so, 20.22f);
+            status = new MonsterStatus(so, Time.time);
         }
 
         void Update()
         {
 
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                state = MonsterState.idle;
+                ChangeAnimation(state);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                state = MonsterState.run;
+                ChangeAnimation(state);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                state = MonsterState.attack;
+                ChangeAnimation(state);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                state = MonsterState.die;
+                ChangeAnimation(state);
+            }
+            
+        }
+
+        void ChangeAnimation(MonsterState state)
+        {
+            animator.SetInteger("StateNumber", (int)state);
         }
     }
 }
