@@ -10,7 +10,7 @@ namespace Veco
         /// State Change IMethod
         /// </summary>
         /// <param name="stateName"> Change State key Name </param>
-        void SetState(string stateName);
+        void SetState(MonsterState stateName);
 
         /// <summary>
         /// StateMachine return IMethod
