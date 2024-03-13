@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public LayerMask playerLayer;
     private int hp;
     public int Hp
     {
@@ -21,25 +20,51 @@ public class Player : MonoBehaviour
     }
     [SerializeField]
     private bool monsterScan;
-
-    [SerializeField] RaycastHit2D hit;
+    public bool MonsterScan
+    {
+        get => monsterScan;
+        set => monsterScan = value;
+    }
+    public LayerMask enemyLayerMask;
+    float maxRadous = 0.5f;
+    Collider2D col;
     void Start()
     {
         Hp = 100;
         Atk = 10;
     }
 
-    // Update is called once per frame
     void Update()
     {
         Scan();
-
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            col = null;      
+        }
+        //The monster has a boolean value, so it's false for start, true for die
+        //If true, change col to null
     }
 
     public void Scan()
     {
-        float maxDistance = 2.9f;
-        Debug.DrawRay(transform.position + transform.up * 0.5f, transform.right * maxDistance, Color.red);
-        hit = Physics2D.Raycast(transform.position + transform.up * 0.5f, transform.right, maxDistance, playerLayer);
+        if(!col)
+        {
+            col = Physics2D.OverlapCircle(transform.position, maxRadous, enemyLayerMask);
+        }
+        else
+        {
+            //if(col.transform.TryGetComponent(out ))
+            //Get the monster hit and dispose of it
+        }
+
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, maxRadous);
+    }
+
+
+
 }
