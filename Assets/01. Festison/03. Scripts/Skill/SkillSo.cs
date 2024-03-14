@@ -12,11 +12,31 @@ public class Skill
     public float coolTime;
     public int level;
     public float percent;
-    public GameObject icon;
+    public Sprite icon;
+
+    public Skill()
+    {
+
+    }
+
+    public void Equipment()
+    {
+
+    }
+
+    public void UpGrade()
+    {
+
+    }
 }
 
 [CreateAssetMenu(menuName = "Player/SkillData", order = int.MaxValue)]
 public class SkillSo : ScriptableObject
 {
     public List<Skill> skillData = new List<Skill>();
+
+    public void Init()
+    {
+
+    }
 }

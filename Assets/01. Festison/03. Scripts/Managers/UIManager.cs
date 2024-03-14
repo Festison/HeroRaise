@@ -13,6 +13,8 @@ public class UIManager : SingleTon<UIManager>
 
     [Header("캐릭터 버튼")] public Button infoBtn;
 
+    [Header("스킬 UI")] public GameObject[] skillUI;
+
     public void Start()
     {
         infoBtn.Select();
@@ -34,7 +36,6 @@ public class UIManager : SingleTon<UIManager>
             menu.transform.DOScale(0f, 0.5f).OnComplete(SetFalseMenu);
         }
     }
-
     public void SetActiveMenu()
     {
         isSetmenu = true;
@@ -45,5 +46,10 @@ public class UIManager : SingleTon<UIManager>
         menu.SetActive(false);
         isSetmenu = false;
         menuBtn.enabled = true;
+    }
+
+    public void SetSkillData()
+    {
+        
     }
 }
