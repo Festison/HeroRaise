@@ -24,7 +24,7 @@ namespace Veco
         /// Character Hit IMethod
         /// </summary>
         /// <param name="damage"> Get Damage </param>
-        void Hit(float damage);
+        void Hit(int damage);
     }
     public interface IAttackable
     {
