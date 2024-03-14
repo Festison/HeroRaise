@@ -8,8 +8,16 @@ namespace Veco
     {
         [SerializeField] LayerMask targetLayer;
         [SerializeField] float detectiveRange;
-        bool isFind;
+        [SerializeField] bool isFind;
         public bool IsFind => isFind;
+        public float DetectiveRange
+        {
+            get => detectiveRange;
+            set
+            {
+                detectiveRange = value;
+            }
+        }
         void OnEnable()
         {
             isFind = false;
@@ -29,6 +37,12 @@ namespace Veco
             {
                 isFind = true;
             }
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(transform.position, detectiveRange);
         }
     }
 }

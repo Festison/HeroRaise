@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterName: "\uAC70\uBBF8"
   defaultMaxHp: 5
-  moveSpeed: 1
-  attackSpeed: 1
+  moveSpeed: 0.02
+  attackSpeed: 2
   defaultAttackDamage: 1
-  attackRange: 1
+  attackRange: 2
   gold: 3

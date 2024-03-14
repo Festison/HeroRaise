@@ -9,7 +9,7 @@ namespace Veco
     {
         public string monsterName;
         public int defaultMaxHp;
-        public int moveSpeed;
+        public float moveSpeed;
         public float attackSpeed;
         public int defaultAttackDamage;
         public float attackRange;

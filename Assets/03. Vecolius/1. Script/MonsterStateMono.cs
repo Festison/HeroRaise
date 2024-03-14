@@ -12,6 +12,10 @@ namespace Veco
             base.Init(sm);
             MSmono = (MonsterStateMono)sm.GetOwner();
         }
+        public override void Update()
+        {
+            MSmono.Animator.SetInteger("StateNumber", (int)MSmono.State);
+        }
     }
 
     //Monster Idle State
@@ -19,7 +23,7 @@ namespace Veco
     {
         public override void Update()
         {
-            MSmono.Animator.SetInteger("StateNumber", (int)MSmono.State);
+            base.Update();
             Debug.Log("기본모드");
         }
     }
@@ -29,8 +33,8 @@ namespace Veco
     {
         public override void Update()
         {
-            MSmono.Animator.SetInteger("StateNumber", (int)MSmono.State);
-            Debug.Log("이동모드");
+            base.Update();
+            //Debug.Log("이동모드");
         }
     }
 
@@ -39,7 +43,7 @@ namespace Veco
     {
         public override void Update()
         {
-            MSmono.Animator.SetInteger("StateNumber", (int)MSmono.State);
+            base.Update();
             Debug.Log("공격모드");
         }
     }
@@ -49,7 +53,7 @@ namespace Veco
     {
         public override void Update()
         {
-            MSmono.Animator.SetInteger("StateNumber", (int)MSmono.State);
+            base.Update();
             Debug.Log("사망모드");
         }
     }

@@ -16,10 +16,10 @@ namespace Veco
     [Serializable]
     public class MonsterStatus
     {
+        TestMonsterAI owner = null;
         [SerializeField] int hp;
-
-        public int damage;
-        public int maxHp;
+        [SerializeField] int damage;
+        [SerializeField] int maxHp;
 
         public int Hp
         {
@@ -31,13 +31,15 @@ namespace Veco
                 if(hp >= 0)
                 {
                     hp = 0;
-
+                    owner.StopCoroutine(owner.attackCo);
+                    owner.ChangeMonsterState(MonsterState.die);
                 }
             }
         }
 
-        public MonsterStatus(MonsterStatusSO so, float time)
+        public MonsterStatus(MonsterStatusSO so, float time, object owner)
         {
+            this.owner = (TestMonsterAI)owner;
             this.maxHp = (int)(so.defaultMaxHp * (1 + time % 60));
             this.hp = this.maxHp;
             this.damage = (int)(so.defaultAttackDamage * (1 + time % 60));
@@ -46,16 +48,26 @@ namespace Veco
     public class TestMonsterAI : MonsterStateMono, IHitable
     {
         [SerializeField] MonsterStatusSO so;
-        public MonsterStatus status;
+        [SerializeField] MonsterStatus status;
+        [SerializeField] bool isAttackCooltime;
+        [SerializeField] bool isDie;
+        public IEnumerator attackCo;
 
+        [SerializeField] DetectiveComponent detective;
         protected override void Awake()
         {
             base.Awake();
+            detective = GetComponent<DetectiveComponent>();
+            
         }
         protected override void Start()
         {
             base.Start();
-            status = new MonsterStatus(so, Time.time);
+            status = new MonsterStatus(so, Time.time, this);
+            detective.DetectiveRange = so.attackRange;
+            isAttackCooltime = false;
+            isDie = false;
+            attackCo = MonsterAttackCo(so.attackSpeed);
 
             sm.AddState(MonsterState.idle, new MonsterIdleState());
             sm.AddState(MonsterState.run, new MonsterRunState());
@@ -70,21 +82,23 @@ namespace Veco
         {
             sm.Update();
 
-            if (Input.GetKeyDown(KeyCode.Alpha1))
+            if (isDie) return;
+
+            if (Input.GetKeyDown(KeyCode.V))
+                status.Hp -= status.Hp;
+
+            if (detective.IsFind && !isAttackCooltime)
             {
-                ChangeAnimation(MonsterState.idle);
+                StartCoroutine(attackCo);
             }
-            else if (Input.GetKeyDown(KeyCode.Alpha2))
+            else if (detective.IsFind && isAttackCooltime)
             {
-                ChangeAnimation(MonsterState.run);
+                //ChangeMonsterState(MonsterState.idle);
             }
-            else if (Input.GetKeyDown(KeyCode.Alpha3))
+            else
             {
-                ChangeAnimation(MonsterState.attack);
-            }
-            else if (Input.GetKeyDown(KeyCode.Alpha4))
-            {
-                ChangeAnimation(MonsterState.die);
+                ChangeMonsterState(MonsterState.run);
+                transform.Translate(Vector3.left * so.moveSpeed);
             }
             
         }
@@ -93,19 +107,36 @@ namespace Veco
         {
             if(other.TryGetComponent(out IAttackable attackable))
             {
-
+                //StartCoroutine(MonsterAttackCo());
             }
         }
 
-        void ChangeAnimation(MonsterState state)
+        public void ChangeMonsterState(MonsterState state)
         {
             this.state = state;
             sm.SetState(state);
+        }
+
+        IEnumerator MonsterAttackCo(float attackCooltime)
+        {
+            while (!isAttackCooltime)
+            {
+                ChangeMonsterState(MonsterState.attack);
+                isAttackCooltime = true;
+                yield return new WaitForSeconds(attackCooltime);
+                isAttackCooltime = false;
+            }
         }
 
         public void Hit(int damage)
         {
             status.Hp -= damage;
         }
+
+        public void AnimationChangeMonsterState(int selectNumber)
+        {
+            ChangeMonsterState((MonsterState)selectNumber);
+        }
+
     }
 }
