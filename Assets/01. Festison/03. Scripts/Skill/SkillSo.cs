@@ -6,12 +6,13 @@ using UnityEngine.UI;
 [System.Serializable]
 public class Skill
 {
+    public enum SkillGrade { S, A, B, C, D, E, F }
     public string skillName;
     public int damage;
     public float coolTime;
     public int level;
-    public float weight;
-    public Image icon;
+    public float percent;
+    public GameObject icon;
 }
 
 [CreateAssetMenu(menuName = "Player/SkillData", order = int.MaxValue)]

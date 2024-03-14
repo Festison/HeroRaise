@@ -10,6 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7fa24e02c05af964f93cb6b6f1d59bbb, type: 3}
-  m_Name: lightning
+  m_Name: SkillData
   m_EditorClassIdentifier: 
-  skillData: []
+  skillData:
+  - skillName: "\uBC88\uAC1C \uACF5\uACA9"
+    damage: 10
+    coolTime: 1
+    level: 1
+    percent: 5
+    icon: {fileID: 0}
+  - skillName: "\uD30C\uC774\uC5B4\uBCFC"
+    damage: 5
+    coolTime: 2
+    level: 1
+    percent: 10
+    icon: {fileID: 0}
