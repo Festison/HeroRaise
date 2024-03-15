@@ -80,6 +80,19 @@ namespace Veco
             }
         }
 
+        /// <summary>
+        /// return to State in StateDicioary 
+        /// </summary>
+        /// <param name="stateName"> State Key Name </param>
+        /// <returns> StateDicionary value </returns>
+        public State GetState(string stateName)
+        {
+            if (stateDic.ContainsKey(stateName))
+                return stateDic[stateName];
+            else
+                return null;
+        }
+
         public void Update()
         {
             curState.Update();

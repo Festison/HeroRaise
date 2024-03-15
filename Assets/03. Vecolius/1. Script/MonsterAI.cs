@@ -16,7 +16,7 @@ namespace Veco
     [Serializable]
     public class MonsterStatus
     {
-        TestMonsterAI owner = null;
+        MonsterAI owner = null;
         [SerializeField] int hp;
         public int damage;
         [SerializeField] int maxHp;
@@ -31,21 +31,20 @@ namespace Veco
                 if(hp >= 0)
                 {
                     hp = 0;
-                    owner.StopCoroutine(owner.attackCo);
-                    owner.ChangeMonsterState(MonsterState.die);
+                    owner.Dead();
                 }
             }
         }
 
         public MonsterStatus(MonsterStatusSO so, float time, object owner)
         {
-            this.owner = (TestMonsterAI)owner;
+            this.owner = (MonsterAI)owner;
             this.maxHp = (int)(so.defaultMaxHp * (1 + time % 60));
             this.hp = this.maxHp;
             this.damage = (int)(so.defaultAttackDamage * (1 + time % 60));
         }
     }
-    public class TestMonsterAI : MonsterStateMono, IHitable, IAttackable
+    public class MonsterAI : MonsterStateMono, IHitable
     {
         [SerializeField] MonsterStatusSO so;
         [SerializeField] MonsterStatus status;
@@ -54,18 +53,19 @@ namespace Veco
         public IEnumerator attackCo;
 
         [SerializeField] DetectiveComponent detective;
+        public Collider2D attackCol;
 
-        public int Damage => status.damage;
+        public MonsterStatus MonsterStatus => status;
+
         protected override void Awake()
         {
             base.Awake();
             detective = GetComponent<DetectiveComponent>();
-            
+            status = new MonsterStatus(so, Time.time, this);
         }
         protected override void Start()
         {
             base.Start();
-            status = new MonsterStatus(so, Time.time, this);
             detective.DetectiveRange = so.attackRange;
             isAttackCooltime = false;
             isDie = false;
@@ -75,6 +75,9 @@ namespace Veco
             sm.AddState(MonsterState.run.ToString(), new MonsterRunState());
             sm.AddState(MonsterState.attack.ToString(), new MonsterAttackState());
             sm.AddState(MonsterState.die.ToString(), new MonsterDieState());
+
+            sm.GetState(MonsterState.attack.ToString()).onEnter += () => { attackCol.enabled = true; };
+            sm.GetState(MonsterState.attack.ToString()).onExit += () => { attackCol.enabled = false; };
 
             state = MonsterState.idle;
             sm.SetState(state.ToString());
@@ -102,18 +105,24 @@ namespace Veco
             
         }
 
-        private void OnTriggerEnter(Collider other)
-        {
-            if(other.TryGetComponent(out IAttackable attackable))
-            {
-                Hit(attackable.Damage);
-            }
-        }
-
         public void ChangeMonsterState(MonsterState state)
         {
             this.state = state;
             sm.SetState(state.ToString());
+        }
+
+        public void Dead()
+        {
+            GetComponent<Collider2D>().enabled = false;
+            attackCol.enabled = false;
+
+            StopCoroutine(attackCo);
+            ChangeMonsterState(MonsterState.die);
+        }
+
+        public void AnimationChangeMonsterState(int selectNumber)
+        {
+            ChangeMonsterState((MonsterState)selectNumber);
         }
 
         IEnumerator MonsterAttackCo(float attackCooltime)
@@ -130,11 +139,7 @@ namespace Veco
         public void Hit(int damage)
         {
             status.Hp -= damage;
-        }
-
-        public void AnimationChangeMonsterState(int selectNumber)
-        {
-            ChangeMonsterState((MonsterState)selectNumber);
+            Debug.Log(gameObject.name + " Hp : " + status.Hp);
         }
 
     }

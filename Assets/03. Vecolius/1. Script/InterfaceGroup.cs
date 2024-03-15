@@ -28,6 +28,6 @@ namespace Veco
     }
     public interface IAttackable
     {
-        int Damage { get; }
+        void Attack(IHitable hitable);
     }
 }
