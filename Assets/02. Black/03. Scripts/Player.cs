@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-
+using BK;
 
 public class Player : MonoBehaviour
 {
@@ -12,12 +11,36 @@ public class Player : MonoBehaviour
         get => hp;
         set => hp = value;
     }
-    private int atk;
+    private int damage;
     public int Atk
     {
-        get => atk;
-        set => atk = value;
+        get => damage;
+        set => damage = value;
     }
+    private float range;
+    private int lv;
+    public int Lv
+    {
+        get => lv;  
+        set 
+        {
+            lv = value;
+            Hp += 10 * value;
+        }
+    }
+    private float exp;
+    public float Exp
+    {
+        get => exp;
+        set
+        {
+            exp = value;
+            if (exp > 1)
+                Lv++;
+        }
+    }
+    private float atkSpeed;
+
     [SerializeField]
     private bool monsterScan;
     public bool MonsterScan
@@ -30,17 +53,12 @@ public class Player : MonoBehaviour
     Collider2D col;
     void Start()
     {
-        Hp = 100;
-        Atk = 10;
+ 
     }
 
     void Update()
     {
         Scan();
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            col = null;      
-        }
         //The monster has a boolean value, so it's false for start, true for die
         //If true, change col to null
     }
@@ -53,10 +71,17 @@ public class Player : MonoBehaviour
         }
         else
         {
-            //if(col.transform.TryGetComponent(out ))
+            if(col.transform.TryGetComponent(out Enemy enemy))
+            {
+                enemy.Hit(Atk);
+                if (enemy.die)
+                {
+                    col = null;
+                    exp += 0.50f;
+                }
+            }
             //Get the monster hit and dispose of it
         }
-
     }
 
     private void OnDrawGizmos()
