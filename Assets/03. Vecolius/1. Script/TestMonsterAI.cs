@@ -18,7 +18,7 @@ namespace Veco
     {
         TestMonsterAI owner = null;
         [SerializeField] int hp;
-        [SerializeField] int damage;
+        public int damage;
         [SerializeField] int maxHp;
 
         public int Hp
@@ -45,7 +45,7 @@ namespace Veco
             this.damage = (int)(so.defaultAttackDamage * (1 + time % 60));
         }
     }
-    public class TestMonsterAI : MonsterStateMono, IHitable
+    public class TestMonsterAI : MonsterStateMono, IHitable, IAttackable
     {
         [SerializeField] MonsterStatusSO so;
         [SerializeField] MonsterStatus status;
@@ -54,6 +54,8 @@ namespace Veco
         public IEnumerator attackCo;
 
         [SerializeField] DetectiveComponent detective;
+
+        public int Damage => status.damage;
         protected override void Awake()
         {
             base.Awake();
@@ -69,13 +71,13 @@ namespace Veco
             isDie = false;
             attackCo = MonsterAttackCo(so.attackSpeed);
 
-            sm.AddState(MonsterState.idle, new MonsterIdleState());
-            sm.AddState(MonsterState.run, new MonsterRunState());
-            sm.AddState(MonsterState.attack, new MonsterAttackState());
-            sm.AddState(MonsterState.die, new MonsterDieState());
+            sm.AddState(MonsterState.idle.ToString(), new MonsterIdleState());
+            sm.AddState(MonsterState.run.ToString(), new MonsterRunState());
+            sm.AddState(MonsterState.attack.ToString(), new MonsterAttackState());
+            sm.AddState(MonsterState.die.ToString(), new MonsterDieState());
 
             state = MonsterState.idle;
-            sm.SetState(state);
+            sm.SetState(state.ToString());
         }
 
         void Update()
@@ -83,9 +85,6 @@ namespace Veco
             sm.Update();
 
             if (isDie) return;
-
-            if (Input.GetKeyDown(KeyCode.V))
-                status.Hp -= status.Hp;
 
             if (detective.IsFind && !isAttackCooltime)
             {
@@ -107,14 +106,14 @@ namespace Veco
         {
             if(other.TryGetComponent(out IAttackable attackable))
             {
-                //StartCoroutine(MonsterAttackCo());
+                Hit(attackable.Damage);
             }
         }
 
         public void ChangeMonsterState(MonsterState state)
         {
             this.state = state;
-            sm.SetState(state);
+            sm.SetState(state.ToString());
         }
 
         IEnumerator MonsterAttackCo(float attackCooltime)

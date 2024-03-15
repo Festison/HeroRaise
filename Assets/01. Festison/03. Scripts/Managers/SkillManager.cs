@@ -33,16 +33,17 @@ public class SkillManager : MonoBehaviour
         {
             if (skillSo.skillData[i].percent<=gachaPer)
             {
-                Reward(skillSo.skillData[i].skillGrade);
+                //Reward(skillSo.skillData[i].skillGrade);
                 return;
             }
         }
     }
-
+    /*
     public Skill Reward(SkillGrade skillGrade)
     {
         skillSo.skillData 
 
         return per[]
     }
+    */
 }

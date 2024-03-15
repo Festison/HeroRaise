@@ -10,7 +10,7 @@ namespace Veco
         /// State Change IMethod
         /// </summary>
         /// <param name="stateName"> Change State key Name </param>
-        void SetState(MonsterState stateName);
+        void SetState(string stateName);
 
         /// <summary>
         /// StateMachine return IMethod
@@ -28,10 +28,6 @@ namespace Veco
     }
     public interface IAttackable
     {
-        /// <summary>
-        /// Attack to IHitable IMethod
-        /// </summary>
-        /// <param name="hitable"> Target IHitable </param>
-        void Attack(IHitable hitable);
+        int Damage { get; }
     }
 }
