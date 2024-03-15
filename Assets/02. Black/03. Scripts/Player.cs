@@ -3,108 +3,102 @@ using System.Collections.Generic;
 using UnityEngine;
 using BK;
 using Veco;
+using UnityEngine.Playables;
 
-public class Player : MonoBehaviour
+namespace BK
 {
-    private int hp;
-    public int Hp
+    public class Player : PlayerStatusMono
     {
-        get => hp;
-        set => hp = value;
-    }
-    private int damage;
-    public int Atk
-    {
-        get => damage;
-        set => damage = value;
-    }
-    private float range;
-    private int lv;
-    public int Lv
-    {
-        get => lv;  
-        set 
+        private int hp;
+        public int Hp
         {
-            lv = value;
-            Hp += 10 * value;
-        }
-    }
-    private float exp;
-    public float Exp
-    {
-        get => exp;
-        set
-        {
-            exp = value;
-            if (exp > 1)
-                Lv++;
-        }
-    }
-    private float atkSpeed;
-
-    [SerializeField]
-    private bool monsterScan;
-    public bool MonsterScan
-    {
-        get => monsterScan;
-        set => monsterScan = value;
-    }
-    [SerializeField]
-    private PlayerStatSo playerStatSo;
-    public LayerMask enemyLayerMask;
-    float maxRadous = 0.5f;
-    Collider2D col;
-
-
-    void Start()
-    {
-        Init();
-    }
-
-    void Init()
-    {
-        Hp = playerStatSo.hp;
-        damage = playerStatSo.damage;
-        Lv = playerStatSo.lv;
-        range = playerStatSo.range;
-        atkSpeed = playerStatSo.atkSpeed;
-    }
-
-
-    void Update()
-    {
-        Scan();
-        //The monster has a boolean value, so it's false for start, true for die
-        //If true, change col to null
-    }
-
-    public void Scan()
-    {
-        if(!col)
-        {
-            col = Physics2D.OverlapCircle(transform.position, maxRadous, enemyLayerMask);
-        }
-        else
-        {
-            if(col.transform.TryGetComponent(out Enemy enemy))
+            get => hp;
+            set
             {
-                enemy.Hit(Atk);
-                if (enemy.die)
+                hp = value;
+                if(hp < 0)
                 {
-                    col = null;
-                    exp += 0.50f;
+                    PlayerStatusChange("DIe");
                 }
             }
-            //Get the monster hit and dispose of it
         }
+        private int damage;
+        public int Damage
+        {
+            get => damage;
+            set => damage = value;
+        }
+        private float range;
+        private int lv;
+        public int Lv
+        {
+            get => lv;
+            set
+            {
+                lv = value;
+                Hp += 10 * value;
+            }
+        }
+        private float exp;
+        public float Exp
+        {
+            get => exp;
+            set
+            {
+                exp = value;
+                if (exp > 1)
+                {
+                    Lv++;
+                    exp = 0;
+                }
+
+            }
+        }
+        private float atkSpeed;
+
+
+        [SerializeField]
+        private PlayerStatSo playerStatSo;
+        PlayerStatusMono playerStatus;
+        void Start()
+        {   
+            sm.AddState("Idle", new PlayerIdleState());
+            sm.AddState("attack", new PlayerAttackState());
+            sm.AddState("Skiil", new PlayerSkillState());
+            sm.AddState("Die", new PlayerDieState());
+            sm.SetState("Idle");
+            Init();
+        }
+
+        void Init()
+        {
+            Hp = playerStatSo.hp;
+            damage = playerStatSo.damage;
+            Lv = playerStatSo.lv;
+            range = playerStatSo.range;
+            atkSpeed = playerStatSo.atkSpeed;
+        }
+
+
+        void Update()
+        {
+            sm.Update();
+            //Skill has the highest priority
+            if (playerDC.col == null)
+            {
+                PlayerStatusChange("Idle");
+            }
+            else
+            {
+                PlayerStatusChange("attack");
+            }
+        }
+
+        private void PlayerStatusChange(string statusName)
+        {
+            sm.SetState(statusName);
+        }
+
+
     }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, maxRadous);
-    }
-
-
-
 }
