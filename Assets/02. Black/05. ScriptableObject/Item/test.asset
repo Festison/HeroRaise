@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4ba4a3ad5d7c1a4c9992893d73d233a, type: 3}
+  m_Name: test
+  m_EditorClassIdentifier: 
+  grade: 1
+  itemName: "\uD55C\uBC29 "
+  atkvalue: 0
+  atkRange: 0
+  atkSpeedValue: 0
+  price: 10
+  sprite: {fileID: 0}
+  lv: 0
