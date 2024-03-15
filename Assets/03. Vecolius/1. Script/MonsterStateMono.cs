@@ -24,7 +24,6 @@ namespace Veco
         public override void Update()
         {
             base.Update();
-            Debug.Log("기본모드");
         }
     }
 
@@ -44,7 +43,6 @@ namespace Veco
         public override void Update()
         {
             base.Update();
-            Debug.Log("공격모드");
         }
     }
 
@@ -54,7 +52,6 @@ namespace Veco
         public override void Update()
         {
             base.Update();
-            Debug.Log("사망모드");
         }
     }
 

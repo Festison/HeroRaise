@@ -18,6 +18,7 @@ namespace Veco
                 detectiveRange = value;
             }
         }
+        public LayerMask TargetLayer => targetLayer;
         void OnEnable()
         {
             isFind = false;
@@ -32,8 +33,9 @@ namespace Veco
             if (isFind)
                 return;
 
-            Collider[] cols = Physics.OverlapSphere(transform.position, detectiveRange, targetLayer);
-            if (cols.Length > 0)
+            //Collider2D[] cols = Physics2D.OverlapSphere(transform.position, detectiveRange, targetLayer);
+            Collider2D cols = Physics2D.OverlapCircle(transform.position, detectiveRange, targetLayer);
+            if (cols != null)
             {
                 isFind = true;
             }
