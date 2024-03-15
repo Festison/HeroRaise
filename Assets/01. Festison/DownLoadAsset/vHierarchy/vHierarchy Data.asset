@@ -28,6 +28,7 @@ MonoBehaviour:
     - 1e5ccfa708e47f94882d3039e193463c
     - c3da11631a2e8b7438016aab77a0b552
     - 99ee4cdae5a827f4c8b3a63c89c5b660
+    - 8ad93bbf5660b4dada81d8b657b55e11
     values:
     - goDatasByGlobalId:
         keys: []
@@ -91,7 +92,7 @@ MonoBehaviour:
         - GlobalObjectId_V1-2-862dfad60db784e18b3f86ec58785669-1413655042-0
         - GlobalObjectId_V1-2-862dfad60db784e18b3f86ec58785669-278659839-0
         - GlobalObjectId_V1-2-862dfad60db784e18b3f86ec58785669-1152478488-0
-        - GlobalObjectId_V1-2-862dfad60db784e18b3f86ec58785669-165228-856220069
+        - GlobalObjectId_V1-2-862dfad60db784e18b3f86ec58785669-200940261-0
         values:
         - iColor: 0
           icon: 
@@ -106,9 +107,9 @@ MonoBehaviour:
         - iColor: 0
           icon: cs Script Icon
         - iColor: 0
-          icon: AvatarMask On Icon
+          icon: 
       goDatasByInstanceId:
-        keys: 548400007c82000088820000fe810000c47f000094810000f6faffff640001008afe000096fe00000cfe0000d2fb0000a2fd0000f291ffff0493ffff
+        keys: 62830000d4810000e081000092810000dc7f00003a8100003e8200000826010076240100822401003424010086220100e42301002a690100826701008e670100366701008e650100dc66010074b6fdff
         values:
         - iColor: 0
           icon: 
@@ -138,8 +139,24 @@ MonoBehaviour:
           icon: cs Script Icon
         - iColor: 0
           icon: 
+        - iColor: 6
+          icon: Canvas Icon
+        - iColor: 8
+          icon: cs Script Icon
+        - iColor: 4
+          icon: Camera Icon
         - iColor: 0
-          icon: AvatarMask On Icon
+          icon: ParticleSystem Icon
+        - iColor: 0
+          icon: cs Script Icon
+        - iColor: 0
+          icon: 
+    - goDatasByGlobalId:
+        keys: []
+        values: []
+      goDatasByInstanceId:
+        keys: 
+        values: []
     - goDatasByGlobalId:
         keys: []
         values: []

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum SkillGrade { S, A, B, C, D, E, F }
+public enum SkillGrade { A, B, C, D }
 
 [System.Serializable]
 public class Skill

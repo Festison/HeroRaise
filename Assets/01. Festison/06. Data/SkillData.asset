@@ -13,17 +13,92 @@ MonoBehaviour:
   m_Name: SkillData
   m_EditorClassIdentifier: 
   skillData:
-  - skillGrade: 6
+  - skillGrade: 3
     skillName: "\uBC88\uAC1C \uACF5\uACA9"
+    skillExplanation: "\uB9F5 \uC804\uBC29\uC5D0 \uBC88\uAC1C\uB97C \uB5A8\uC5B4\uD2B8\uB9BD\uB2C8\uB2E4."
     damage: 10
     coolTime: 1
     level: 1
-    percent: 50
-    icon: {fileID: 21300000, guid: c96f62a4ab65749128908e5360e39126, type: 3}
-  - skillGrade: 5
+    percent: 17.5
+    icon: {fileID: 21300000, guid: e52a8ab58cb3f4de68874cf58e6a2d39, type: 3}
+  - skillGrade: 3
     skillName: "\uD30C\uC774\uC5B4\uBCFC"
+    skillExplanation: "\uB9F5\uC5D0 \uC77C\uC9C1\uC120\uC73C\uB85C\uD654\uC5FC\uAD6C\uB97C
+      \uC3E9\uB2C8\uB2E4."
     damage: 5
     coolTime: 2
     level: 1
-    percent: 10
-    icon: {fileID: 21300000, guid: 13756a141b0b84db08f0c80f06bb5d45, type: 3}
+    percent: 17.5
+    icon: {fileID: 21300000, guid: 6cb9beeee244f4cbe85695e9ae657dad, type: 3}
+  - skillGrade: 3
+    skillName: "\uD30C\uC774\uC5B4\uBCFC"
+    skillExplanation: "\uB9F5\uC5D0 \uC77C\uC9C1\uC120\uC73C\uB85C\uD654\uC5FC\uAD6C\uB97C
+      \uC3E9\uB2C8\uB2E4."
+    damage: 5
+    coolTime: 2
+    level: 1
+    percent: 17.5
+    icon: {fileID: 21300000, guid: 40c351e12b03e45d5b9a6f523dd372f0, type: 3}
+  - skillGrade: 3
+    skillName: "\uD30C\uC774\uC5B4\uBCFC"
+    skillExplanation: "\uB9F5\uC5D0 \uC77C\uC9C1\uC120\uC73C\uB85C\uD654\uC5FC\uAD6C\uB97C
+      \uC3E9\uB2C8\uB2E4."
+    damage: 5
+    coolTime: 2
+    level: 1
+    percent: 17.5
+    icon: {fileID: 21300000, guid: 7d167c2382838483989a9c654ee5a072, type: 3}
+  - skillGrade: 2
+    skillName: "\uD30C\uC774\uC5B4\uBCFC"
+    skillExplanation: "\uB9F5\uC5D0 \uC77C\uC9C1\uC120\uC73C\uB85C\uD654\uC5FC\uAD6C\uB97C
+      \uC3E9\uB2C8\uB2E4."
+    damage: 5
+    coolTime: 2
+    level: 1
+    percent: 7
+    icon: {fileID: 21300000, guid: 39b1bec1379a64baba2bdbb54a917c68, type: 3}
+  - skillGrade: 2
+    skillName: "\uD30C\uC774\uC5B4\uBCFC"
+    skillExplanation: "\uB9F5\uC5D0 \uC77C\uC9C1\uC120\uC73C\uB85C\uD654\uC5FC\uAD6C\uB97C
+      \uC3E9\uB2C8\uB2E4."
+    damage: 5
+    coolTime: 2
+    level: 1
+    percent: 7
+    icon: {fileID: 21300000, guid: 4b6befbf133704370bb29da715e368c8, type: 3}
+  - skillGrade: 2
+    skillName: "\uD30C\uC774\uC5B4\uBCFC"
+    skillExplanation: "\uB9F5\uC5D0 \uC77C\uC9C1\uC120\uC73C\uB85C\uD654\uC5FC\uAD6C\uB97C
+      \uC3E9\uB2C8\uB2E4."
+    damage: 5
+    coolTime: 2
+    level: 1
+    percent: 7
+    icon: {fileID: 21300000, guid: 55502c66063344fb2b31606342a3cba5, type: 3}
+  - skillGrade: 1
+    skillName: "\uD30C\uC774\uC5B4\uBCFC"
+    skillExplanation: "\uB9F5\uC5D0 \uC77C\uC9C1\uC120\uC73C\uB85C\uD654\uC5FC\uAD6C\uB97C
+      \uC3E9\uB2C8\uB2E4."
+    damage: 5
+    coolTime: 2
+    level: 1
+    percent: 4
+    icon: {fileID: 21300000, guid: 6d97d3b88bacf4e8bb4116ea752e1f91, type: 3}
+  - skillGrade: 1
+    skillName: "\uD30C\uC774\uC5B4\uBCFC"
+    skillExplanation: "\uB9F5\uC5D0 \uC77C\uC9C1\uC120\uC73C\uB85C\uD654\uC5FC\uAD6C\uB97C
+      \uC3E9\uB2C8\uB2E4."
+    damage: 5
+    coolTime: 2
+    level: 1
+    percent: 4
+    icon: {fileID: 21300000, guid: 0c3d8ebc26e1b4293a424fbae11829f4, type: 3}
+  - skillGrade: 0
+    skillName: "\uD30C\uC774\uC5B4\uBCFC"
+    skillExplanation: "\uB9F5\uC5D0 \uC77C\uC9C1\uC120\uC73C\uB85C\uD654\uC5FC\uAD6C\uB97C
+      \uC3E9\uB2C8\uB2E4."
+    damage: 5
+    coolTime: 2
+    level: 1
+    percent: 1
+    icon: {fileID: 21300000, guid: 8f78f97a2d8e7498388d20b064d09528, type: 3}

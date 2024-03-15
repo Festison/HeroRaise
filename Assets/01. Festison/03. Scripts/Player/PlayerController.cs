@@ -13,6 +13,7 @@ namespace Festioson
         {
             skeletonAnimation = GetComponent<SkeletonAnimation>();
         }
+
         public void SkillAnimation()
         {
             skeletonAnimation.AnimationName = "skill";
