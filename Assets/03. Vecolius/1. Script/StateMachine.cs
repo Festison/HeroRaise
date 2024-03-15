@@ -43,10 +43,10 @@ namespace Veco
     {
         public T owner = null;
         public State curState = null;
-        Dictionary<MonsterState, State> stateDic = null;
+        Dictionary<string, State> stateDic = null;
         public StateMachine()
         {
-            stateDic = new Dictionary<MonsterState, State>();
+            stateDic = new Dictionary<string, State>();
         }
 
         /// <summary>
@@ -54,7 +54,7 @@ namespace Veco
         /// </summary>
         /// <param name="name"> Save Dictionary Key name </param>
         /// <param name="state"> State Class Name </param>
-        public void AddState(MonsterState name, State state)
+        public void AddState(string name, State state)
         {
             if (stateDic.ContainsKey(name)) return;
             state.Init(this);
@@ -70,7 +70,7 @@ namespace Veco
         /// State Change Method 
         /// </summary>
         /// <param name="stateName"> Change State Key Name </param>
-        public void SetState(MonsterState stateName)
+        public void SetState(string stateName)
         {
             if (stateDic.ContainsKey(stateName))
             {
