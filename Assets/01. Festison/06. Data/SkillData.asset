@@ -13,15 +13,17 @@ MonoBehaviour:
   m_Name: SkillData
   m_EditorClassIdentifier: 
   skillData:
-  - skillName: "\uBC88\uAC1C \uACF5\uACA9"
+  - skillGrade: 6
+    skillName: "\uBC88\uAC1C \uACF5\uACA9"
     damage: 10
     coolTime: 1
     level: 1
-    percent: 5
-    icon: {fileID: 0}
-  - skillName: "\uD30C\uC774\uC5B4\uBCFC"
+    percent: 50
+    icon: {fileID: 21300000, guid: c96f62a4ab65749128908e5360e39126, type: 3}
+  - skillGrade: 5
+    skillName: "\uD30C\uC774\uC5B4\uBCFC"
     damage: 5
     coolTime: 2
     level: 1
     percent: 10
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 13756a141b0b84db08f0c80f06bb5d45, type: 3}

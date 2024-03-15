@@ -5,5 +5,5 @@ using System;
 
 public class EventManager : SingleTon<EventManager>
 {
-    public Action OnUiEvent;
+    public Action OnGachaEvent;
 }

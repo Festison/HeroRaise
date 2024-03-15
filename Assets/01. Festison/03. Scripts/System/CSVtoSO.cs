@@ -14,11 +14,13 @@ public class CSVtoSO
         for (int i = 0; i < skilldata.Count; i++)
         {
             Skill skill = new Skill();
+            skill.skillGrade = (SkillGrade)skilldata[i]["percent"].GetHashCode();
             skill.skillName = skilldata[i]["skillName"].ToString();
             skill.damage = skilldata[i]["damage"].GetHashCode();
-            skill.coolTime = skilldata[i]["coolTime"].GetHashCode();
+            skill.coolTime = (float)skilldata[i]["coolTime"].GetHashCode();
             skill.level = skilldata[i]["level"].GetHashCode();
-            skill.percent = skilldata[i]["percent"].GetHashCode();
+            skill.percent = (float)skilldata[i]["percent"].GetHashCode();
+            
 
             skillSo.skillData.Add(skill);
         }

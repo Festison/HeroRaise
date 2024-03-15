@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum SkillGrade { S, A, B, C, D, E, F }
+
 [System.Serializable]
 public class Skill
 {
-    public enum SkillGrade { S, A, B, C, D, E, F }
+    public SkillGrade skillGrade;
     public string skillName;
+    public string skillExplanation;
     public int damage;
     public float coolTime;
     public int level;
