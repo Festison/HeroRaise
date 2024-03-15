@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using BK;
+using Veco;
 
 public class Player : MonoBehaviour
 {
@@ -48,13 +49,27 @@ public class Player : MonoBehaviour
         get => monsterScan;
         set => monsterScan = value;
     }
+    [SerializeField]
+    private PlayerStatSo playerStatSo;
     public LayerMask enemyLayerMask;
     float maxRadous = 0.5f;
     Collider2D col;
+
+
     void Start()
     {
- 
+        Init();
     }
+
+    void Init()
+    {
+        Hp = playerStatSo.hp;
+        damage = playerStatSo.damage;
+        Lv = playerStatSo.lv;
+        range = playerStatSo.range;
+        atkSpeed = playerStatSo.atkSpeed;
+    }
+
 
     void Update()
     {

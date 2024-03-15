@@ -187,6 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterScan: 0
+  playerStatSo: {fileID: 11400000, guid: eadb4122bc9ed134cb2a77e88d6b89a3, type: 2}
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 128
