@@ -8,9 +8,10 @@ public class SkillManager : SingleTon<SkillManager>
 {
     public SkillSo skillSo;
 
-    [SerializeField] private Image skillImage;
-    [SerializeField] private Image outLineImage;
-    [SerializeField] private TextMeshProUGUI[] skillExplanation = new TextMeshProUGUI[5];
+    public Image skillImage;
+    public Image outLineImage;
+    public TextMeshProUGUI[] skillExplanation = new TextMeshProUGUI[5];
+    public Image[] skillSlotimages = new Image[10];
 
     public void DrawGrade()
     {
@@ -62,6 +63,8 @@ public class SkillManager : SingleTon<SkillManager>
                 skillExplanation[1].text = "Lv" + skillSo.skillData[i].level.ToString();
                 skillExplanation[2].text = skillSo.skillData[i].skillName;
                 skillExplanation[3].text = skillSo.skillData[i].skillExplanation + ('\n') + "µ¥¹ÌÁö : " + skillSo.skillData[i].damage.ToString();
+                skillSo.skillData[i].isGetSkill = true;
+                skillSlotimages[i].color = Color.white;
                 break;
             }
         }

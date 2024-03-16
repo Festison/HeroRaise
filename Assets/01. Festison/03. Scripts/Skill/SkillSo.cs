@@ -14,7 +14,10 @@ public class Skill
     public int damage;
     public float coolTime;
     public int level;
+    public int count;
     public float percent;
+    public bool isGetSkill;
+    public bool isUseSkill;
     public Sprite icon;
 
     public Skill()
