@@ -6,12 +6,27 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Player/ItemData", order = int.MaxValue)]
 public class ItemSo : ScriptableObject
 {
-    public int grade;
+    public enum ItemType
+    {
+        Sword,
+        Armor,
+        Shoes,
+        Gloves
+    }
+    public enum ItemRating
+    {
+        A,
+        B,
+        C,
+        D
+    }
+    public ItemType itemType;
+    public ItemRating itemRating;
+    public int lv;
     public string itemName;
     public int atkvalue;
     public float atkRange;
     public float atkSpeedValue;
     public int price;
     public Sprite sprite;
-    public int lv;
 }
