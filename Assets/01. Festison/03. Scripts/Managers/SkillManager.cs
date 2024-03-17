@@ -12,6 +12,18 @@ public class SkillManager : SingleTon<SkillManager>
     public Image outLineImage;
     public TextMeshProUGUI[] skillExplanation = new TextMeshProUGUI[5];
     public Image[] skillSlotimages = new Image[10];
+    public Image[] useSkillSlotimages = new Image[4];
+
+    public int skillNumber=-1;
+
+    public void Start()
+    {
+        for (int i = 0; i < skillSo.skillData.Count; i++)
+        {
+            skillSo.skillData[i].isGetSkill = false;
+            skillSo.skillData[i].isUseSkill = false;
+        }      
+    }
 
     public void DrawGrade()
     {
@@ -65,9 +77,20 @@ public class SkillManager : SingleTon<SkillManager>
                 skillExplanation[3].text = skillSo.skillData[i].skillExplanation + ('\n') + "µ¥¹ÌÁö : " + skillSo.skillData[i].damage.ToString();
                 skillSo.skillData[i].isGetSkill = true;
                 skillSlotimages[i].color = Color.white;
+                skillNumber = i;
                 break;
             }
         }
     }
 
+
+    public void EquipmentSkill()
+    {
+        if (skillSo.skillData[skillNumber].isGetSkill)
+        {
+            skillSo.skillData[skillNumber].isUseSkill = true;
+            useSkillSlotimages[0].sprite = skillSo.skillData[skillNumber].icon;
+        }
+              
+    }
 }

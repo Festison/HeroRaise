@@ -2380,6 +2380,12 @@ MonoBehaviour:
   - {fileID: 283191793}
   - {fileID: 1904962502}
   - {fileID: 387307735}
+  useSkillSlotimages:
+  - {fileID: 1968605119}
+  - {fileID: 909559301}
+  - {fileID: 1337026355}
+  - {fileID: 1984732251}
+  skillNumber: -1
 --- !u!1 &465361242
 GameObject:
   m_ObjectHideFlags: 0
@@ -4407,7 +4413,7 @@ GameObject:
   - component: {fileID: 909559301}
   - component: {fileID: 909559300}
   m_Layer: 5
-  m_Name: Image
+  m_Name: UseSkillSlotImage[1]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6757,7 +6763,7 @@ GameObject:
   - component: {fileID: 1337026355}
   - component: {fileID: 1337026354}
   m_Layer: 5
-  m_Name: Image
+  m_Name: UseSkillSlotImage[2]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8918,7 +8924,7 @@ GameObject:
   - component: {fileID: 1968605119}
   - component: {fileID: 1968605121}
   m_Layer: 5
-  m_Name: Image
+  m_Name: UseSkillSlotImage[0]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9050,7 +9056,7 @@ GameObject:
   - component: {fileID: 1984732251}
   - component: {fileID: 1984732250}
   m_Layer: 5
-  m_Name: Image
+  m_Name: UseSkillSlotImage[3]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9630,7 +9636,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.23}
   m_AnchorMax: {x: 1, y: 0.95943147}
-  m_AnchoredPosition: {x: 0, y: -3.0000017}
+  m_AnchoredPosition: {x: 0, y: -3.0000005}
   m_SizeDelta: {x: 0, y: 409}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!224 &527896226735070409
@@ -12903,7 +12909,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.79714817, y: 0.70168746}
   m_AnchorMax: {x: 0.9564445, y: 0.864}
-  m_AnchoredPosition: {x: 11.000001, y: -122.39798}
+  m_AnchoredPosition: {x: 11.000001, y: -122.39785}
   m_SizeDelta: {x: 11.719971, y: 535.98737}
   m_Pivot: {x: 1, y: 1}
 --- !u!1 &1109510235518212375
@@ -15597,7 +15603,7 @@ GameObject:
   - component: {fileID: 6508654491842438405}
   - component: {fileID: 7761302474600308308}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: EnforceBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16622,13 +16628,70 @@ GameObject:
   - component: {fileID: 6187119844220824921}
   - component: {fileID: 2077076682881411721}
   - component: {fileID: 3599119596345987464}
+  - component: {fileID: 7937078194688896584}
   m_Layer: 5
-  m_Name: Image
+  m_Name: EquipBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7937078194688896584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7937078194688896583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 3599119596345987464}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 430531173}
+        m_TargetAssemblyTypeName: SkillManager, Assembly-CSharp
+        m_MethodName: EquipmentSkill
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8295261847098699366
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,5 +18,8 @@ public class SkillSlot : MonoBehaviour
         SkillManager.Instance.skillExplanation[1].text = "Lv" + SkillManager.Instance.skillSo.skillData[i].level.ToString();
         SkillManager.Instance.skillExplanation[2].text = SkillManager.Instance.skillSo.skillData[i].skillName;
         SkillManager.Instance.skillExplanation[3].text = SkillManager.Instance.skillSo.skillData[i].skillExplanation + ('\n') + "µ¥¹ÌÁö : " + SkillManager.Instance.skillSo.skillData[i].damage.ToString();
+
+        if (SkillManager.Instance.skillSo.skillData[i].isGetSkill)
+            SkillManager.Instance.skillNumber = i;
     }
 }
