@@ -89,6 +89,8 @@ namespace Veco
 
             if (isDie) return;
 
+
+
             if (detective.IsFind && !isAttackCooltime)
             {
                 StartCoroutine(attackCo);
@@ -113,6 +115,7 @@ namespace Veco
 
         public void Dead()
         {
+            isDie = true;
             GetComponent<Collider2D>().enabled = false;
             attackCol.enabled = false;
 
@@ -123,6 +126,11 @@ namespace Veco
         public void AnimationChangeMonsterState(int selectNumber)
         {
             ChangeMonsterState((MonsterState)selectNumber);
+        }
+
+        public void GameObjectDead()
+        {
+            Destroy(gameObject);
         }
 
         IEnumerator MonsterAttackCo(float attackCooltime)
