@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class SkillSlot : MonoBehaviour
 {
-    
- 
     public void SetItem(int i)
     {
         SkillManager.Instance.outLineImage.color = Color.gray;
@@ -18,6 +16,7 @@ public class SkillSlot : MonoBehaviour
         SkillManager.Instance.skillExplanation[1].text = "Lv" + SkillManager.Instance.skillSo.skillData[i].level.ToString();
         SkillManager.Instance.skillExplanation[2].text = SkillManager.Instance.skillSo.skillData[i].skillName;
         SkillManager.Instance.skillExplanation[3].text = SkillManager.Instance.skillSo.skillData[i].skillExplanation + ('\n') + "데미지 : " + SkillManager.Instance.skillSo.skillData[i].damage.ToString();
+        SkillManager.Instance.useSkillText.text = "장착될 슬롯 : " + (SkillManager.Instance.currentIndex + 1).ToString() + "번 째 ";
 
         if (SkillManager.Instance.skillSo.skillData[i].isGetSkill)
             SkillManager.Instance.skillNumber = i;
