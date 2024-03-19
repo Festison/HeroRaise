@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4ba4a3ad5d7c1a4c9992893d73d233a, type: 3}
-  m_Name: test
+  m_Name: Shoes
   m_EditorClassIdentifier: 
-  grade: 1
+  itemType: 2
+  itemRating: 0
+  lv: 0
   itemName: "\uD55C\uBC29 "
   atkvalue: 0
   atkRange: 0
   atkSpeedValue: 0
   price: 10
   sprite: {fileID: 0}
-  lv: 0

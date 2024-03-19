@@ -39,8 +39,10 @@ namespace BK
     {
         public override void Update()
         {
+            //Animation Link
             if (PStatus.playerDC.col.TryGetComponent(out Enemy enemy))
             {
+                enemy.Hit(PStatus.player.Damage);
                 if (enemy.die)
                     PStatus.playerDC.col = null;
             }
@@ -51,8 +53,7 @@ namespace BK
     {
         public override void Update()
         {
-            Debug.Log("ав╬З╢ы");
-            //die ani
+            
         }
     }
 
@@ -63,11 +64,13 @@ namespace BK
         protected StateMachine<PlayerStatusMono> sm = null;
         [SerializeField] protected SkeletonAnimation skeletonAnimation = null;
         public PlayerDC playerDC = null;
+        public Player player = null;
         private void Awake()
         {
             skeletonAnimation = GetComponent<SkeletonAnimation>();
             sm = new StateMachine<PlayerStatusMono>();
             playerDC = GetComponent<PlayerDC>();
+            player = GetComponent<Player>();
             sm.owner = this;
         }
 
