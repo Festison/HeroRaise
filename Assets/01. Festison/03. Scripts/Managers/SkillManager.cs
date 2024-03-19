@@ -6,15 +6,20 @@ using TMPro;
 
 public class SkillManager : SingleTon<SkillManager>
 {
-    public SkillSo skillSo;
+    [Header("스킬의 기본 데이터")] public SkillSo skillSo;
 
+    [Header("스킬 설명 이미지")]
     public Image skillImage;
     public Image outLineImage;
     public TextMeshProUGUI[] skillExplanation = new TextMeshProUGUI[5];
+    public TextMeshProUGUI useSkillText;
+
+    [Header("스킬 저장 이미지")]
     public Image[] skillSlotimages = new Image[10];
     public Image[] useSkillSlotimages = new Image[4];
 
-    public int skillNumber=-1;
+
+    [Header("스킬데이터를 저장할 임시 변수")] public int skillNumber = -1;
 
     public void Start()
     {
@@ -22,7 +27,7 @@ public class SkillManager : SingleTon<SkillManager>
         {
             skillSo.skillData[i].isGetSkill = false;
             skillSo.skillData[i].isUseSkill = false;
-        }      
+        }
     }
 
     public void DrawGrade()
@@ -74,7 +79,8 @@ public class SkillManager : SingleTon<SkillManager>
                 skillExplanation[0].text = skillSo.skillData[i].skillGrade.ToString();
                 skillExplanation[1].text = "Lv" + skillSo.skillData[i].level.ToString();
                 skillExplanation[2].text = skillSo.skillData[i].skillName;
-                skillExplanation[3].text = skillSo.skillData[i].skillExplanation + ('\n') + "데미지 : " + skillSo.skillData[i].damage.ToString();
+                skillExplanation[3].text = skillSo.skillData[i].skillExplanation + "   " + "데미지 : " + skillSo.skillData[i].damage.ToString();
+                useSkillText.text = "장착될 슬롯 : " + (currentIndex+1).ToString()+ "번 째 ";
                 skillSo.skillData[i].isGetSkill = true;
                 skillSlotimages[i].color = Color.white;
                 skillNumber = i;
@@ -84,13 +90,50 @@ public class SkillManager : SingleTon<SkillManager>
     }
 
 
+    [Header("현재 스킬 슬롯 인덱스 위치")] public int currentIndex = 0;
+
+    // 스킬 장착 로직
     public void EquipmentSkill()
     {
         if (skillSo.skillData[skillNumber].isGetSkill)
         {
-            skillSo.skillData[skillNumber].isUseSkill = true;
-            useSkillSlotimages[0].sprite = skillSo.skillData[skillNumber].icon;
+            bool isEquipmentSkill = false;
+
+            for (int i = 0; i < useSkillSlotimages.Length; i++)
+            {
+                if (useSkillSlotimages[i].sprite == skillSo.skillData[skillNumber].icon)
+                {
+                    isEquipmentSkill = true;
+                    break;
+                }
+            }
+
+            if (!isEquipmentSkill)
+            {
+                // 다른 스킬을 장착하기 전에 모든 스킬의 isUseSkill을 false로 설정
+                foreach (var skill in skillSo.skillData)
+                {
+                    skill.isUseSkill = false;
+                }
+
+                if (currentIndex < useSkillSlotimages.Length)
+                {
+                    SkillIndex(currentIndex);
+                    currentIndex++;
+                }
+            }
+
+            if (currentIndex == 4)
+            {
+                currentIndex = 0;
+            }
         }
-              
+    }
+
+    private void SkillIndex(int index)
+    {
+        skillSo.skillData[skillNumber].isUseSkill = true;
+        useSkillSlotimages[index].enabled = true;
+        useSkillSlotimages[index].sprite = skillSo.skillData[skillNumber].icon;
     }
 }

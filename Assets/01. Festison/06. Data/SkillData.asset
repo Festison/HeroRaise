@@ -22,7 +22,7 @@ MonoBehaviour:
     count: 0
     percent: 17.5
     isGetSkill: 1
-    isUseSkill: 1
+    isUseSkill: 0
     icon: {fileID: 21300000, guid: e52a8ab58cb3f4de68874cf58e6a2d39, type: 3}
   - skillGrade: 3
     skillName: "\uD30C\uC774\uC5B4\uBCFC"
@@ -33,7 +33,7 @@ MonoBehaviour:
     level: 1
     count: 0
     percent: 17.5
-    isGetSkill: 0
+    isGetSkill: 1
     isUseSkill: 0
     icon: {fileID: 21300000, guid: 6cb9beeee244f4cbe85695e9ae657dad, type: 3}
   - skillGrade: 3
@@ -45,8 +45,8 @@ MonoBehaviour:
     level: 1
     count: 0
     percent: 17.5
-    isGetSkill: 0
-    isUseSkill: 0
+    isGetSkill: 1
+    isUseSkill: 1
     icon: {fileID: 21300000, guid: 40c351e12b03e45d5b9a6f523dd372f0, type: 3}
   - skillGrade: 3
     skillName: "\uD30C\uC774\uC5B4\uBCFC"
@@ -58,7 +58,7 @@ MonoBehaviour:
     count: 0
     percent: 17.5
     isGetSkill: 1
-    isUseSkill: 1
+    isUseSkill: 0
     icon: {fileID: 21300000, guid: 7d167c2382838483989a9c654ee5a072, type: 3}
   - skillGrade: 2
     skillName: "\uD30C\uC774\uC5B4\uBCFC"
@@ -70,7 +70,7 @@ MonoBehaviour:
     count: 0
     percent: 7
     isGetSkill: 1
-    isUseSkill: 1
+    isUseSkill: 0
     icon: {fileID: 21300000, guid: 39b1bec1379a64baba2bdbb54a917c68, type: 3}
   - skillGrade: 2
     skillName: "\uD30C\uC774\uC5B4\uBCFC"
@@ -93,7 +93,7 @@ MonoBehaviour:
     level: 1
     count: 0
     percent: 7
-    isGetSkill: 0
+    isGetSkill: 1
     isUseSkill: 0
     icon: {fileID: 21300000, guid: 55502c66063344fb2b31606342a3cba5, type: 3}
   - skillGrade: 1
