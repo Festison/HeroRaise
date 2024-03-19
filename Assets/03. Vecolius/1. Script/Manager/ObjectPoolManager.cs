@@ -104,7 +104,7 @@ namespace Veco
             GameObject popObj = poolDic[objName].PopObj();
             popObj.transform.position = pos;
             popObj.transform.rotation = rot;
-            popObj.transform.parent = transform;
+            //popObj.transform.parent = transform;
             return popObj;
         }
 

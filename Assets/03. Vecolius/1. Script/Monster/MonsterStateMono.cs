@@ -61,7 +61,7 @@ namespace Veco
         protected StateMachine<MonsterStateMono> sm = null;
         [SerializeField] protected Animator animator = null;
         [SerializeField] protected MonsterState state;
-
+        [SerializeField] protected bool isDie;
         public Animator Animator => animator;
         public MonsterState State => state;
 
@@ -74,6 +74,12 @@ namespace Veco
         {
             sm = new StateMachine<MonsterStateMono>();
             sm.owner = this;
+        }
+
+        public virtual void MonsterInit()
+        {
+            state = MonsterState.idle;
+
         }
     }
 }
