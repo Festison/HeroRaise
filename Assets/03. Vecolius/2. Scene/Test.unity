@@ -172,6 +172,8 @@ MonoBehaviour:
     waveMonsterInfo: []
   monsterSpawnCount: 0
   waveCount: 0
+  isWaveOn: 1
+  spawnCooltime: 1.5
   spawnPos: {fileID: 1861510514}
   spiderObj: {fileID: 1750193773419373291, guid: 474a202042a3ef74d947e59cfb0492b1,
     type: 3}
