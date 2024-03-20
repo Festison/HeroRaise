@@ -4,6 +4,9 @@ using UnityEngine;
 using BK;
 using Veco;
 using UnityEngine.Playables;
+using System.Reflection;
+using static UnityEditor.Progress;
+using JetBrains.Annotations;
 
 namespace BK
 {
@@ -60,8 +63,14 @@ namespace BK
         [SerializeField]
         private PlayerStatSo playerStatSo;
         PlayerStatusMono playerStatus;
+
+        [SerializeField]
+        private ItemSo[] itemSlot;
+
+        public ItemSo item;
         void Start()
-        {   
+        {
+            itemSlot = new ItemSo[4]; //Slot
             sm.AddState("Idle", new PlayerIdleState());
             sm.AddState("attack", new PlayerAttackState());
             sm.AddState("Skiil", new PlayerSkillState());
@@ -84,7 +93,7 @@ namespace BK
         {
             sm.Update();
             //Skill has the highest priority
-            if (playerDC.col == null)
+            if (playerDC.col != null)
             {
                 PlayerStatusChange("Idle");
             }
@@ -99,6 +108,36 @@ namespace BK
             sm.SetState(statusName);
         }
 
+        private void EquipItem(int value , ItemSo item)
+        {
+            if (itemSlot[value]== null)
+            {
+                itemSlot[value] = item;
+                SetItem(item);
+            }
+            else
+            {
+                
+                itemSlot[value] = item;
+                SetItem(item);
+            }
+        }
 
+        
+        private void SetItem(ItemSo item)
+        {
+            switch (item.itemType)
+            {
+                case ItemSo.ItemType.Armor:
+                    Hp += (int)item.value;
+                    break;
+                case ItemSo.ItemType.Sword: 
+                    break;
+                case ItemSo.ItemType.Shoes:
+                    break;
+                case ItemSo.ItemType.Gloves: 
+                    break;
+            }
+        }
     }
 }
