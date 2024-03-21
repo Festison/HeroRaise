@@ -60,10 +60,13 @@ namespace Veco
     {
         protected StateMachine<MonsterStateMono> sm = null;
         [SerializeField] protected Animator animator = null;
+        [SerializeField] protected int spawnCost;
         [SerializeField] protected MonsterState state;
         [SerializeField] protected bool isDie;
+
         public Animator Animator => animator;
         public MonsterState State => state;
+        public int SpawnCost => spawnCost;
 
         protected virtual void Awake()
         {
