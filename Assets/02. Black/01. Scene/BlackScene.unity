@@ -188,7 +188,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skeletonAnimation: {fileID: 0}
   playerDC: {fileID: 0}
+  player: {fileID: 0}
   playerStatSo: {fileID: 11400000, guid: eadb4122bc9ed134cb2a77e88d6b89a3, type: 2}
+  itemSlot: []
+  item: {fileID: 0}
 --- !u!61 &419897546
 BoxCollider2D:
   m_ObjectHideFlags: 0

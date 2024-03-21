@@ -24,9 +24,7 @@ public class ItemSo : ScriptableObject
     public ItemRating itemRating;
     public int lv;
     public string itemName;
-    public int atkvalue;
-    public float atkRange;
-    public float atkSpeedValue;
+    public float value;
     public int price;
     public Sprite sprite;
 }
