@@ -40,7 +40,7 @@ namespace Veco
         [SerializeField] GameObject spiderObj;
         GameObject spawnMonster;
 
-        IEnumerator spawnCo;
+        Coroutine spawnCo;
         WaitForSeconds waitforSecond;
 
         public int WaveNumber => waveNumber + 1;                //웨이브 몇번째
@@ -52,9 +52,11 @@ namespace Veco
                 waveMonsterCount = value;
                 if(waveMonsterCount == waveInfoList[waveNumber].waveSpawnCount)     //소환된 몹이 다 죽으면
                 {
+                    StopCoroutine(spawnCo);
                     waveMonsterCount = 0;
                     waveNumber++;
-                    WaveStart();
+                    Debug.Log("다음웨이브");
+                    Invoke("WaveStart", 2.0f);
                 }
             }
         }
@@ -63,7 +65,7 @@ namespace Veco
         {
             wave = new Wave(waveInfoList);
             waitforSecond = new WaitForSeconds(spawnCooltime);
-            spawnCo = Spawn(waveInfoList[waveNumber].monsterPrefab);
+            //spawnCo = SpawnCo();
 
             Invoke("WaveStart", 2.0f);
             //StartCoroutine(spawnCo);
@@ -71,8 +73,8 @@ namespace Veco
 
         void Update()
         {
-            if (Input.GetKey(KeyCode.Space))
-                spawnMonster.GetComponent<MonsterAI>().Hit(100);
+            if (Input.GetKeyDown(KeyCode.Space))
+                GameObject.FindAnyObjectByType<MonsterAI>().Hit(100);
         }
 
         public void WaveStart()
@@ -80,23 +82,21 @@ namespace Veco
             //GameObject spawnMonster = ObjectPoolManager.instance.PopObj(wave.waveMonsterInfo[waveCount].monsterName);
             //spawnMonster = ObjectPoolManager.instance.PopObj(spiderObj, spawnPos.position, Quaternion.identity);
             monsterSpawnCount = waveInfoList[waveNumber].waveSpawnCount;
-            StartCoroutine(spawnCo);
+            Debug.Log(WaveNumber + "번째 웨이브 : " + monsterSpawnCount);
+            spawnCo = StartCoroutine(SpawnCo());
         }
 
-        IEnumerator Spawn(GameObject monsterObj)
+        IEnumerator SpawnCo()
         {
-            while (isWaveOn && monsterSpawnCount > 0)
+            Debug.Log("coroutine");
+            while (monsterSpawnCount > 0)
             {
-                ObjectPoolManager.instance.PopObj(spiderObj, spawnPos.position, Quaternion.identity);
+                ObjectPoolManager.instance.PopObj(waveInfoList[waveNumber].monsterPrefab, spawnPos.position, Quaternion.identity);
+                Debug.Log(waveInfoList[waveNumber].monsterPrefab.name + "소환");
                 monsterSpawnCount--;
 
                 yield return waitforSecond;
 
-                if(monsterSpawnCount <= 0)
-                {
-                    isWaveOn = false;
-                    StopCoroutine(spawnCo);
-                }
             }
         }
     }

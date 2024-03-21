@@ -125,6 +125,7 @@ namespace Veco
             isDie = true;
             GetComponent<Collider2D>().enabled = false;
             attackCol.enabled = false;
+            WaveManager.Instance.WaveMonsterCount++;
 
             StopCoroutine(attackCo);
             ChangeMonsterState(MonsterState.die);
