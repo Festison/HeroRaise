@@ -49,8 +49,7 @@ namespace Veco
         [SerializeField] MonsterStatusSO so;
         [SerializeField] MonsterStatus status;
         [SerializeField] bool isAttackCooltime;
-        [SerializeField] bool isDie;
-        public IEnumerator attackCo;
+        IEnumerator attackCo;
 
         [SerializeField] DetectiveComponent detective;
         public Collider2D attackCol;
@@ -107,6 +106,14 @@ namespace Veco
             
         }
 
+        //몬스터 status 초기화
+        public override void MonsterInit()
+        {
+            base.MonsterInit();
+            status = new MonsterStatus(so, Time.time, this);
+        }
+
+        //몬스터 상태 변화
         public void ChangeMonsterState(MonsterState state)
         {
             this.state = state;
@@ -118,6 +125,7 @@ namespace Veco
             isDie = true;
             GetComponent<Collider2D>().enabled = false;
             attackCol.enabled = false;
+            WaveManager.Instance.WaveMonsterCount++;
 
             StopCoroutine(attackCo);
             ChangeMonsterState(MonsterState.die);
@@ -130,7 +138,8 @@ namespace Veco
 
         public void GameObjectDead()
         {
-            Destroy(gameObject);
+            ObjectPoolManager.Instance.ReturnPool(gameObject);
+
         }
 
         IEnumerator MonsterAttackCo(float attackCooltime)
