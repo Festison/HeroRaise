@@ -1041,14 +1041,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
+  spawnCost: 0
   state: 0
+  isDie: 0
   so: {fileID: 11400000, guid: 0cc61d384cbb24146a807435b1da66b3, type: 2}
   status:
     hp: 0
     damage: 0
     maxHp: 0
   isAttackCooltime: 0
-  isDie: 0
   detective: {fileID: 0}
   attackCol: {fileID: 0}
 --- !u!95 &200940265
@@ -3619,6 +3620,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 580508783}
   m_CullTransparentMesh: 1
+--- !u!1001 &602327756
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1179295499806372, guid: a18abcc036ab57445b15bc526991da46, type: 3}
+      propertyPath: m_Name
+      value: DendroBoom
+      objectReference: {fileID: 0}
+    - target: {fileID: 4878295977974350, guid: a18abcc036ab57445b15bc526991da46, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4878295977974350, guid: a18abcc036ab57445b15bc526991da46, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4878295977974350, guid: a18abcc036ab57445b15bc526991da46, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4878295977974350, guid: a18abcc036ab57445b15bc526991da46, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4878295977974350, guid: a18abcc036ab57445b15bc526991da46, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4878295977974350, guid: a18abcc036ab57445b15bc526991da46, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4878295977974350, guid: a18abcc036ab57445b15bc526991da46, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4878295977974350, guid: a18abcc036ab57445b15bc526991da46, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4878295977974350, guid: a18abcc036ab57445b15bc526991da46, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4878295977974350, guid: a18abcc036ab57445b15bc526991da46, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a18abcc036ab57445b15bc526991da46, type: 3}
 --- !u!1 &770720640
 GameObject:
   m_ObjectHideFlags: 0
@@ -9825,7 +9883,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.23}
   m_AnchorMax: {x: 1, y: 0.95943147}
-  m_AnchoredPosition: {x: 0, y: -3.0000017}
+  m_AnchoredPosition: {x: 0, y: -3.000002}
   m_SizeDelta: {x: 0, y: 409}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!224 &527896226735070409
@@ -13098,7 +13156,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.79714817, y: 0.70168746}
   m_AnchorMax: {x: 0.9564445, y: 0.864}
-  m_AnchoredPosition: {x: 11.000001, y: -122.39756}
+  m_AnchoredPosition: {x: 11.000001, y: -122.39755}
   m_SizeDelta: {x: 11.719971, y: 535.98737}
   m_Pivot: {x: 1, y: 1}
 --- !u!1 &1109510235518212375
@@ -17149,3 +17207,4 @@ SceneRoots:
   - {fileID: 856220069}
   - {fileID: 1722776144}
   - {fileID: 1751339319}
+  - {fileID: 602327756}
