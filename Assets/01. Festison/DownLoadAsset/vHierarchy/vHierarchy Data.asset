@@ -29,6 +29,8 @@ MonoBehaviour:
     - c3da11631a2e8b7438016aab77a0b552
     - 99ee4cdae5a827f4c8b3a63c89c5b660
     - 8ad93bbf5660b4dada81d8b657b55e11
+    - 3cfd2d356457dc74f8bc13abd49c2dfc
+    - b2165fbc1d575ee4098e242f632ed259
     values:
     - goDatasByGlobalId:
         keys: []
@@ -95,6 +97,7 @@ MonoBehaviour:
         - GlobalObjectId_V1-2-862dfad60db784e18b3f86ec58785669-200940261-0
         - GlobalObjectId_V1-2-862dfad60db784e18b3f86ec58785669-257851075-0
         - GlobalObjectId_V1-2-862dfad60db784e18b3f86ec58785669-1337026352-0
+        - GlobalObjectId_V1-2-862dfad60db784e18b3f86ec58785669-1578834144-0
         values:
         - iColor: 0
           icon: 
@@ -114,8 +117,10 @@ MonoBehaviour:
           icon: 
         - iColor: 0
           icon: 
+        - iColor: 0
+          icon: Favorite
       goDatasByInstanceId:
-        keys: 5c850000ac830000b883000060830000b48100000883000072810000a281000056830000
+        keys: a0840000ea820000f68200009e820000e48000003c820000a2800000d280000092820000f8a500003ea400004aa40000f2a3000038a2000090a30000f6a1000026a20000e6a3000086340100d0320100dc32010084320100ca3001002232010088300100b83001007832010058d1fbff
         values:
         - iColor: 0
           icon: 
@@ -135,6 +140,56 @@ MonoBehaviour:
           icon: 
         - iColor: 0
           icon: 
+        - iColor: 0
+          icon: 
+        - iColor: 6
+          icon: Canvas Icon
+        - iColor: 8
+          icon: cs Script Icon
+        - iColor: 4
+          icon: Camera Icon
+        - iColor: 0
+          icon: ParticleSystem Icon
+        - iColor: 0
+          icon: cs Script Icon
+        - iColor: 0
+          icon: 
+        - iColor: 0
+          icon: 
+        - iColor: 0
+          icon: 
+        - iColor: 0
+          icon: 
+        - iColor: 6
+          icon: Canvas Icon
+        - iColor: 8
+          icon: cs Script Icon
+        - iColor: 4
+          icon: Camera Icon
+        - iColor: 0
+          icon: ParticleSystem Icon
+        - iColor: 0
+          icon: cs Script Icon
+        - iColor: 0
+          icon: 
+        - iColor: 0
+          icon: 
+        - iColor: 0
+          icon: 
+        - iColor: 0
+          icon: Favorite
+    - goDatasByGlobalId:
+        keys: []
+        values: []
+      goDatasByInstanceId:
+        keys: 
+        values: []
+    - goDatasByGlobalId:
+        keys: []
+        values: []
+      goDatasByInstanceId:
+        keys: 
+        values: []
     - goDatasByGlobalId:
         keys: []
         values: []

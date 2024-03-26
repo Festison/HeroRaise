@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class SkillSlot : MonoBehaviour
+public class SkillSlot : Slot
 {
     public void SetItem(int i)
     {

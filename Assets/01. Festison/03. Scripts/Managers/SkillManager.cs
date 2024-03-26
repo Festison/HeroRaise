@@ -136,4 +136,25 @@ public class SkillManager : SingleTon<SkillManager>
         useSkillSlotimages[index].enabled = true;
         useSkillSlotimages[index].sprite = skillSo.skillData[skillNumber].icon;
     }
+
+    [Header("스킬 이펙트를 저장 할 리스트")] public List<GameObject> SkillEffect = new List<GameObject>();
+
+    public void UseSkill(int i)
+    {
+        switch (useSkillSlotimages[i].sprite.name)
+        {
+            case "Lightning":
+                SkillEffect[0].SetActive(true);
+                break;
+            case "Fireball":
+                SkillEffect[1].SetActive(true);
+                break;
+            case "Dendro":
+                SkillEffect[2].SetActive(true);
+                break;
+            case "Hydro":
+                SkillEffect[3].SetActive(true);
+                break;
+        }
+    }
 }

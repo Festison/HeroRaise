@@ -131,7 +131,6 @@ SpriteAtlas:
     - 9b2bc0b2a45c14f1cad7b6f4a7dbcaca: 21300000
     - 936f78b249bd645d9bbd64e1a142c751: 21300000
     - 43ba91c26f8364028b8fc6d3f10ec16a: 21300000
-    - 4bc7b1c2938bc42738c191aaee0c778c: 21300000
     - 671e13c2a7e8a4415adcc42790d2be55: 21300000
     - 0ddf51d2f300d48feba45c4cab4baec7: 21300000
     - 559586d27597d4f5593f5d260e46240f: 21300000
@@ -307,7 +306,6 @@ SpriteAtlas:
     - 8e18b3a86bc10436584b8d995979a65c: 21300000
     - e64be7a877cb44b7a9f77adc55953ed1: 21300000
     - bc1cd8a880b7849929f2c89a0907e236: 21300000
-    - aaf1dba83c0f9424abe96edfc1683206: 21300000
     - 947ee1b8c37474f3cb786784b660b758: 21300000
     - 175426b84086246a08a90167d94d3edd: 21300000
     - 8dda2ab87d04f4456a6c00a75c2ac85d: 21300000
@@ -645,7 +643,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 9b2bc0b2a45c14f1cad7b6f4a7dbcaca, type: 3}
   - {fileID: 21300000, guid: 936f78b249bd645d9bbd64e1a142c751, type: 3}
   - {fileID: 21300000, guid: 43ba91c26f8364028b8fc6d3f10ec16a, type: 3}
-  - {fileID: 21300000, guid: 4bc7b1c2938bc42738c191aaee0c778c, type: 3}
   - {fileID: 21300000, guid: 671e13c2a7e8a4415adcc42790d2be55, type: 3}
   - {fileID: 21300000, guid: 0ddf51d2f300d48feba45c4cab4baec7, type: 3}
   - {fileID: 21300000, guid: 559586d27597d4f5593f5d260e46240f, type: 3}
@@ -821,7 +818,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 8e18b3a86bc10436584b8d995979a65c, type: 3}
   - {fileID: 21300000, guid: e64be7a877cb44b7a9f77adc55953ed1, type: 3}
   - {fileID: 21300000, guid: bc1cd8a880b7849929f2c89a0907e236, type: 3}
-  - {fileID: 21300000, guid: aaf1dba83c0f9424abe96edfc1683206, type: 3}
   - {fileID: 21300000, guid: 947ee1b8c37474f3cb786784b660b758, type: 3}
   - {fileID: 21300000, guid: 175426b84086246a08a90167d94d3edd, type: 3}
   - {fileID: 21300000, guid: 8dda2ab87d04f4456a6c00a75c2ac85d, type: 3}
@@ -1158,7 +1154,6 @@ SpriteAtlas:
   - ItemIcon_Coin
   - ItemIcon_Grain
   - Label_Ribbon01_Gray
-  - BasicFrame_Octagon02_White2
   - ItemIcon_Weapon_Hammer
   - CardFrame01_Demo_Slider_Fill_Green
   - Button_SquareGradient188_White1
@@ -1334,7 +1329,6 @@ SpriteAtlas:
   - ItemFrame01_Demo_Yellow
   - Slider_Basic01_Icon_Arrow
   - BasicFrame_SquareOutline03_Demo
-  - BasicFrame_Octagon02_Demo_n
   - SplitFrame01_White1
   - Slider_Diagonal48_White_Icon1
   - Slider_Diagonal51_Demo_Icon
