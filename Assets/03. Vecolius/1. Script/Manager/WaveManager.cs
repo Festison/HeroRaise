@@ -30,33 +30,37 @@ namespace Veco
         public List<WaveInfo> waveInfoList = new List<WaveInfo>();     //추후 파싱 대비용 정보모음집
         [SerializeField] Wave wave;
 
+        [Header("웨이브 정보")]
+        [SerializeField] float delayToWaveStart;        //웨이브가 시작할 때까지의 대기시간
         [SerializeField] int monsterSpawnCount;         //이번 웨이브에 소환될 몬스터 수
-        [SerializeField] int waveNumber;                   //이번 웨이브 숫자
+        [SerializeField] int waveIndex;                //이번 웨이브 숫자
         [SerializeField] bool isWaveOn;
         [SerializeField] float spawnCooltime;
         int waveMonsterCount;                              //이번 웨이브에 죽은 몬스터 수
 
+        [Header("소환에 필요한 정보")]
         [SerializeField] Transform spawnPos;
         [SerializeField] GameObject spiderObj;
         GameObject spawnMonster;
 
-        Coroutine spawnCo;
+        IEnumerator spawnCo;
         WaitForSeconds waitforSecond;
 
-        public int WaveNumber => waveNumber + 1;                //웨이브 몇번째
+        public int WaveNumber => waveIndex + 1;                //웨이브 몇번째
+        public int WaveIndex => waveIndex;
         public int WaveMonsterCount
         {
             get => waveMonsterCount;
             set
             {
                 waveMonsterCount = value;
-                if(waveMonsterCount == waveInfoList[waveNumber].waveSpawnCount)     //소환된 몹이 다 죽으면
+                if(waveMonsterCount == waveInfoList[waveIndex].waveSpawnCount)     //소환된 몹이 다 죽으면
                 {
                     StopCoroutine(spawnCo);
                     waveMonsterCount = 0;
-                    waveNumber++;
-                    Debug.Log("다음웨이브");
-                    Invoke("WaveStart", 2.0f);
+                    waveIndex++;
+
+                    Invoke("WaveStart", delayToWaveStart);
                 }
             }
         }
@@ -67,7 +71,7 @@ namespace Veco
             waitforSecond = new WaitForSeconds(spawnCooltime);
             //spawnCo = SpawnCo();
 
-            Invoke("WaveStart", 2.0f);
+            Invoke("WaveStart", delayToWaveStart);
             //StartCoroutine(spawnCo);
         }
 
@@ -81,18 +85,19 @@ namespace Veco
         {
             //GameObject spawnMonster = ObjectPoolManager.instance.PopObj(wave.waveMonsterInfo[waveCount].monsterName);
             //spawnMonster = ObjectPoolManager.instance.PopObj(spiderObj, spawnPos.position, Quaternion.identity);
-            monsterSpawnCount = waveInfoList[waveNumber].waveSpawnCount;
+            monsterSpawnCount = waveInfoList[waveIndex].waveSpawnCount;
             Debug.Log(WaveNumber + "번째 웨이브 : " + monsterSpawnCount);
-            spawnCo = StartCoroutine(SpawnCo());
+
+            spawnCo = SpawnCo();
+            StartCoroutine(spawnCo);
         }
 
         IEnumerator SpawnCo()
         {
-            Debug.Log("coroutine");
             while (monsterSpawnCount > 0)
             {
-                ObjectPoolManager.instance.PopObj(waveInfoList[waveNumber].monsterPrefab, spawnPos.position, Quaternion.identity);
-                Debug.Log(waveInfoList[waveNumber].monsterPrefab.name + "소환");
+                ObjectPoolManager.instance.PopObj(waveInfoList[waveIndex].monsterPrefab, spawnPos.position, Quaternion.identity);
+                Debug.Log(waveInfoList[waveIndex].monsterPrefab.name + "소환");
                 monsterSpawnCount--;
 
                 yield return waitforSecond;
