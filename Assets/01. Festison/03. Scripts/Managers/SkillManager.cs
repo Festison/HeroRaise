@@ -89,7 +89,6 @@ public class SkillManager : SingleTon<SkillManager>
         }
     }
 
-
     [Header("현재 스킬 슬롯 인덱스 위치")] public int currentIndex = 0;
 
     // 스킬 장착 로직

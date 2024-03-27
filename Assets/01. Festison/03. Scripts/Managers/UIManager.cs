@@ -47,9 +47,4 @@ public class UIManager : SingleTon<UIManager>
         isSetmenu = false;
         menuBtn.enabled = true;
     }
-
-    public void SetSkillData()
-    {
-        
-    }
 }

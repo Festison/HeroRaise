@@ -17,34 +17,34 @@ MonoBehaviour:
     skillName: "\uB77C\uC774\uD2B8\uB2DD"
     skillExplanation: "\uB9F5 \uC804\uBC29\uC5D0 \uBC88\uAC1C\uB97C \uB5A8\uC5B4\uD2B8\uB9BD\uB2C8\uB2E4."
     damage: 10
-    coolTime: 1
+    coolTime: 10
     level: 1
     count: 0
     percent: 17.5
-    isGetSkill: 1
-    isUseSkill: 1
+    isGetSkill: 0
+    isUseSkill: 0
     icon: {fileID: 21300000, guid: 68c34f794ff824595866971c55a8fe2e, type: 3}
   - skillGrade: 3
     skillName: "\uD30C\uC774\uC5B4\uBCFC"
     skillExplanation: "\uC77C\uC9C1\uC120 \uC0C1\uC73C\uB85C\uD654\uC5FC\uAD6C\uB97C
       \uC3E9\uB2C8\uB2E4."
     damage: 5
-    coolTime: 2
+    coolTime: 10
     level: 1
     count: 0
     percent: 17.5
-    isGetSkill: 1
+    isGetSkill: 0
     isUseSkill: 0
-    icon: {fileID: 21300000, guid: 76199b45dab4b48e1ae362f84e1becbd, type: 3}
+    icon: {fileID: 21300000, guid: 6cb9beeee244f4cbe85695e9ae657dad, type: 3}
   - skillGrade: 3
     skillName: "\uB9AC\uD504 \uBD90"
     skillExplanation: "\uC804\uBC29\uC5D0 \uD480\uC18D\uC131 \uD3ED\uBC1C\uC744 \uC77C\uC73C\uD0B5\uB2C8\uB2E4."
     damage: 5
-    coolTime: 2
+    coolTime: 10
     level: 1
     count: 0
     percent: 17.5
-    isGetSkill: 1
+    isGetSkill: 0
     isUseSkill: 0
     icon: {fileID: 21300000, guid: 567ea0827e5f64821b1c4cfe2928de65, type: 3}
   - skillGrade: 3
@@ -55,44 +55,43 @@ MonoBehaviour:
     level: 1
     count: 0
     percent: 17.5
-    isGetSkill: 1
+    isGetSkill: 0
     isUseSkill: 0
     icon: {fileID: 21300000, guid: 7d167c2382838483989a9c654ee5a072, type: 3}
   - skillGrade: 2
-    skillName: "\uBA54\uD14C\uC624"
-    skillExplanation: "\uB9F5 \uC804\uCCB4\uC5D0\uC6B4\uC11D\uC744 \uB5A8\uC5B4\uD2B8\uB9BD\uB2C8\uB2E4."
-    damage: 5
-    coolTime: 2
+    skillName: "\uC544\uC774\uC2A4 \uB178\uBC14"
+    skillExplanation: "\uC804\uBC29\uC5D0 \uC5BC\uC74C \uD3ED\uBC1C\uC744 \uC77C\uC73C\uD0B5\uB2C8\uB2E4."
+    damage: 20
+    coolTime: 30
     level: 1
     count: 0
     percent: 7
-    isGetSkill: 1
+    isGetSkill: 0
     isUseSkill: 0
-    icon: {fileID: 21300000, guid: 39b1bec1379a64baba2bdbb54a917c68, type: 3}
+    icon: {fileID: 21300000, guid: e5836b8369f9441d2be3b4b36053b6d5, type: 3}
   - skillGrade: 2
-    skillName: "\uD30C\uC774\uC5B4\uBCFC"
-    skillExplanation: "\uB9F5\uC5D0 \uC77C\uC9C1\uC120\uC73C\uB85C\uD654\uC5FC\uAD6C\uB97C
-      \uC3E9\uB2C8\uB2E4."
-    damage: 5
+    skillName: "\uC2A4\uD1B0\uD328\uC2A4"
+    skillExplanation: "\uBC88\uAC1C \uAE38\uC744 \uC0DD\uC131\uD569\uB2C8\uB2E4."
+    damage: 10
     coolTime: 2
     level: 1
     count: 0
     percent: 7
     isGetSkill: 0
     isUseSkill: 0
-    icon: {fileID: 21300000, guid: 4b6befbf133704370bb29da715e368c8, type: 3}
+    icon: {fileID: 21300000, guid: a65312b014ecf4b4b9b62bd2866a268c, type: 3}
   - skillGrade: 2
-    skillName: "\uD30C\uC774\uC5B4\uBCFC"
-    skillExplanation: "\uB9F5\uC5D0 \uC77C\uC9C1\uC120\uC73C\uB85C\uD654\uC5FC\uAD6C\uB97C
-      \uC3E9\uB2C8\uB2E4."
-    damage: 5
-    coolTime: 2
+    skillName: "\uC545\uB9C8\uD654"
+    skillExplanation: "@\uCD08\uB3D9\uC548 \uC545\uB9C8\uD654\uB97C \uD574 \uB2A5\uB825\uC774
+      \uC0C1\uC2B9\uD569\uB2C8\uB2E4."
+    damage: 10
+    coolTime: 100
     level: 1
     count: 0
     percent: 7
     isGetSkill: 0
     isUseSkill: 0
-    icon: {fileID: 21300000, guid: 55502c66063344fb2b31606342a3cba5, type: 3}
+    icon: {fileID: 21300000, guid: e232be18a379a459980a86a9ae0b97bb, type: 3}
   - skillGrade: 1
     skillName: "\uD30C\uC774\uC5B4\uBCFC"
     skillExplanation: "\uB9F5\uC5D0 \uC77C\uC9C1\uC120\uC73C\uB85C\uD654\uC5FC\uAD6C\uB97C
@@ -102,7 +101,7 @@ MonoBehaviour:
     level: 1
     count: 0
     percent: 4
-    isGetSkill: 1
+    isGetSkill: 0
     isUseSkill: 0
     icon: {fileID: 21300000, guid: 6d97d3b88bacf4e8bb4116ea752e1f91, type: 3}
   - skillGrade: 1

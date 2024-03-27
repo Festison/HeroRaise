@@ -2,11 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireBall : MonoBehaviour
+public class FireBall : MonoBehaviour, IMoveable
 {
-    public Transform initTranform;
-    public Transform transform;
-    public Rigidbody2D Rigidbody2D;
+
+    [SerializeField] private Transform initTranform;
+    private Transform transform;
+    private Rigidbody2D Rigidbody2D;
+
+    private float speed = -0.04f;
+    public float Speed
+    {
+        get { return speed; }
+        set { speed = value; }
+    }
 
     private void Start()
     {
@@ -20,18 +28,19 @@ public class FireBall : MonoBehaviour
     }
 
     void Update()
-    {      
-        StartCoroutine(MoveCo(2));
+    {
+        StartCoroutine(DelayCo(2));
     }
 
-    IEnumerator MoveCo(float delay)
-    {   
+    IEnumerator DelayCo(float delay)
+    {
         yield return new WaitForSeconds(delay);
         Move();
     }
 
-    private void Move()
+    public void Move()
     {
-        Rigidbody2D.AddForce(transform.forward * -0.02f, ForceMode2D.Impulse);
+        Rigidbody2D.AddForce(transform.forward * Speed, ForceMode2D.Impulse);
     }
+
 }
