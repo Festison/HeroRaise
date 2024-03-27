@@ -181,6 +181,7 @@ MonoBehaviour:
       type: 3}
   wave:
     waveMonsterInfo: []
+  delayToWaveStart: 2
   monsterSpawnCount: 10
   waveNumber: 0
   isWaveOn: 1
