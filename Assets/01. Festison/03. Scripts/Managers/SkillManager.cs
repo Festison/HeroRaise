@@ -11,7 +11,7 @@ public class SkillManager : SingleTon<SkillManager>
     [Header("스킬 설명 이미지")]
     public Image skillImage;
     public Image outLineImage;
-    public TextMeshProUGUI[] skillExplanation = new TextMeshProUGUI[5];
+    public TextMeshProUGUI[] skillExplanation = new TextMeshProUGUI[6];
     public TextMeshProUGUI useSkillText;
 
     [Header("스킬 저장 이미지")]
@@ -75,14 +75,16 @@ public class SkillManager : SingleTon<SkillManager>
                         break;
                 }
 
+                skillSo.skillData[i].count++;
                 skillImage.sprite = skillSo.skillData[i].icon;
                 skillExplanation[0].text = skillSo.skillData[i].skillGrade.ToString();
                 skillExplanation[1].text = "Lv" + skillSo.skillData[i].level.ToString();
                 skillExplanation[2].text = skillSo.skillData[i].skillName;
                 skillExplanation[3].text = skillSo.skillData[i].skillExplanation + "   " + "데미지 : " + skillSo.skillData[i].damage.ToString();
+                skillExplanation[5].text = skillSo.skillData[i].count.ToString() + " / " + "2";
                 useSkillText.text = "장착될 슬롯 : " + (currentIndex+1).ToString()+ "번 째 ";
                 skillSo.skillData[i].isGetSkill = true;
-                skillSlotimages[i].color = Color.white;
+                skillSlotimages[i].color = Color.white;               
                 skillNumber = i;
                 break;
             }

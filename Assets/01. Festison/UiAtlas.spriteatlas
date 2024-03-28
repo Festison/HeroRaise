@@ -231,7 +231,6 @@ SpriteAtlas:
     - 18fdc7b567b5945d0b94c0f2dbfd1f2f: 21300000
     - 3a0d3ab57c63c40418b86c7af01d2619: 21300000
     - 9a907db57cd564233bccfb07a9ad9060: 21300000
-    - 3dc8b5c55adcb4a6d9187bdd8d5e9cba: 21300000
     - ff6d06c5a07434d9b8edaa92176cd86f: 21300000
     - 14d722e5cb773403aa2415d38bb6ab8e: 21300000
     - f715dbe5274244b628c3f52eafdd8eaa: 21300000
@@ -392,7 +391,6 @@ SpriteAtlas:
     - c0a8812b6dd7449de91a3e9debb99fd6: 21300000
     - 6358c62b484454de39a6c22799c77355: 21300000
     - 4a6da82be15df434eaed45c19b0fdd14: 21300000
-    - 77d6973b568064720a218b0c6a2a4e73: 21300000
     - 8900083b89ee740a785f26ccbc6f32f6: 21300000
     - d7acf14beeccd4e748f8b17cc8e2bc30: 21300000
     - ef05b95b390274195b66bf50304d7e4a: 21300000
@@ -743,7 +741,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 18fdc7b567b5945d0b94c0f2dbfd1f2f, type: 3}
   - {fileID: 21300000, guid: 3a0d3ab57c63c40418b86c7af01d2619, type: 3}
   - {fileID: 21300000, guid: 9a907db57cd564233bccfb07a9ad9060, type: 3}
-  - {fileID: 21300000, guid: 3dc8b5c55adcb4a6d9187bdd8d5e9cba, type: 3}
   - {fileID: 21300000, guid: ff6d06c5a07434d9b8edaa92176cd86f, type: 3}
   - {fileID: 21300000, guid: 14d722e5cb773403aa2415d38bb6ab8e, type: 3}
   - {fileID: 21300000, guid: f715dbe5274244b628c3f52eafdd8eaa, type: 3}
@@ -904,7 +901,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: c0a8812b6dd7449de91a3e9debb99fd6, type: 3}
   - {fileID: 21300000, guid: 6358c62b484454de39a6c22799c77355, type: 3}
   - {fileID: 21300000, guid: 4a6da82be15df434eaed45c19b0fdd14, type: 3}
-  - {fileID: 21300000, guid: 77d6973b568064720a218b0c6a2a4e73, type: 3}
   - {fileID: 21300000, guid: 8900083b89ee740a785f26ccbc6f32f6, type: 3}
   - {fileID: 21300000, guid: d7acf14beeccd4e748f8b17cc8e2bc30, type: 3}
   - {fileID: 21300000, guid: ef05b95b390274195b66bf50304d7e4a, type: 3}
@@ -1254,7 +1250,6 @@ SpriteAtlas:
   - Slider_HandleType01_Demo_Handle_On 1
   - Label_Ribbon01_Sky
   - Icon_Setting01
-  - Itemicon_Helmet
   - Alert_Text_Red
   - ItemIcon_Badge_Energy
   - Button_SquareSolid01_White
@@ -1415,7 +1410,6 @@ SpriteAtlas:
   - Itemicon_Gem_Pentagon_Gray
   - ItemIcon_Weapon_Axe
   - Slider_Basic01_Fill_Darkorange
-  - Itemicon_Skull01
   - Statusbar_Demo_Button
   - Label_Ribbon01_Teal_Deco
   - Switch01_Demo_Bg_On
