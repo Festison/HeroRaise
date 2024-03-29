@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b9f626d0853442448058c61c53d09cb, type: 3}
   m_Name: SkeletonStatusSO
   m_EditorClassIdentifier: 
-  monsterName: "\uD574\uACE8\uBCD1\uC0AC"
+  monsterName: "\uC2A4\uCF08\uB808\uD1A4 \uBCD1\uC0AC"
   defaultMaxHp: 7
   moveSpeed: 0.01
   attackSpeed: 2

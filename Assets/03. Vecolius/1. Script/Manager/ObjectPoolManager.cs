@@ -55,7 +55,7 @@ namespace Veco
                 AddPool((int)(poolInfo.initSize / 3));
 
             GameObject popObj = pool.Pop();
-            popObj.SetActive(true);
+            //popObj.SetActive(true);
 
             return popObj;
         }
