@@ -4,12 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Veco {
-    [Serializable]
-    public class Enemy
-    {
-        public GameObject monsterPrefab;
-        public int cost;
-    }
+
     public class TestSpawner : MonoBehaviour
     {
         public List<Enemy> enemies = new List<Enemy>();     //소환할 몬스터 종류
@@ -58,12 +53,12 @@ namespace Veco {
         {
             waveValue = currentWave * 10;
             Debug.Log(waveValue);
-            GenerateEnermies();
+            //GenerateEnermies();
 
             spawnInterval = enemiesToSpawn.Count > 0 ? waveDuration / enemiesToSpawn.Count : 0;
             waveTimer = waveDuration;
         }
-
+        /*
         public void GenerateEnermies()
         {
             List<GameObject> generatedEnermies = new List<GameObject>();
@@ -84,5 +79,6 @@ namespace Veco {
             enemiesToSpawn.Clear();
             enemiesToSpawn = generatedEnermies;
         }
+        */
     }
 }

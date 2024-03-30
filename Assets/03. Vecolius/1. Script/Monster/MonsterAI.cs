@@ -11,12 +11,13 @@ namespace Veco
         run,
         attack,
         die,
+        stun,
     }
 
     [Serializable]
     public class MonsterStatus
     {
-        MonsterAI owner = null;
+        MonsterStateMono owner = null;
         [SerializeField] int hp;
         public int damage;
         [SerializeField] int maxHp;
@@ -38,7 +39,7 @@ namespace Veco
 
         public MonsterStatus(MonsterStatusSO so, float time, object owner)
         {
-            this.owner = (MonsterAI)owner;
+            this.owner = (MonsterStateMono)owner;
             this.maxHp = (int)(so.defaultMaxHp * (1 + time % 60));
             this.hp = this.maxHp;
             this.damage = (int)(so.defaultAttackDamage * (1 + time % 60));
@@ -55,6 +56,11 @@ namespace Veco
         public Collider2D attackCol;
 
         public MonsterStatus MonsterStatus => status;
+
+        void OnEnable()
+        {
+            if(sm != null)  MonsterInit();
+        }
 
         protected override void Awake()
         {
@@ -88,8 +94,6 @@ namespace Veco
 
             if (isDie) return;
 
-
-
             if (detective.IsFind && !isAttackCooltime)
             {
                 StartCoroutine(attackCo);
@@ -107,22 +111,17 @@ namespace Veco
         }
 
         //몬스터 status 초기화
-        public override void MonsterInit()
+        protected override void MonsterInit()
         {
             base.MonsterInit();
+            sm.SetState(state.ToString());
+            isAttackCooltime = false;
             status = new MonsterStatus(so, Time.time, this);
         }
 
-        //몬스터 상태 변화
-        public void ChangeMonsterState(MonsterState state)
+        public override void Dead()
         {
-            this.state = state;
-            sm.SetState(state.ToString());
-        }
-
-        public void Dead()
-        {
-            isDie = true;
+            base.Dead();
             GetComponent<Collider2D>().enabled = false;
             attackCol.enabled = false;
             WaveManager.Instance.WaveMonsterCount++;
@@ -139,7 +138,6 @@ namespace Veco
         public void GameObjectDead()
         {
             ObjectPoolManager.Instance.ReturnPool(gameObject);
-
         }
 
         IEnumerator MonsterAttackCo(float attackCooltime)
@@ -156,7 +154,6 @@ namespace Veco
         public void Hit(int damage)
         {
             status.Hp -= damage;
-            Debug.Log(gameObject.name + " Hp : " + status.Hp);
         }
 
     }

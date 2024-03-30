@@ -6,7 +6,7 @@ namespace Veco
 {
     public class MState : State
     {
-        public MonsterStateMono MSmono = null;
+        protected MonsterStateMono MSmono = null;
         public override void Init(IStateMachine sm)
         {
             base.Init(sm);
@@ -60,13 +60,11 @@ namespace Veco
     {
         protected StateMachine<MonsterStateMono> sm = null;
         [SerializeField] protected Animator animator = null;
-        [SerializeField] protected int spawnCost;
         [SerializeField] protected MonsterState state;
         [SerializeField] protected bool isDie;
 
         public Animator Animator => animator;
         public MonsterState State => state;
-        public int SpawnCost => spawnCost;
 
         protected virtual void Awake()
         {
@@ -79,10 +77,23 @@ namespace Veco
             sm.owner = this;
         }
 
-        public virtual void MonsterInit()
+        protected virtual void MonsterInit()
         {
             state = MonsterState.idle;
+            isDie = false;
 
+        }
+
+        //몬스터 상태 변화
+        public void ChangeMonsterState(MonsterState state)
+        {
+            this.state = state;
+            sm.SetState(state.ToString());
+        }
+
+        public virtual void Dead()
+        {
+            isDie = true;
         }
     }
 }
