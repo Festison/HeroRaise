@@ -50,7 +50,6 @@ public class SkillManager : SingleTon<SkillManager>
 
             if (randomValue <= cumulativeProb)
             {
-                Debug.Log(cumulativeProb);
                 switch (skillSo.skillData[i].skillGrade)
                 {
                     case SkillGrade.A:
@@ -59,14 +58,14 @@ public class SkillManager : SingleTon<SkillManager>
                         skillExplanation[4].color = Color.red;
                         break;
                     case SkillGrade.B:
-                        outLineImage.color = Color.magenta;
-                        skillExplanation[2].color = Color.magenta;
-                        skillExplanation[4].color = Color.magenta;
+                        outLineImage.color = new Color(134,0,255);
+                        skillExplanation[2].color = new Color(134, 0, 255);
+                        skillExplanation[4].color = new Color(134, 0, 255);
                         break;
                     case SkillGrade.C:
-                        outLineImage.color = Color.blue;
-                        skillExplanation[2].color = Color.blue;
-                        skillExplanation[4].color = Color.blue;
+                        outLineImage.color = new Color(71, 138, 255);
+                        skillExplanation[2].color = new Color(71, 138, 255);
+                        skillExplanation[4].color = new Color(71, 138, 255);
                         break;
                     case SkillGrade.D:
                         outLineImage.color = Color.gray;

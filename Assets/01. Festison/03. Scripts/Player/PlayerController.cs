@@ -14,15 +14,12 @@ namespace Festioson
     {
         private SkeletonAnimation skeletonAnimation;
         private PlayerView playerView;
-        private PlayerModel playerModel;
         public event Action StartController;
 
         private void Start()
         {
             skeletonAnimation = GetComponent<SkeletonAnimation>();
             playerView = GetComponent<PlayerView>();
-            playerModel = new PlayerModel();
-            StartController += InitStat;
             StartController += ViewUpdate;
             StartController();
         }
@@ -40,31 +37,15 @@ namespace Festioson
 
         public void ViewUpdate()
         {
-            playerView.UpdateLevel(playerModel.Level);
-            playerView.UpdateHp(playerModel.Hp, playerModel.MaxHp);
-            playerView.UpdateDamage(playerModel.Damage);
-            playerView.UpdateAttackSpeed(playerModel.AttackSpeed);
-            playerView.UpdateCriticalChance(playerModel.CriticalChance);
-            playerView.CriticalDamage(playerModel.CriticalDamage);
-        }
-
-        public void InitStat()
-        {
-            playerModel.Level = 1;
-            playerModel.Hp = 100;
-            playerModel.MaxHp = 100;
-            playerModel.Damage = 10;
-            playerModel.AttackSpeed = 1.0f;
-            playerModel.CriticalChance = 5f;
-            playerModel.CriticalDamage = 1.25f;
+            playerView.UpdateUI(DataManager.Instance.playerData);
         }
 
         public void LevelUp()
         {
-            playerModel.Level++;
-            playerModel.Hp += 10;
-            playerModel.MaxHp += 10;
-            playerModel.Damage += 2;
+            DataManager.Instance.playerData.Level++;
+            DataManager.Instance.playerData.MaxHp += 10;
+            DataManager.Instance.playerData.Hp += 10;          
+            DataManager.Instance.playerData.Damage += 2;
         }
     }
 }

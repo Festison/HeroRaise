@@ -8,7 +8,7 @@ public class SingleTon<T> : MonoBehaviour where T : SingleTon<T>
 
     public static T Instance { get => instance; }
 
-    protected void Awake()
+    protected virtual void Awake()
     {
         if (instance == null)
         {

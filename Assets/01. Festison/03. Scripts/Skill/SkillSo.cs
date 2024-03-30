@@ -40,9 +40,4 @@ public class Skill
 public class SkillSo : ScriptableObject
 {
     public List<Skill> skillData = new List<Skill>();
-
-    public void Init()
-    {
-
-    }
 }

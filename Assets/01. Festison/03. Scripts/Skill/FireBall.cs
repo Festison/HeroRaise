@@ -8,6 +8,7 @@ public class FireBall : MonoBehaviour, IMoveable
     [SerializeField] private Transform initTranform;
     private Transform transform;
     private Rigidbody2D Rigidbody2D;
+    WaitForSeconds waitForSeconds = new WaitForSeconds(2f);
 
     private float speed = -0.04f;
     public float Speed
@@ -29,12 +30,12 @@ public class FireBall : MonoBehaviour, IMoveable
 
     void Update()
     {
-        StartCoroutine(DelayCo(2));
+        StartCoroutine(DelayCo());
     }
 
-    IEnumerator DelayCo(float delay)
+    IEnumerator DelayCo()
     {
-        yield return new WaitForSeconds(delay);
+        yield return waitForSeconds;
         Move();
     }
 
