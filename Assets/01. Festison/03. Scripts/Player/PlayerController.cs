@@ -24,6 +24,7 @@ namespace Festioson
             StartController();
         }
 
+
         public void SkillAnimation()
         {
             skeletonAnimation.AnimationName = "skill";
@@ -38,14 +39,17 @@ namespace Festioson
         public void ViewUpdate()
         {
             playerView.UpdateUI(DataManager.Instance.playerData);
+            playerView.ChangeSkin(skeletonAnimation, DataManager.Instance.playerData.Level);
         }
 
         public void LevelUp()
         {
             DataManager.Instance.playerData.Level++;
             DataManager.Instance.playerData.MaxHp += 10;
-            DataManager.Instance.playerData.Hp += 10;          
+            DataManager.Instance.playerData.Hp += 10;
             DataManager.Instance.playerData.Damage += 2;
+
+            playerView.ChangeSkin(skeletonAnimation, DataManager.Instance.playerData.Level);
         }
     }
 }

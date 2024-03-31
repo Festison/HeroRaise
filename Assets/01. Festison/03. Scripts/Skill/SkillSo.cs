@@ -19,21 +19,6 @@ public class Skill
     public bool isGetSkill;
     public bool isUseSkill;
     public Sprite icon;
-
-    public Skill()
-    {
-
-    }
-
-    public void Equipment()
-    {
-
-    }
-
-    public void UpGrade()
-    {
-
-    }
 }
 
 [CreateAssetMenu(menuName = "Player/SkillData", order = int.MaxValue)]

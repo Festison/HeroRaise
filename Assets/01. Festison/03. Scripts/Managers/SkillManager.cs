@@ -25,9 +25,13 @@ public class SkillManager : SingleTon<SkillManager>
     {
         for (int i = 0; i < skillSo.skillData.Count; i++)
         {
-            skillSo.skillData[i].isGetSkill = false;
             skillSo.skillData[i].isUseSkill = false;
+            if (skillSo.skillData[i].isGetSkill)
+            {
+                skillSlotimages[i].color = Color.white;
+            }
         }
+
     }
 
     public void DrawGrade()
@@ -58,7 +62,7 @@ public class SkillManager : SingleTon<SkillManager>
                         skillExplanation[4].color = Color.red;
                         break;
                     case SkillGrade.B:
-                        outLineImage.color = new Color(134,0,255);
+                        outLineImage.color = new Color(134 / 255f, 0, 255 / 255f);
                         skillExplanation[2].color = new Color(134, 0, 255);
                         skillExplanation[4].color = new Color(134, 0, 255);
                         break;
@@ -81,9 +85,14 @@ public class SkillManager : SingleTon<SkillManager>
                 skillExplanation[2].text = skillSo.skillData[i].skillName;
                 skillExplanation[3].text = skillSo.skillData[i].skillExplanation + "   " + "µ¥¹ÌÁö : " + skillSo.skillData[i].damage.ToString();
                 skillExplanation[5].text = skillSo.skillData[i].count.ToString() + " / " + "2";
-                useSkillText.text = "ÀåÂøµÉ ½½·Ô : " + (currentIndex+1).ToString()+ "¹ø Â° ";
+                useSkillText.text = "ÀåÂøµÉ ½½·Ô : " + (currentIndex + 1).ToString() + "¹ø Â° ";
                 skillSo.skillData[i].isGetSkill = true;
-                skillSlotimages[i].color = Color.white;               
+
+                if (skillSo.skillData[i].isGetSkill)
+                {
+                    skillSlotimages[i].color = Color.white;
+                }
+
                 skillNumber = i;
                 break;
             }

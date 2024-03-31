@@ -31,7 +31,7 @@ MonoBehaviour:
     damage: 5
     coolTime: 10
     level: 1
-    count: 1
+    count: 0
     percent: 17.5
     isGetSkill: 0
     isUseSkill: 0
@@ -42,7 +42,7 @@ MonoBehaviour:
     damage: 5
     coolTime: 10
     level: 1
-    count: 1
+    count: 3
     percent: 17.5
     isGetSkill: 0
     isUseSkill: 0
@@ -53,7 +53,7 @@ MonoBehaviour:
     damage: 5
     coolTime: 2
     level: 1
-    count: 2
+    count: 4
     percent: 17.5
     isGetSkill: 0
     isUseSkill: 0
@@ -64,7 +64,7 @@ MonoBehaviour:
     damage: 20
     coolTime: 30
     level: 1
-    count: 1
+    count: 2
     percent: 7
     isGetSkill: 0
     isUseSkill: 0
@@ -87,7 +87,7 @@ MonoBehaviour:
     damage: 10
     coolTime: 100
     level: 1
-    count: 0
+    count: 1
     percent: 7
     isGetSkill: 0
     isUseSkill: 0
@@ -111,7 +111,7 @@ MonoBehaviour:
     damage: 5
     coolTime: 2
     level: 1
-    count: 2
+    count: 0
     percent: 4
     isGetSkill: 0
     isUseSkill: 0

@@ -41,7 +41,11 @@ public class DataManager : SingleTon<DataManager>
     }
     private void Start()
     {
-        LoadData();       
+        string json;
+        json = Path.Combine(Application.dataPath + "/01. Festison/06. Data/", "playerData.json");
+        string playerData = JsonUtility.ToJson(this.playerData, true);
+        File.WriteAllText(json, playerData);
+        LoadData();
     }
 
     private void Update()
@@ -51,8 +55,8 @@ public class DataManager : SingleTon<DataManager>
 
 
     public IEnumerator SaveDataCo()
-    {
-        string playerData = JsonUtility.ToJson(this.playerData);
+    {      
+        string playerData = JsonUtility.ToJson(this.playerData, true);
         File.WriteAllText(path, playerData);
         Debug.Log(playerData);
         Debug.Log("데이터 저장");

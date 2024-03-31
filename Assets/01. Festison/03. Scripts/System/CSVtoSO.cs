@@ -5,7 +5,7 @@ using System.IO;
 
 public class CSVtoSO
 {
-    [MenuItem("Utilities/Generate SkillData")]
+    //[MenuItem("Utilities/Generate SkillData")]
     public static void GenerateEnemies()
     {
         List<Dictionary<string, object>> skilldata = CSVReader.Read("SkillData");
@@ -25,7 +25,7 @@ public class CSVtoSO
             skillSo.skillData.Add(skill);
         }
         
-        AssetDatabase.CreateAsset(skillSo, "Assets/01. Festison/06. Data/SkillData.asset");
-        AssetDatabase.SaveAssets();
+        //AssetDatabase.CreateAsset(skillSo, "Assets/01. Festison/06. Data/SkillData.asset");
+        //AssetDatabase.SaveAssets();
     }
 }

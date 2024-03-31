@@ -1,0 +1,9 @@
+{
+    "level": 1,
+    "hp": 100,
+    "maxHp": 100,
+    "damage": 10,
+    "attackSpeed": 1.0,
+    "criticalChance": 5.0,
+    "criticalDamage": 1.25
+}
