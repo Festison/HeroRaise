@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class EventManager : SingleTon<EventManager>
+public static class EventManager
 {
-    public Action OnGachaEvent;
+    public static Action OnPlayerStateChange = delegate { };
 }

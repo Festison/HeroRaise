@@ -14,14 +14,14 @@ namespace Festioson
     {
         private SkeletonAnimation skeletonAnimation;
         private PlayerView playerView;
-        public event Action StartController;
+        private event Action StartLogic;
 
         private void Start()
         {
             skeletonAnimation = GetComponent<SkeletonAnimation>();
             playerView = GetComponent<PlayerView>();
-            StartController += ViewUpdate;
-            StartController();
+            StartLogic += ViewUpdate;
+            StartLogic();
         }
 
 

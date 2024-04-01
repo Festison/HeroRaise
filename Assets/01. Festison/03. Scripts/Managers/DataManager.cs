@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using Festioson;
+using TMPro;
 
 // 저장 순서
 // 1. 저장할 데이터를 가져온다.
@@ -14,12 +15,22 @@ using Festioson;
 // 2. 제이슨을 역직렬화를 통해 데이터로 변환시킨다.
 // 3. 불러온 데이터를 사용한다.
 
+public class PlayerItem
+{
+    public int currentEnergy;
+    public int maxEnergy;
+    public int gold;
+    public int gem;
+}
+
 public class DataManager : SingleTon<DataManager>
 {
+    public TextMeshProUGUI[] itemText;
     WaitForSeconds waitForSeconds = new WaitForSeconds(5f);
 
     public SkillSo skilldata;
 
+    public PlayerItem PlayerItem = new PlayerItem() { currentEnergy = 1, maxEnergy = 2, gold = 0, gem = 0 };
     public PlayerModel playerData = new PlayerModel()
     {
         level = 1,
@@ -30,6 +41,8 @@ public class DataManager : SingleTon<DataManager>
         criticalChance = 5.0f,
         criticalDamage = 1.25f
     };
+
+    private float decreasetime = 100f;
 
     private string path;
 
@@ -51,11 +64,18 @@ public class DataManager : SingleTon<DataManager>
     private void Update()
     {
         StartCoroutine(SaveDataCo());
+
+        if (PlayerItem.currentEnergy < 2)
+        {
+            ChangeTime();
+        }
+
     }
 
 
+    #region 데이터 관리
     public IEnumerator SaveDataCo()
-    {      
+    {
         string playerData = JsonUtility.ToJson(this.playerData, true);
         File.WriteAllText(path, playerData);
         Debug.Log(playerData);
@@ -68,4 +88,43 @@ public class DataManager : SingleTon<DataManager>
         string data = File.ReadAllText(path);
         playerData = JsonUtility.FromJson<PlayerModel>(data);
     }
+    #endregion
+
+    #region UI 관련 코드
+    public void UpdateText()
+    {
+        itemText[0].text = PlayerItem.currentEnergy + " / " + PlayerItem.maxEnergy;
+        itemText[1].text = PlayerItem.gold.ToString();
+        itemText[2].text = PlayerItem.gem.ToString(); ;
+
+        int minutes = (int)decreasetime / 60; // 분
+        int seconds = (int)decreasetime % 60; // 초
+
+        itemText[3].text = string.Format("{0:D2} : {1:D2}", minutes, seconds);
+    }
+
+    public void ChangeTime()
+    {
+        Debug.Log("시간 감소");
+        decreasetime -= Time.deltaTime; 
+
+        if (0.1f >= decreasetime) // 5분마다 실행
+        {
+            PlayerItem.currentEnergy++; // 에너지를 1 증가시킵니다.
+            decreasetime = 100f; // 타이머를 리셋합니다.
+        }
+        EventManager.OnPlayerStateChange();
+    }
+
+
+    private void OnEnable()
+    {
+        EventManager.OnPlayerStateChange += UpdateText;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.OnPlayerStateChange -= UpdateText;
+    }
+    #endregion
 }

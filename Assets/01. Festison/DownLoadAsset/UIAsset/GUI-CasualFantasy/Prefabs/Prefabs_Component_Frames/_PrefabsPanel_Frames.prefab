@@ -5418,6 +5418,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 161713255164326206}
     m_Modifications:
+    - target: {fileID: 3823923803799516312, guid: c9bea5f86bebb42e8b2665d1eec557f4,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 31.35
+      objectReference: {fileID: 0}
     - target: {fileID: 3823923804005217910, guid: c9bea5f86bebb42e8b2665d1eec557f4,
         type: 3}
       propertyPath: m_Name
@@ -7252,6 +7257,22 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6307590037691010444, guid: fcb9df26440474a0aa2ae758d4cf3879,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 89bfccdb1e78040ae8aaca59d00f20c9,
+        type: 3}
+    - target: {fileID: 6307590037691010447, guid: fcb9df26440474a0aa2ae758d4cf3879,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 169
+      objectReference: {fileID: 0}
+    - target: {fileID: 6307590037691010447, guid: fcb9df26440474a0aa2ae758d4cf3879,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 176
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
