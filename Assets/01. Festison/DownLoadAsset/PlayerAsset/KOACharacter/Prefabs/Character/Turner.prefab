@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 3375270}
   - component: {fileID: 2392344}
   - component: {fileID: 11455260}
-  m_Layer: 0
+  - component: {fileID: 7965914701465056410}
+  - component: {fileID: 3226559192826038469}
+  m_Layer: 6
   m_Name: Turner
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skeletonDataAsset: {fileID: 11400000, guid: d859c3e20f6105843bb65e397cd48854, type: 2}
-  initialSkinName: p4
+  initialSkinName: p1
   initialFlipX: 0
   initialFlipY: 0
   updateWhenInvisible: 3
@@ -121,3 +123,35 @@ MonoBehaviour:
   _animationName: attack
   loop: 1
   timeScale: 1
+--- !u!114 &7965914701465056410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eef2cf819e2bdbe43a180b98674e78be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3226559192826038469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 412a99cebcd486247ace6d6f139f5830, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTextView:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  playerImage: {fileID: 0}

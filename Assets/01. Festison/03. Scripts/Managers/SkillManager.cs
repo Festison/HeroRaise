@@ -164,6 +164,9 @@ public class SkillManager : SingleTon<SkillManager>
             case "Hydro":
                 SkillEffect[3].SetActive(true);
                 break;
+            case "IceNova":
+                SkillEffect[4].SetActive(true);
+                break;
         }
     }
 }
