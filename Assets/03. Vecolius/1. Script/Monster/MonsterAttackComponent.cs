@@ -10,7 +10,7 @@ namespace Veco {
 
         void Start()
         {
-            status = transform.GetComponentInParent<MonsterAI>().MonsterStatus;
+            status = transform.GetComponentInParent<MonsterStateMono>().MonsterStatus;
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
