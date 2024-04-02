@@ -7,7 +7,6 @@ namespace Veco
     public class Monster_Boss : MonsterStateMono, IHitable
     {
         [SerializeField] MonsterStatusSO so;
-        [SerializeField] MonsterStatus status;
 
         [SerializeField] Collider2D attackCol;
         DetectiveComponent detective;
