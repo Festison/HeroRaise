@@ -88,20 +88,12 @@ MonoBehaviour:
         values: []
     - goDatasByGlobalId:
         keys:
-        - GlobalObjectId_V1-2-862dfad60db784e18b3f86ec58785669-1109510235518212375-0
         - GlobalObjectId_V1-2-862dfad60db784e18b3f86ec58785669-1722776143-0
         - GlobalObjectId_V1-2-862dfad60db784e18b3f86ec58785669-1751339318-0
         - GlobalObjectId_V1-2-862dfad60db784e18b3f86ec58785669-1413655042-0
         - GlobalObjectId_V1-2-862dfad60db784e18b3f86ec58785669-278659839-0
-        - GlobalObjectId_V1-2-862dfad60db784e18b3f86ec58785669-1152478488-0
-        - GlobalObjectId_V1-2-862dfad60db784e18b3f86ec58785669-200940261-0
-        - GlobalObjectId_V1-2-862dfad60db784e18b3f86ec58785669-257851075-0
-        - GlobalObjectId_V1-2-862dfad60db784e18b3f86ec58785669-1337026352-0
         - GlobalObjectId_V1-2-862dfad60db784e18b3f86ec58785669-1578834144-0
-        - GlobalObjectId_V1-2-862dfad60db784e18b3f86ec58785669-1109510236090706587-0
         values:
-        - iColor: 0
-          icon: 
         - iColor: 6
           icon: Canvas Icon
         - iColor: 8
@@ -111,20 +103,20 @@ MonoBehaviour:
         - iColor: 0
           icon: ParticleSystem Icon
         - iColor: 0
-          icon: cs Script Icon
-        - iColor: 0
-          icon: 
-        - iColor: 0
-          icon: 
-        - iColor: 0
-          icon: 
-        - iColor: 0
           icon: Favorite
-        - iColor: 0
-          icon: 
       goDatasByInstanceId:
-        keys: 9e870000d6850000ea8500005885000024830000dc840000d28200000a830000448500009a8500002c880000
+        keys: 108000001c800000dc7f0000047f0000fc7f000090f3ffffcaab0000d6ab000096ab0000c4aa0000b6ab0000
         values:
+        - iColor: 6
+          icon: Canvas Icon
+        - iColor: 8
+          icon: cs Script Icon
+        - iColor: 4
+          icon: Camera Icon
+        - iColor: 0
+          icon: ParticleSystem Icon
+        - iColor: 0
+          icon: Favorite
         - iColor: 0
           icon: 
         - iColor: 6
@@ -136,17 +128,7 @@ MonoBehaviour:
         - iColor: 0
           icon: ParticleSystem Icon
         - iColor: 0
-          icon: cs Script Icon
-        - iColor: 0
-          icon: 
-        - iColor: 0
-          icon: 
-        - iColor: 0
-          icon: 
-        - iColor: 0
           icon: Favorite
-        - iColor: 0
-          icon: 
     - goDatasByGlobalId:
         keys: []
         values: []
