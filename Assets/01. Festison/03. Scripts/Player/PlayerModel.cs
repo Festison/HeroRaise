@@ -86,7 +86,10 @@ namespace Festioson
             {
                 criticalDamage = value;
             }
-        }              
+        }
+
+        public float attackRange;
+        public bool canDealDamage;
     }
 }
 
