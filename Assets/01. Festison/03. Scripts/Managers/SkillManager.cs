@@ -167,6 +167,18 @@ public class SkillManager : SingleTon<SkillManager>
             case "IceNova":
                 SkillEffect[4].SetActive(true);
                 break;
+            case "StromPath":
+                SkillEffect[5].SetActive(true);
+                break;
+            case "Healing":
+                SkillEffect[6].SetActive(true);
+                break;
+            case "BlackHole":
+                SkillEffect[7].SetActive(true);
+                break;
+            case "BlackNova":
+                SkillEffect[8].SetActive(true);
+                break;
         }
     }
 }
