@@ -48,14 +48,11 @@ namespace Veco
     public class MonsterAI : MonsterStateMono, IHitable
     {
         [SerializeField] MonsterStatusSO so;
-        [SerializeField] MonsterStatus status;
         [SerializeField] bool isAttackCooltime;
         IEnumerator attackCo;
 
         [SerializeField] DetectiveComponent detective;
         public Collider2D attackCol;
-
-        public MonsterStatus MonsterStatus => status;
 
         void OnEnable()
         {
