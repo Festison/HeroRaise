@@ -204,6 +204,7 @@ MonoBehaviour:
   isDie: 0
   so: {fileID: 11400000, guid: 4e75db311af4bc64bb46b8152e2b9a21, type: 2}
   attackCol: {fileID: 3135042053376483773}
+  col: {fileID: 0}
 --- !u!114 &3835113881126160156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,7 +220,7 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
-  detectiveRange: 0
+  detectiveRange: 5
   isFind: 0
 --- !u!1 &4577491146971876883
 GameObject:

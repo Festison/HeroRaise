@@ -14,10 +14,13 @@ namespace Veco
         bool isAttackCooltime;
         IEnumerator attackCo;
 
+        [SerializeField] Collider2D col;
+
         protected override void Awake()
         {
             base.Awake();
             detective = GetComponent<DetectiveComponent>();
+            col = GetComponent<Collider2D>();
             status = new MonsterStatus(so, Time.time, this);
         }
         protected override void Start()
@@ -93,6 +96,16 @@ namespace Veco
         public void Hit(int damage)
         {
             status.Hp -= damage;
+        }
+
+        public override void Dead()
+        {
+            isDie = true;
+            col.enabled = false;
+            attackCol.enabled = false;
+
+            StopCoroutine(attackCo);
+            ChangeMonsterState(MonsterState.die);
         }
     }
 }

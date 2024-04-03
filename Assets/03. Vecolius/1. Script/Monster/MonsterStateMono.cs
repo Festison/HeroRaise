@@ -56,7 +56,7 @@ namespace Veco
     }
 
 
-    public class MonsterStateMono : MonoBehaviour
+    public abstract class MonsterStateMono : MonoBehaviour
     {
         protected StateMachine<MonsterStateMono> sm = null;
         [SerializeField] protected Animator animator = null;
@@ -93,9 +93,6 @@ namespace Veco
             sm.SetState(state.ToString());
         }
 
-        public virtual void Dead()
-        {
-            isDie = true;
-        }
+        public abstract void Dead();
     }
 }

@@ -3641,7 +3641,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 539.99994, y: -1168.6154}
+  m_AnchoredPosition: {x: 540, y: -1169}
   m_SizeDelta: {x: 1080, y: 2337.2307}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1776460975
@@ -5911,7 +5911,7 @@ PrefabInstance:
     - target: {fileID: 7855001354338431641, guid: 3443fc0b93a4c744a95caf32567cd71e,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -3.0003679
+      value: -3.0003662
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7766,6 +7766,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ImageTopMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 665159172587807834, guid: 71136178967c636448439beb36a6f75b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1391287015902827717, guid: 71136178967c636448439beb36a6f75b,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -7784,7 +7789,7 @@ PrefabInstance:
     - target: {fileID: 6842579128977367320, guid: 71136178967c636448439beb36a6f75b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -122.3953
+      value: -122.39527
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7812,37 +7817,42 @@ PrefabInstance:
     - target: {fileID: 270363916332727205, guid: d5a7c0be271a590438d46974ffcdbeb7,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 211.07
       objectReference: {fileID: 0}
     - target: {fileID: 270363917462514427, guid: d5a7c0be271a590438d46974ffcdbeb7,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 270363917462514427, guid: d5a7c0be271a590438d46974ffcdbeb7,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 270363917462514427, guid: d5a7c0be271a590438d46974ffcdbeb7,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 111.07
       objectReference: {fileID: 0}
     - target: {fileID: 270363917462514427, guid: d5a7c0be271a590438d46974ffcdbeb7,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 105.535
       objectReference: {fileID: 0}
     - target: {fileID: 270363917462514427, guid: d5a7c0be271a590438d46974ffcdbeb7,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -24
       objectReference: {fileID: 0}
     - target: {fileID: 699529623317913478, guid: d5a7c0be271a590438d46974ffcdbeb7,
         type: 3}
       propertyPath: m_Name
       value: InfoUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 699529623317913478, guid: d5a7c0be271a590438d46974ffcdbeb7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3724299518941010354, guid: d5a7c0be271a590438d46974ffcdbeb7,
         type: 3}
@@ -8360,6 +8370,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UseSkillMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 7091479300124215626, guid: 472835414aeee3846bf0044b942bd0c0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8009668390861987210, guid: 472835414aeee3846bf0044b942bd0c0,
         type: 3}
