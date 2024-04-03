@@ -39,7 +39,7 @@ public class SkillManager : SingleTon<SkillManager>
         float totalProbability = 0;
 
         // 확률의 총 합을 계산합니다.
-        foreach (Skill data in skillSo.skillData)
+        foreach (SkillData data in skillSo.skillData)
         {
             totalProbability += data.percent;
         }

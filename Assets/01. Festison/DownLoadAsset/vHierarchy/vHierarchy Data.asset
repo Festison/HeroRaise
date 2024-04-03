@@ -93,6 +93,7 @@ MonoBehaviour:
         - GlobalObjectId_V1-2-862dfad60db784e18b3f86ec58785669-1413655042-0
         - GlobalObjectId_V1-2-862dfad60db784e18b3f86ec58785669-278659839-0
         - GlobalObjectId_V1-2-862dfad60db784e18b3f86ec58785669-1578834144-0
+        - GlobalObjectId_V1-2-862dfad60db784e18b3f86ec58785669-165228-856220069
         values:
         - iColor: 6
           icon: Canvas Icon
@@ -102,10 +103,12 @@ MonoBehaviour:
           icon: Camera Icon
         - iColor: 0
           icon: ParticleSystem Icon
-        - iColor: 0
+        - iColor: 2
           icon: Favorite
+        - iColor: 1
+          icon: AvatarMask On Icon
       goDatasByInstanceId:
-        keys: 108000001c800000dc7f0000047f0000fc7f000090f3ffffcaab0000d6ab000096ab0000c4aa0000b6ab0000
+        keys: 108000001c800000dc7f0000047f0000fc7f0000eeb80000fab80000bab80000e0b70000dab80000f885ffff44b90000
         values:
         - iColor: 6
           icon: Canvas Icon
@@ -117,8 +120,6 @@ MonoBehaviour:
           icon: ParticleSystem Icon
         - iColor: 0
           icon: Favorite
-        - iColor: 0
-          icon: 
         - iColor: 6
           icon: Canvas Icon
         - iColor: 8
@@ -127,8 +128,12 @@ MonoBehaviour:
           icon: Camera Icon
         - iColor: 0
           icon: ParticleSystem Icon
-        - iColor: 0
+        - iColor: 2
           icon: Favorite
+        - iColor: 2
+          icon: Favorite
+        - iColor: 1
+          icon: AvatarMask On Icon
     - goDatasByGlobalId:
         keys: []
         values: []

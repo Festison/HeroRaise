@@ -80,8 +80,6 @@ public class DataManager : SingleTon<DataManager>
     {
         string playerData = JsonUtility.ToJson(this.playerData, true);
         File.WriteAllText(path, playerData);
-        Debug.Log(playerData);
-        Debug.Log("데이터 저장");
         yield return waitForSeconds;
     }
 

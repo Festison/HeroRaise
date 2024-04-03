@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public enum SkillGrade { A, B, C, D }
 
 [System.Serializable]
-public class Skill
+public class SkillData
 {
     public SkillGrade skillGrade;
     public string skillName;
@@ -24,5 +24,5 @@ public class Skill
 [CreateAssetMenu(menuName = "Player/SkillData", order = int.MaxValue)]
 public class SkillSo : ScriptableObject
 {
-    public List<Skill> skillData = new List<Skill>();
+    public List<SkillData> skillData = new List<SkillData>();
 }

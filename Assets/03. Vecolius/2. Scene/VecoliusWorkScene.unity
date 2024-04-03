@@ -591,11 +591,11 @@ Transform:
   m_GameObject: {fileID: 278659839}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1413655045}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &283191793 stripped
 MonoBehaviour:
@@ -2906,8 +2906,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 278659842}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1413655046
@@ -3034,7 +3033,7 @@ GameObject:
   - component: {fileID: 1440530257}
   - component: {fileID: 1440530256}
   m_Layer: 0
-  m_Name: ----------------------MonsterObjectPool-------------------------
+  m_Name: MonsterObjectPool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5912,7 +5911,7 @@ PrefabInstance:
     - target: {fileID: 7855001354338431641, guid: 3443fc0b93a4c744a95caf32567cd71e,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -3.000368
+      value: -3.0003679
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7785,7 +7784,7 @@ PrefabInstance:
     - target: {fileID: 6842579128977367320, guid: 71136178967c636448439beb36a6f75b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -122.395294
+      value: -122.3953
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8837,6 +8836,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1413655045}
+  - {fileID: 278659842}
   - {fileID: 856220069}
   - {fileID: 1722776144}
   - {fileID: 1751339319}
