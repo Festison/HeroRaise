@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: SpiderStatus
   m_EditorClassIdentifier: 
   monsterName: "\uD6C8\uB828\uB41C \uAC70\uBBF8"
-  defaultMaxHp: 5
+  defaultMaxHp: 50
   moveSpeed: 0.01
   attackSpeed: 2
   defaultAttackDamage: 1
-  attackRange: 1.5
+  attackRange: 1
   gold: 3

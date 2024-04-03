@@ -28,8 +28,8 @@ namespace Veco
             set
             {
                 hp = value;
-                if(hp < maxHp) hp = maxHp;
-                if(hp >= 0)
+                if(hp > maxHp) hp = maxHp;
+                if(hp <= 0)
                 {
                     hp = 0;
                     owner.Dead();
@@ -53,6 +53,7 @@ namespace Veco
 
         [SerializeField] DetectiveComponent detective;
         public Collider2D attackCol;
+        [SerializeField] Collider2D col;
 
         void OnEnable()
         {
@@ -63,6 +64,7 @@ namespace Veco
         {
             base.Awake();
             detective = GetComponent<DetectiveComponent>();
+            col = GetComponent<Collider2D>();
             status = new MonsterStatus(so, Time.time, this);
         }
         protected override void Start()
@@ -113,13 +115,14 @@ namespace Veco
             base.MonsterInit();
             sm.SetState(state.ToString());
             isAttackCooltime = false;
+            col.enabled = true;
             status = new MonsterStatus(so, Time.time, this);
         }
 
         public override void Dead()
         {
-            base.Dead();
-            GetComponent<Collider2D>().enabled = false;
+            isDie = true;
+            col.enabled = false;
             attackCol.enabled = false;
             WaveManager.Instance.WaveMonsterCount++;
 
@@ -150,6 +153,7 @@ namespace Veco
 
         public void Hit(int damage)
         {
+            Debug.Log("맞은 데미지 : " + damage);
             status.Hp -= damage;
         }
 

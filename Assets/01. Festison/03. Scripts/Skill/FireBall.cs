@@ -52,7 +52,7 @@ public class FireBall : Skill, IMoveable
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent<MonsterAI>(out MonsterAI monster))
+        if (collision.TryGetComponent<MonsterAI>(out MonsterAI monster) && collision is BoxCollider2D)
         {
             Attack(monster);
             Debug.Log("스킬 충돌");

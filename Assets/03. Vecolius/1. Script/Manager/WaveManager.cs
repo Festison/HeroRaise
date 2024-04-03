@@ -63,12 +63,6 @@ namespace Veco
             //StartCoroutine(spawnCo);
         }
 
-        void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-                GameObject.FindAnyObjectByType<MonsterAI>().Hit(100);
-        }
-
         public void WaveStart()
         {
             spawnMonsterList.Clear();

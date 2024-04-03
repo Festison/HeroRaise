@@ -30,21 +30,17 @@ namespace Veco
 
         void Update()
         {
+            Debug.DrawRay(transform.position, transform.right * (-1 * detectiveRange), Color.green);
             if (isFind)
                 return;
 
-            //Collider2D[] cols = Physics2D.OverlapSphere(transform.position, detectiveRange, targetLayer);
-            Collider2D cols = Physics2D.OverlapCircle(transform.position, detectiveRange, targetLayer);
-            if (cols != null)
+            //Collider2D cols = Physics2D.OverlapCircle(transform.position, detectiveRange, targetLayer);
+            RaycastHit2D[] cols = Physics2D.RaycastAll(transform.position, Vector3.left, detectiveRange, TargetLayer);
+            if (cols.Length > 0)
             {
+                Debug.Log(cols[0].transform.name);
                 isFind = true;
             }
-        }
-
-        private void OnDrawGizmos()
-        {
-            Gizmos.color = Color.green;
-            Gizmos.DrawWireSphere(transform.position, detectiveRange);
         }
     }
 }
