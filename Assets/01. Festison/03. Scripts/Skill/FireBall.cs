@@ -52,11 +52,17 @@ public class FireBall : Skill, IMoveable
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent<MonsterAI>(out MonsterAI monster) && collision is BoxCollider2D)
+        float lastAttackTime = 0f; // 마지막 공격 시간을 저장할 변수
+        float attackCooldown = 1f; // 공격 쿨다운 시간 (1초)
+
+        if (Time.time - lastAttackTime >= attackCooldown)
         {
-            Attack(monster);
-            Debug.Log("스킬 충돌");
-        }
+            if (collision.TryGetComponent<MonsterAI>(out MonsterAI monster))
+            {
+                Attack(monster);
+                Debug.Log("스킬 충돌");
+            }
+        }     
     }
 
     public override void Attack(IHitable hitable)

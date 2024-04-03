@@ -40,8 +40,6 @@ public class DataManager : SingleTon<DataManager>
         attackSpeed = 1.0f,
         criticalChance = 5.0f,
         criticalDamage = 1.25f,
-        attackRange = 2.5f,
-        canDealDamage = false
     };
 
     private float decreasetime = 100f;
@@ -105,7 +103,6 @@ public class DataManager : SingleTon<DataManager>
 
     public void ChangeTime()
     {
-        Debug.Log("시간 감소");
         decreasetime -= Time.deltaTime;
 
         if (0.1f >= decreasetime) // 5분마다 실행

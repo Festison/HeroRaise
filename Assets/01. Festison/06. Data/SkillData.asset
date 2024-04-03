@@ -35,7 +35,7 @@ MonoBehaviour:
     percent: 17.5
     isGetSkill: 1
     isUseSkill: 0
-    icon: {fileID: 21300000, guid: 76199b45dab4b48e1ae362f84e1becbd, type: 3}
+    icon: {fileID: 21300000, guid: 6cb9beeee244f4cbe85695e9ae657dad, type: 3}
   - skillGrade: 3
     skillName: "\uB9AC\uD504 \uBD90"
     skillExplanation: "\uC804\uBC29\uC5D0 \uD480\uC18D\uC131 \uD3ED\uBC1C\uC744 \uC77C\uC73C\uD0B5\uB2C8\uB2E4."
@@ -57,7 +57,7 @@ MonoBehaviour:
     percent: 17.5
     isGetSkill: 1
     isUseSkill: 0
-    icon: {fileID: 21300000, guid: b67c8de302d4142cda6993d305fa0ca9, type: 3}
+    icon: {fileID: 21300000, guid: 7d167c2382838483989a9c654ee5a072, type: 3}
   - skillGrade: 2
     skillName: "\uC544\uC774\uC2A4 \uB178\uBC14"
     skillExplanation: "\uC804\uBC29\uC5D0 \uC5BC\uC74C \uD3ED\uBC1C\uC744 \uC77C\uC73C\uD0B5\uB2C8\uB2E4."

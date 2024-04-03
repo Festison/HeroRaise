@@ -17,6 +17,8 @@ namespace Festioson
         private Animator animator;
         private PlayerView playerView;
         private event Action StartLogic;
+        [SerializeField] LayerMask monsterLayer;
+        private bool isDamage=false;
 
         private void Start()
         {
@@ -27,11 +29,11 @@ namespace Festioson
             StartLogic();
         }
 
-        private void Update()
+
+        private void FixedUpdate()
         {
             AttackRayCast();
         }
-
         #region 이벤트 로직
         public void ViewUpdate()
         {
@@ -62,33 +64,42 @@ namespace Festioson
         {
             skeletonAnimation.AnimationName = "attack";
         }
-        #endregion 
+        #endregion
 
         #region 충돌 로직
+
+        float lastAttackTime = 0f; // 마지막 공격 시간을 저장할 변수
+        float attackCooldown = 1f; // 공격 쿨다운 시간 (1초)
+
         public void AttackRayCast()
-        {
-            Debug.DrawRay(transform.position + new Vector3(0, 0.3f, 0), transform.right, Color.yellow);
-
-            RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position + new Vector3(0, 0.3f, 0), Vector3.right, DataManager.Instance.playerData.attackRange); ;
-
-            foreach (RaycastHit2D hit in hits)
+        {          
+            if (Time.time - lastAttackTime >= attackCooldown)
             {
-                if (hit.collider.TryGetComponent<MonsterAI>(out MonsterAI monster))
+                Debug.DrawRay(transform.position + new Vector3(0, 0.3f, 0), transform.right, Color.yellow);
+
+                RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position + new Vector3(0, 0.3f, 0), transform.right, 0.5f, monsterLayer);
+
+                foreach (RaycastHit2D hit in hits)
                 {
-                    Attack(monster);
+                    if (hit.collider.TryGetComponent<MonsterAI>(out MonsterAI monster)&& isDamage)
+                    {
+                        Attack(monster);
+                        Debug.Log("공격");
+                        lastAttackTime = Time.time; // 공격 시간을 업데이트
+                    }
                 }
             }
         }
 
-        public void StartDealDamage()
+        public void StartDmage()
         {
-            DataManager.Instance.playerData.canDealDamage = true;
-        }
-        public void EndDealDamage()
-        {
-            DataManager.Instance.playerData.canDealDamage = false;
+            isDamage = true;
         }
 
+        public void EndDmage()
+        {
+            isDamage = false;
+        }
         public void Attack(IHitable hitable)
         {
             hitable.Hit(DataManager.Instance.playerData.damage);

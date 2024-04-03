@@ -5,7 +5,5 @@
     "damage": 10,
     "attackSpeed": 1.0,
     "criticalChance": 5.0,
-    "criticalDamage": 1.25,
-    "attackRange": 2.5,
-    "canDealDamage": false
+    "criticalDamage": 1.25
 }

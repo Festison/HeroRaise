@@ -249,14 +249,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
-  state: 0
-  so: {fileID: 11400000, guid: 0cc61d384cbb24146a807435b1da66b3, type: 2}
   status:
     hp: 0
     damage: 0
     maxHp: 0
-  isAttackCooltime: 0
+  state: 0
   isDie: 0
+  so: {fileID: 11400000, guid: 0cc61d384cbb24146a807435b1da66b3, type: 2}
+  isAttackCooltime: 0
   detective: {fileID: 0}
   attackCol: {fileID: 39493926159998656}
 --- !u!61 &8712666456777876314

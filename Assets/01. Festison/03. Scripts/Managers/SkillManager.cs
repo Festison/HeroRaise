@@ -155,7 +155,7 @@ public class SkillManager : SingleTon<SkillManager>
             case "Lightning":
                 SkillEffect[0].SetActive(true);
                 break;
-            case "Fireball":
+            case "FireBall":
                 SkillEffect[1].SetActive(true);
                 break;
             case "Dendro":
