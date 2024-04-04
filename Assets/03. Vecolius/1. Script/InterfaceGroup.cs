@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,5 +30,17 @@ namespace Veco
     public interface IAttackable
     {
         void Attack(IHitable hitable);
+    }
+
+    public interface IPlayClip
+    {
+        public AudioSource AudioSource { get; }
+        public Action AudioPlay { get; set; }
+        /// <summary>
+        ///  SoundComponent AudioSource Setting Method in SoundObj 
+        /// </summary>
+        /// <param name="clip"> clip to play</param>
+        void SoundPlay(AudioClip clip);
+        void ReturnPool(); 
     }
 }

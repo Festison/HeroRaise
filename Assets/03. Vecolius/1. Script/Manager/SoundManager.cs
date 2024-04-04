@@ -10,10 +10,10 @@ namespace Veco
     public class SoundManager : SingleTon<SoundManager>
     {
         public AudioMixer mixer;
+        public GameObject soundObj;
         [SerializeField] AudioSource bgSound;
         [SerializeField] AudioClip[] bgClips;
         [SerializeField] AudioClip[] SPXclips;
-        [SerializeField] GameObject soundObj;
 
 
         private void Start()
@@ -43,15 +43,14 @@ namespace Veco
             }
         }
 
-        public void SFXPlay(string sfxName, AudioClip clip, Transform audioPos)     //SFX Play
+        public void SFXPlay(AudioClip clip, Transform audioPos = null)     //SFX Play
         {
-            GameObject go = new GameObject(sfxName + "Sound");
-            go.transform.position = audioPos.position;
-            AudioSource audiosource = go.AddComponent<AudioSource>();
+            GameObject soundObj = ObjectPoolManager.Instance.PopObj(this.soundObj, transform.position, transform.rotation);
+            IPlayClip playClip = soundObj.GetComponent<IPlayClip>();
+            AudioSource audiosource = playClip.AudioSource;
             audiosource.outputAudioMixerGroup = mixer.FindMatchingGroups("SFX")[0];
-            audiosource.clip = clip;
-            audiosource.Play();
-            Destroy(go, clip.length);
+            soundObj.SetActive(true);
+            playClip.SoundPlay(clip);
         }
 
         public void BgSoundPlay(AudioClip clip)     //BgSound Play
