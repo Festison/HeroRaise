@@ -39,10 +39,16 @@ namespace Veco
 
         public MonsterStatus(MonsterStatusSO so, float time, object owner)
         {
+            int waveNum;
+            if (WaveManager.Instance != null)
+                waveNum = WaveManager.Instance.WaveNumber;
+            else
+                waveNum = 1;
+
             this.owner = (MonsterStateMono)owner;
-            this.maxHp = (int)(so.defaultMaxHp * (1 + time % 60));
+            this.maxHp = (int)(so.defaultMaxHp * waveNum);
             this.hp = this.maxHp;
-            this.damage = (int)(so.defaultAttackDamage * (1 + time % 60));
+            this.damage = (int)(so.defaultAttackDamage * waveNum);
         }
     }
     public class MonsterAI : MonsterStateMono, IHitable

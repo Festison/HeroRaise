@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: SkeletonStatusSO
   m_EditorClassIdentifier: 
   monsterName: "\uC2A4\uCF08\uB808\uD1A4 \uBCD1\uC0AC"
-  defaultMaxHp: 7
+  defaultMaxHp: 70
   moveSpeed: 0.01
   attackSpeed: 2
-  defaultAttackDamage: 2
+  defaultAttackDamage: 4
   attackRange: 1.5
-  gold: 5
+  gold: 7
