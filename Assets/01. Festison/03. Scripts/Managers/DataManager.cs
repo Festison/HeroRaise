@@ -22,25 +22,14 @@ public class PlayerItem
     public int gold;
     public int gem;
 }
-
 public class DataManager : SingleTon<DataManager>
 {
     public TextMeshProUGUI[] itemText;
-    WaitForSeconds waitForSeconds = new WaitForSeconds(5f);
 
     public SkillSo skilldata;
 
     public PlayerItem PlayerItem = new PlayerItem() { currentEnergy = 1, maxEnergy = 2, gold = 0, gem = 0 };
-    public PlayerModel playerData = new PlayerModel()
-    {
-        level = 1,
-        hp = 100,
-        maxHp = 100,
-        damage = 10,
-        attackSpeed = 1.0f,
-        criticalChance = 5.0f,
-        criticalDamage = 1.25f,
-    };
+    public PlayerModel playerData = new PlayerModel();
 
     private float decreasetime = 100f;
 
@@ -74,17 +63,54 @@ public class DataManager : SingleTon<DataManager>
 
 
     #region 单捞磐 包府
+    public void InitData()
+    {
+        playerData.level = 1;
+        playerData.hp = 100;
+        playerData.maxHp = 100;
+        playerData.damage = 10;
+        playerData.attackSpeed = 1.0f;
+        playerData.criticalChance = 5.0f;
+        playerData.criticalDamage = 1.25f;
+        SaveData();
+        LoadData();
+    }
+
     public IEnumerator SaveDataCo()
     {
         string playerData = JsonUtility.ToJson(this.playerData, true);
         File.WriteAllText(path, playerData);
-        yield return waitForSeconds;
+        Debug.Log("单捞磐 历厘");
+        yield return new WaitForSeconds(2f);
+    }
+
+    public void SaveData()
+    {      
+        string playerDataString = JsonUtility.ToJson(playerData, true);
+        File.WriteAllText(path, playerDataString);
     }
 
     public void LoadData()
     {
+        if (!File.Exists(path))
+        {
+            InitData();
+            return;
+        }
+
         string data = File.ReadAllText(path);
         playerData = JsonUtility.FromJson<PlayerModel>(data);
+    }
+
+    public void GameExit()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        SaveData();
+#else
+        Application.Quit();
+        SaveData();
+#endif
     }
     #endregion
 

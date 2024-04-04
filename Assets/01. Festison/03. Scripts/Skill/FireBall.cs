@@ -67,6 +67,6 @@ public class FireBall : Skill, IMoveable
 
     public override void Attack(IHitable hitable)
     {
-        hitable.Hit(DataManager.Instance.playerData.damage);
+        hitable.Hit(DataManager.Instance.playerData.Damage);
     }
 }

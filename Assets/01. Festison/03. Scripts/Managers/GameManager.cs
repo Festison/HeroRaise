@@ -7,6 +7,6 @@ using TMPro;
 
 public class GameManager : SingleTon<GameManager>
 {
-    public TextMeshProUGUI[] gameResourceText; 
     
+
 }

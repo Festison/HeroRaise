@@ -102,7 +102,7 @@ namespace Festioson
         }
         public void Attack(IHitable hitable)
         {
-            hitable.Hit(DataManager.Instance.playerData.damage);
+            hitable.Hit(DataManager.Instance.playerData.Damage);
         }
 
         public void Hit(int damage)
