@@ -16,6 +16,6 @@ MonoBehaviour:
   defaultMaxHp: 50
   moveSpeed: 0.01
   attackSpeed: 2
-  defaultAttackDamage: 1
+  defaultAttackDamage: 2
   attackRange: 1
-  gold: 3
+  gold: 5

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Boss_Skeleton
   m_EditorClassIdentifier: 
   monsterName: "\uC2A4\uCF08\uB808\uD1A4 \uC7A5\uAD70"
-  defaultMaxHp: 70
+  defaultMaxHp: 1000
   moveSpeed: 0
   attackSpeed: 4
   defaultAttackDamage: 15

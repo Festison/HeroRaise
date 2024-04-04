@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VHierarchy.Libs;
 
 namespace Veco
 {
@@ -63,6 +64,12 @@ namespace Veco
             //StartCoroutine(spawnCo);
         }
 
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+                GameObject.FindAnyObjectByType<MonsterStateMono>().Dead();
+        }
+
         public void WaveStart()
         {
             spawnMonsterList.Clear();
@@ -78,7 +85,7 @@ namespace Veco
 
         void SpawnMonsterSave()
         {
-            int listCount = monsterList.Count < waveIndex ? monsterList.Count+1 : waveIndex+1;
+            int listCount = monsterList.Count < waveIndex ? monsterList.Count : waveIndex;
             int spawnValue = monsterSpawnCount;
             while(spawnValue > 0)
             {

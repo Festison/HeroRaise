@@ -1,25 +1,46 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 namespace Veco
 {
     public class SoundManager : SingleTon<SoundManager>
     {
         public AudioMixer mixer;
-        public AudioSource bgSound;
+        [SerializeField] AudioSource bgSound;
         [SerializeField] AudioClip[] bgClips;
-        public AudioClip[] SPXclips;
+        [SerializeField] AudioClip[] SPXclips;
+        [SerializeField] GameObject soundObj;
+
 
         private void Start()
         {
+            SceneManager.sceneLoaded += OnSceneLoaded;
             bgSound = GetComponent<AudioSource>();
-            BgSoundPlay(bgClips[0]);
+            
+            //BgSoundPlay(bgClips[0]);
         }
+
+
         private void Update()
         {
-            transform.position = Camera.main.transform.position;
+            //transform.position = Camera.main.transform.position;
+        }
+
+        //æ¿ ¿¸»Ø Ω√, πË∞Ê¿Ω πŸ≤ﬁ
+        void OnSceneLoaded(Scene scene, LoadSceneMode arg1)
+        {
+            if(scene.name == "LOBBY") 
+            {
+                
+            }
+            else if(scene.name == "InGAME")
+            {
+
+            }
         }
 
         public void SFXPlay(string sfxName, AudioClip clip, Transform audioPos)     //SFX Play
