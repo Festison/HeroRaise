@@ -21,8 +21,8 @@ namespace Festioson
             }
         }
 
-        public int hp;
-        public int Hp
+        public float hp;
+        public float Hp
         {
             get => hp;
             set
@@ -38,8 +38,8 @@ namespace Festioson
                 }
             }
         }
-        public int maxHp;
-        public int MaxHp
+        public float maxHp;
+        public float MaxHp
         {
             get => maxHp;
             set
