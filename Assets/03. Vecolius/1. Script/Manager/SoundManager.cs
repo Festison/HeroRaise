@@ -28,6 +28,7 @@ namespace Veco
         private void Update()
         {
             //transform.position = Camera.main.transform.position;
+
         }
 
         //æ¿ ¿¸»Ø Ω√, πË∞Ê¿Ω πŸ≤ﬁ
@@ -46,11 +47,8 @@ namespace Veco
         public void SFXPlay(AudioClip clip, Transform audioPos = null)     //SFX Play
         {
             GameObject soundObj = ObjectPoolManager.Instance.PopObj(this.soundObj, transform.position, transform.rotation);
-            IPlayClip playClip = soundObj.GetComponent<IPlayClip>();
-            AudioSource audiosource = playClip.AudioSource;
-            audiosource.outputAudioMixerGroup = mixer.FindMatchingGroups("SFX")[0];
             soundObj.SetActive(true);
-            playClip.SoundPlay(clip);
+            soundObj.GetComponent<IPlayClipable>().SoundPlay(clip, mixer);
         }
 
         public void BgSoundPlay(AudioClip clip)     //BgSound Play

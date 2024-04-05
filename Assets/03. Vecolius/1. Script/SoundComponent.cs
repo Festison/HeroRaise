@@ -3,9 +3,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using Veco;
 
-public class SoundComponent : MonoBehaviour, IPlayClip
+public class SoundComponent : MonoBehaviour, IPlayClipable
 {
     [SerializeField] AudioSource audioSource;
 
@@ -25,9 +26,11 @@ public class SoundComponent : MonoBehaviour, IPlayClip
     {
         audioSource = GetComponent<AudioSource>();
     }
-    public void SoundPlay(AudioClip clip)
+    public void SoundPlay(AudioClip clip, AudioMixer mixer)
     {
         audioSource.clip = clip;
+        audioSource.outputAudioMixerGroup = mixer.FindMatchingGroups("SFX")[0];
+        audioSource.loop = false;
         audioSource.Play();
         Invoke("ReturnPool", clip.length);
     }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace Veco
 {
@@ -32,7 +33,7 @@ namespace Veco
         void Attack(IHitable hitable);
     }
 
-    public interface IPlayClip
+    public interface IPlayClipable
     {
         public AudioSource AudioSource { get; }
         public Action AudioPlay { get; set; }
@@ -40,7 +41,7 @@ namespace Veco
         ///  SoundComponent AudioSource Setting Method in SoundObj 
         /// </summary>
         /// <param name="clip"> clip to play</param>
-        void SoundPlay(AudioClip clip);
+        void SoundPlay(AudioClip clip, AudioMixer mixer);
         void ReturnPool(); 
     }
 }

@@ -264,12 +264,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49083ed59dee22c40b126ffccf6c7b77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixer: {fileID: 0}
+  mixer: {fileID: 24100000, guid: 482ee1f6397fd714c910f928d51da7a5, type: 2}
+  soundObj: {fileID: 5902668168143376490, guid: dbec67084926cdd42989767a3c95311c,
+    type: 3}
   bgSound: {fileID: 0}
   bgClips: []
   SPXclips: []
-  soundObj: {fileID: 5902668168143376490, guid: dbec67084926cdd42989767a3c95311c,
-    type: 3}
 --- !u!1 &1102755496
 GameObject:
   m_ObjectHideFlags: 0
@@ -397,7 +397,7 @@ MonoBehaviour:
   - poolingObj: {fileID: 4431216601868761423, guid: 88800876d7472e647b3415bebc6880bc,
       type: 3}
     initSize: 10
-  - poolingObj: {fileID: 5902668168143376490, guid: a383a017bef03a34aa4325c271eab6e0,
+  - poolingObj: {fileID: 5902668168143376490, guid: dbec67084926cdd42989767a3c95311c,
       type: 3}
     initSize: 10
 --- !u!1 &1315746328
