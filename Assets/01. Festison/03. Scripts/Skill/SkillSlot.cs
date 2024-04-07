@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class SkillSlot : Slot
 {
-    public void SetItem(int i)
+    public override void SetItem(int i)
     {
         switch (SkillManager.Instance.skillSo.skillData[i].skillGrade)
         {
