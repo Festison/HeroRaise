@@ -160,7 +160,8 @@ namespace Veco
 
         void AttackSoundPlay()
         {
-            SoundManager.Instance.SFXPlay(attackClip);
+            if(attackClip != null)
+                SoundManager.Instance.SFXPlay(attackClip);
         }
 
         public void Hit(int damage)
