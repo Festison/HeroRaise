@@ -19,15 +19,9 @@ public class UIManager : SingleTon<UIManager>
     public void Start()
     {
         infoBtn.Select();
+        HpLerpUI();
     }
 
-    public void Update()
-    {
-        if (DataManager.Instance.playerData.Hp != DataManager.Instance.playerData.MaxHp)
-        {
-            HpLerpUI();
-        }        
-    }
     public void HpLerpUI()
     {
         hpSlider.value = Mathf.Lerp(hpSlider.value, DataManager.Instance.playerData.Hp / DataManager.Instance.playerData.MaxHp, Time.deltaTime * 10f);

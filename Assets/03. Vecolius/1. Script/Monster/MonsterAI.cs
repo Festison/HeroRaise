@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 namespace Veco
 {
@@ -51,7 +52,7 @@ namespace Veco
             this.damage = (int)(so.defaultAttackDamage * waveNum);
         }
     }
-    public class MonsterAI : MonsterStateMono, IHitable
+    public class MonsterAI : MonsterStateMono, IHitable 
     {
         [SerializeField] MonsterStatusSO so;
         [SerializeField] bool isAttackCooltime;
@@ -60,6 +61,9 @@ namespace Veco
         [SerializeField] DetectiveComponent detective;
         public Collider2D attackCol;
         [SerializeField] Collider2D col;
+        [SerializeField] SpriteRenderer spriteRenderer;
+        [SerializeField] GameObject damageText;
+        [SerializeField] Transform hitPos;
 
         void OnEnable()
         {
@@ -69,8 +73,9 @@ namespace Veco
         protected override void Awake()
         {
             base.Awake();
+            spriteRenderer = GetComponent<SpriteRenderer>();
             detective = GetComponent<DetectiveComponent>();
-            col = GetComponent<Collider2D>();
+            col = GetComponent<Collider2D>();            
             status = new MonsterStatus(so, Time.time, this);
         }
         protected override void Start()
@@ -119,6 +124,7 @@ namespace Veco
         protected override void MonsterInit()
         {
             base.MonsterInit();
+            spriteRenderer.material.color = Color.white;
             sm.SetState(state.ToString());
             isAttackCooltime = false;
             col.enabled = true;
@@ -160,15 +166,34 @@ namespace Veco
 
         void AttackSoundPlay()
         {
+<<<<<<< Updated upstream
             if(attackClip != null)
                 SoundManager.Instance.SFXPlay(attackClip);
+=======
+            //SoundManager.Instance.SFXPlay(attackClip);
+>>>>>>> Stashed changes
         }
 
         public void Hit(int damage)
         {
             Debug.Log("맞은 데미지 : " + damage);
+            damageText.GetComponent<DamageText>().damage = damage;
+            damageText.SetActive(true);           
+            damageText.transform.position = hitPos.position;
             status.Hp -= damage;
+            StartCoroutine(HitCo());
         }
 
+        IEnumerator HitCo()
+        {
+            Debug.Log("피격 코루틴 호출");
+            spriteRenderer.material.color = Color.red;
+            yield return new WaitForSeconds(0.1f);
+
+            if (status.Hp > 0)
+            {
+                spriteRenderer.material.color = Color.white;
+            }
+        }
     }
 }

@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-
-public class GameManager : SingleTon<GameManager>
+public class ItemManager : SingleTon<ItemManager>
 {
     
 

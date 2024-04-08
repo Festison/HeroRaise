@@ -69,7 +69,7 @@ namespace Festioson
         #region 충돌 로직
 
         float lastAttackTime = 0f; // 마지막 공격 시간을 저장할 변수
-        float attackCooldown = 1f; // 공격 쿨다운 시간 (1초)
+        float attackCooldown = 0.65f; // 공격 쿨다운 시간 (1초)
 
         public void AttackRayCast()
         {          
@@ -81,7 +81,7 @@ namespace Festioson
 
                 foreach (RaycastHit2D hit in hits)
                 {
-                    if (hit.collider.TryGetComponent<MonsterAI>(out MonsterAI monster)&& isDamage)
+                    if (hit.collider.TryGetComponent<IHitable>(out IHitable monster)&& isDamage)
                     {
                         Attack(monster);
                         Debug.Log("공격");
@@ -107,7 +107,9 @@ namespace Festioson
 
         public void Hit(int damage)
         {
+            Debug.Log("플레이어 피격");
             DataManager.Instance.playerData.Hp -= damage;
+            UIManager.Instance.HpLerpUI();
         }
         #endregion
     }

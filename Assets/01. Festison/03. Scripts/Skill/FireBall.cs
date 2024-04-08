@@ -57,7 +57,7 @@ public class FireBall : Skill, IMoveable
 
         if (Time.time - lastAttackTime >= attackCooldown)
         {
-            if (collision.TryGetComponent<MonsterAI>(out MonsterAI monster))
+            if (collision.TryGetComponent<IHitable>(out IHitable monster))
             {
                 Attack(monster);
                 Debug.Log("스킬 충돌");
