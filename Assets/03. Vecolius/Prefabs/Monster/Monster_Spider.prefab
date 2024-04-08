@@ -255,10 +255,12 @@ MonoBehaviour:
     maxHp: 0
   state: 0
   isDie: 0
+  attackClip: {fileID: 8300000, guid: 6f4e665a7fb123e47a9cd9d56e564b93, type: 3}
   so: {fileID: 11400000, guid: 0cc61d384cbb24146a807435b1da66b3, type: 2}
   isAttackCooltime: 0
   detective: {fileID: 0}
   attackCol: {fileID: 39493926159998656}
+  col: {fileID: 0}
 --- !u!61 &8712666456777876314
 BoxCollider2D:
   m_ObjectHideFlags: 0

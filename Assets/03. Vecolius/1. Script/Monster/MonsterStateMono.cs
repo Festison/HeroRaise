@@ -64,6 +64,8 @@ namespace Veco
         [SerializeField] protected MonsterState state;
         [SerializeField] protected bool isDie;
 
+        [SerializeField] protected AudioClip attackClip;
+
         public Animator Animator => animator;
         public MonsterStatus MonsterStatus => status;
         public MonsterState State => state;

@@ -13,7 +13,7 @@ namespace Veco
         public GameObject soundObj;
         [SerializeField] AudioSource bgSound;
         [SerializeField] AudioClip[] bgClips;
-        [SerializeField] AudioClip[] SPXclips;
+        [SerializeField] public AudioClip[] sfxClips;
 
 
         private void Start()
@@ -21,7 +21,7 @@ namespace Veco
             SceneManager.sceneLoaded += OnSceneLoaded;
             bgSound = GetComponent<AudioSource>();
             
-            //BgSoundPlay(bgClips[0]);
+            BgSoundPlay(bgClips[0]);
         }
 
 
@@ -48,7 +48,10 @@ namespace Veco
         {
             GameObject soundObj = ObjectPoolManager.Instance.PopObj(this.soundObj, transform.position, transform.rotation);
             soundObj.SetActive(true);
-            soundObj.GetComponent<IPlayClipable>().SoundPlay(clip, mixer);
+            if (soundObj.TryGetComponent(out IPlayClipable play))
+                play.SoundPlay(clip, mixer);
+            else
+                Debug.Log("Interface 참조 못함");
         }
 
         public void BgSoundPlay(AudioClip clip)     //BgSound Play

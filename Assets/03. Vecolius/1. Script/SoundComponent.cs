@@ -22,7 +22,7 @@ public class SoundComponent : MonoBehaviour, IPlayClipable
     {
         if(audioPlay != null) audioPlay();
     }
-    void Start()
+    void Awake()
     {
         audioSource = GetComponent<AudioSource>();
     }

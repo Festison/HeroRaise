@@ -151,10 +151,16 @@ namespace Veco
             while (!isAttackCooltime)
             {
                 ChangeMonsterState(MonsterState.attack);
+                AttackSoundPlay();
                 isAttackCooltime = true;
                 yield return new WaitForSeconds(attackCooltime);
                 isAttackCooltime = false;
             }
+        }
+
+        void AttackSoundPlay()
+        {
+            SoundManager.Instance.SFXPlay(attackClip);
         }
 
         public void Hit(int damage)

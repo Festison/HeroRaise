@@ -268,8 +268,10 @@ MonoBehaviour:
   soundObj: {fileID: 5902668168143376490, guid: dbec67084926cdd42989767a3c95311c,
     type: 3}
   bgSound: {fileID: 0}
-  bgClips: []
-  SPXclips: []
+  bgClips:
+  - {fileID: 8300000, guid: 356075a7ca2632a4cbcb9a8f87652a2f, type: 3}
+  sfxClips:
+  - {fileID: 8300000, guid: 6f4e665a7fb123e47a9cd9d56e564b93, type: 3}
 --- !u!1 &1102755496
 GameObject:
   m_ObjectHideFlags: 0
