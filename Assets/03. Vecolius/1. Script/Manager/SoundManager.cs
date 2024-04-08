@@ -10,10 +10,10 @@ namespace Veco
     public class SoundManager : SingleTon<SoundManager>
     {
         public AudioMixer mixer;
+        public GameObject soundObj;
         [SerializeField] AudioSource bgSound;
         [SerializeField] AudioClip[] bgClips;
-        [SerializeField] AudioClip[] SPXclips;
-        [SerializeField] GameObject soundObj;
+        [SerializeField] public AudioClip[] sfxClips;
 
 
         private void Start()
@@ -21,13 +21,14 @@ namespace Veco
             SceneManager.sceneLoaded += OnSceneLoaded;
             bgSound = GetComponent<AudioSource>();
             
-            //BgSoundPlay(bgClips[0]);
+            BgSoundPlay(bgClips[0]);
         }
 
 
         private void Update()
         {
             //transform.position = Camera.main.transform.position;
+
         }
 
         //씬 전환 시, 배경음 바꿈
@@ -43,15 +44,14 @@ namespace Veco
             }
         }
 
-        public void SFXPlay(string sfxName, AudioClip clip, Transform audioPos)     //SFX Play
+        public void SFXPlay(AudioClip clip, Transform audioPos = null)     //SFX Play
         {
-            GameObject go = new GameObject(sfxName + "Sound");
-            go.transform.position = audioPos.position;
-            AudioSource audiosource = go.AddComponent<AudioSource>();
-            audiosource.outputAudioMixerGroup = mixer.FindMatchingGroups("SFX")[0];
-            audiosource.clip = clip;
-            audiosource.Play();
-            Destroy(go, clip.length);
+            GameObject soundObj = ObjectPoolManager.Instance.PopObj(this.soundObj, transform.position, transform.rotation);
+            soundObj.SetActive(true);
+            if (soundObj.TryGetComponent(out IPlayClipable play))
+                play.SoundPlay(clip, mixer);
+            else
+                Debug.Log("Interface 참조 못함");
         }
 
         public void BgSoundPlay(AudioClip clip)     //BgSound Play
