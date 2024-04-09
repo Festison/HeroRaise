@@ -796,6 +796,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HpSlider
       objectReference: {fileID: 0}
+    - target: {fileID: 6842579128977367320, guid: 71136178967c636448439beb36a6f75b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -122.39477
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2697,6 +2702,15 @@ MonoBehaviour:
   - monsterPrefab: {fileID: 9089261487053738694, guid: b963bcb827239384b9add685bc3182b7,
       type: 3}
     monsterName: "\uC2A4\uCF08\uB808\uD1A4 \uBCD1\uC0AC"
+  - monsterPrefab: {fileID: 4431216601868761423, guid: 88800876d7472e647b3415bebc6880bc,
+      type: 3}
+    monsterName: "\uC2A4\uCF08\uB808\uD1A4 \uCC3D\uBCD1"
+  - monsterPrefab: {fileID: 283244731985424569, guid: e663d7ad16d58784e8b33db552e49c52,
+      type: 3}
+    monsterName: "\uC2A4\uCF08\uB808\uD1A4 \uCC3D\uBCD1"
+  - monsterPrefab: {fileID: 2196156494728331095, guid: b5c28c0575d7a194ab279276f7cc452e,
+      type: 3}
+    monsterName: "\uC2A4\uCF08\uB808\uD1A4 \uC804\uC0AC"
   delayToWaveStart: 2
   waveIndex: 0
   spawnCooltime: 1.5
@@ -3203,6 +3217,15 @@ MonoBehaviour:
       type: 3}
     initSize: 10
   - poolingObj: {fileID: 5902668168143376490, guid: dbec67084926cdd42989767a3c95311c,
+      type: 3}
+    initSize: 10
+  - poolingObj: {fileID: 4431216601868761423, guid: 88800876d7472e647b3415bebc6880bc,
+      type: 3}
+    initSize: 10
+  - poolingObj: {fileID: 2196156494728331095, guid: b5c28c0575d7a194ab279276f7cc452e,
+      type: 3}
+    initSize: 10
+  - poolingObj: {fileID: 283244731985424569, guid: e663d7ad16d58784e8b33db552e49c52,
       type: 3}
     initSize: 10
 --- !u!4 &1440530257
@@ -7711,6 +7734,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -77
       objectReference: {fileID: 0}
+    - target: {fileID: 5429031692981859686, guid: 834c56f5886712544930f3661a7ff407,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 92.99996
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11255,7 +11283,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.23}
   m_AnchorMax: {x: 1, y: 0.95943147}
-  m_AnchoredPosition: {x: 0, y: -3.0003679}
+  m_AnchoredPosition: {x: 0, y: -3.0003672}
   m_SizeDelta: {x: 0, y: 409}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1001 &5527238041693906491
@@ -12795,7 +12823,7 @@ PrefabInstance:
     - target: {fileID: 270363916172521788, guid: d5a7c0be271a590438d46974ffcdbeb7,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2.0000024
+      value: 1.9999695
       objectReference: {fileID: 0}
     - target: {fileID: 270363916332727205, guid: d5a7c0be271a590438d46974ffcdbeb7,
         type: 3}
@@ -12865,7 +12893,7 @@ PrefabInstance:
     - target: {fileID: 1157691418011552498, guid: d5a7c0be271a590438d46974ffcdbeb7,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.7000116
+      value: -0.70001185
       objectReference: {fileID: 0}
     - target: {fileID: 1604182072882153068, guid: d5a7c0be271a590438d46974ffcdbeb7,
         type: 3}
@@ -13040,7 +13068,7 @@ PrefabInstance:
     - target: {fileID: 8521016667364292083, guid: d5a7c0be271a590438d46974ffcdbeb7,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2.9999754
+      value: 2.9999738
       objectReference: {fileID: 0}
     - target: {fileID: 8894454339378938154, guid: d5a7c0be271a590438d46974ffcdbeb7,
         type: 3}
