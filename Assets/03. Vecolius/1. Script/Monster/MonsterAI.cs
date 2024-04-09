@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 namespace Veco
 {
@@ -21,7 +22,7 @@ namespace Veco
         MonsterStateMono owner = null;
         [SerializeField] int hp;
         public int damage;
-        [SerializeField] int maxHp;
+        [SerializeField] public int maxHp;
 
         public int Hp
         {
@@ -64,6 +65,8 @@ namespace Veco
         [SerializeField] SpriteRenderer spriteRenderer;
         [SerializeField] GameObject damageText;
         [SerializeField] Transform hitPos;
+        [SerializeField] Image hpimg;
+        [SerializeField] TextMeshProUGUI hpText;
 
         void OnEnable()
         {
@@ -117,6 +120,7 @@ namespace Veco
                 ChangeMonsterState(MonsterState.run);
                 transform.Translate(Vector3.left * so.moveSpeed);
             }
+            MonsterUI();
             
         }
 
@@ -125,6 +129,7 @@ namespace Veco
         {
             base.MonsterInit();
             spriteRenderer.material.color = Color.white;
+            hpimg.fillAmount = 1f;
             sm.SetState(state.ToString());
             isAttackCooltime = false;
             col.enabled = true;
@@ -166,12 +171,8 @@ namespace Veco
 
         void AttackSoundPlay()
         {
-<<<<<<< Updated upstream
-            if(attackClip != null)
-                SoundManager.Instance.SFXPlay(attackClip);
-=======
-            //SoundManager.Instance.SFXPlay(attackClip);
->>>>>>> Stashed changes
+            //if(attackClip != null)
+            //    SoundManager.Instance.SFXPlay(attackClip);
         }
 
         public void Hit(int damage)
@@ -184,9 +185,14 @@ namespace Veco
             StartCoroutine(HitCo());
         }
 
+        public void MonsterUI()
+        {
+            hpText.text = status.Hp.ToString();
+            hpimg.fillAmount= Mathf.Lerp(hpimg.fillAmount, status.Hp / status.maxHp, Time.deltaTime * 0.2f);
+        }
+
         IEnumerator HitCo()
         {
-            Debug.Log("피격 코루틴 호출");
             spriteRenderer.material.color = Color.red;
             yield return new WaitForSeconds(0.1f);
 
