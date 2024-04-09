@@ -166,12 +166,8 @@ namespace Veco
 
         void AttackSoundPlay()
         {
-<<<<<<< Updated upstream
             if(attackClip != null)
                 SoundManager.Instance.SFXPlay(attackClip);
-=======
-            //SoundManager.Instance.SFXPlay(attackClip);
->>>>>>> Stashed changes
         }
 
         public void Hit(int damage)
