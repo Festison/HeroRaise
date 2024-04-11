@@ -8,4 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/01. Festison/01. Scene/FestisonUIScene.unity
     guid: 862dfad60db784e18b3f86ec58785669
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 28568e23a0183bf41b8560711d96caef,
+      type: 2}

@@ -44,4 +44,10 @@ namespace Veco
         void SoundPlay(AudioClip clip, AudioMixer mixer);
         void ReturnPool(); 
     }
+
+    public interface IAddressable
+    {
+        public void LoadAsset(string namePath);
+        public void UnloadAsset();
+    }
 }

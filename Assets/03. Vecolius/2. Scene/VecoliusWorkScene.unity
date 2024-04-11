@@ -2458,6 +2458,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1065453137}
   - component: {fileID: 1065453138}
+  - component: {fileID: 1065453139}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -2492,11 +2493,109 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49083ed59dee22c40b126ffccf6c7b77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixer: {fileID: 0}
-  soundObj: {fileID: 0}
+  mixer: {fileID: 24100000, guid: 482ee1f6397fd714c910f928d51da7a5, type: 2}
+  soundObj: {fileID: 5902668168143376490, guid: dbec67084926cdd42989767a3c95311c,
+    type: 3}
   bgSound: {fileID: 0}
-  bgClips: []
+  bgClips:
+  - {fileID: 8300000, guid: 356075a7ca2632a4cbcb9a8f87652a2f, type: 3}
   sfxClips: []
+--- !u!82 &1065453139
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065453136}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &1100259827 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7298252469938719433, guid: 71136178967c636448439beb36a6f75b,
@@ -6192,12 +6291,12 @@ PrefabInstance:
     - target: {fileID: 7855001354338431641, guid: 3443fc0b93a4c744a95caf32567cd71e,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -3.0003667
+      value: -3.0003679
       objectReference: {fileID: 0}
     - target: {fileID: 8125105544102143875, guid: 3443fc0b93a4c744a95caf32567cd71e,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000015258787
+      value: -0.000015258783
       objectReference: {fileID: 0}
     - target: {fileID: 8728631772731465423, guid: 3443fc0b93a4c744a95caf32567cd71e,
         type: 3}
@@ -6573,6 +6672,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 67bf23377ee844f0284a3d974b49c0c4,
         type: 3}
+    - target: {fileID: 4020210591527898208, guid: 13f960c4984a7e24ba7165b6c51eb049,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -4
+      objectReference: {fileID: 0}
     - target: {fileID: 4101391671765136596, guid: 13f960c4984a7e24ba7165b6c51eb049,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -8175,7 +8279,7 @@ PrefabInstance:
     - target: {fileID: 6842579128977367320, guid: 71136178967c636448439beb36a6f75b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -122.395256
+      value: -122.39522
       objectReference: {fileID: 0}
     - target: {fileID: 9126696136757928823, guid: 71136178967c636448439beb36a6f75b,
         type: 3}
