@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 namespace Veco
@@ -21,7 +22,7 @@ namespace Veco
         MonsterStateMono owner = null;
         [SerializeField] int hp;
         public int damage;
-        [SerializeField] int maxHp;
+        [SerializeField] public int maxHp;
 
         public int Hp
         {
@@ -64,7 +65,8 @@ namespace Veco
         [SerializeField] SpriteRenderer spriteRenderer;
         [SerializeField] GameObject damageText;
         [SerializeField] Transform hitPos;
-
+        [SerializeField] Image hpimg;
+        [SerializeField] TextMeshProUGUI hpText;
         void OnEnable()
         {
             if(sm != null)  MonsterInit();
@@ -117,7 +119,7 @@ namespace Veco
                 ChangeMonsterState(MonsterState.run);
                 transform.Translate(Vector3.left * so.moveSpeed);
             }
-            
+            MonsterUI();
         }
 
         //몬스터 status 초기화
@@ -126,6 +128,7 @@ namespace Veco
             base.MonsterInit();
             spriteRenderer.material.color = Color.white;
             sm.SetState(state.ToString());
+            hpimg.fillAmount = 1f;
             isAttackCooltime = false;
             col.enabled = true;
             status = new MonsterStatus(so, Time.time, this);
@@ -168,6 +171,12 @@ namespace Veco
         {
             if(attackClip != null)
                 SoundManager.Instance.SFXPlay(attackClip);
+        }
+
+        public void MonsterUI()
+        {
+            hpText.text = status.Hp.ToString();
+            hpimg.fillAmount = Mathf.Lerp(hpimg.fillAmount, status.Hp / status.maxHp, Time.deltaTime * 0.2f);
         }
 
         public void Hit(int damage)
