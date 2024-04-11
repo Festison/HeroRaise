@@ -340,6 +340,8 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   damageText: {fileID: 5115795136569303545}
   hitPos: {fileID: 2154209700917310805}
+  hpimg: {fileID: 708003265214641064}
+  hpText: {fileID: 2459446680301362071}
 --- !u!61 &8712666456777876314
 BoxCollider2D:
   m_ObjectHideFlags: 0

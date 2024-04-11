@@ -176,7 +176,7 @@ namespace Veco
         public void MonsterUI()
         {
             hpText.text = status.Hp.ToString();
-            hpimg.fillAmount = Mathf.Lerp(hpimg.fillAmount, status.Hp / status.maxHp, Time.deltaTime * 0.2f);
+            hpimg.fillAmount = Mathf.Lerp(hpimg.fillAmount, status.Hp / status.maxHp, Time.deltaTime * 0.3f);
         }
 
         public void Hit(int damage)
