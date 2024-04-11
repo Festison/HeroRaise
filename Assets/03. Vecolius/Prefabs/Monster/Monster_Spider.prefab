@@ -340,6 +340,8 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   damageText: {fileID: 5115795136569303545}
   hitPos: {fileID: 2154209700917310805}
+  hpimg: {fileID: 708003265214641064}
+  hpText: {fileID: 2459446680301362071}
 --- !u!61 &8712666456777876314
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -539,7 +541,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.347}
+  m_AnchoredPosition: {x: 0, y: -0.33}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2080771106614860507
