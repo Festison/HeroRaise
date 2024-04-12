@@ -30,7 +30,7 @@ public class ItemSlot : Slot
                 break;
         }
 
-        ItemManager.Instance.ItemImage.sprite = ItemManager.Instance.itemSprites[i];
+        ItemManager.Instance.ItemImage.sprite = ItemManager.Instance.EquimentImg[i].sprite;
         ItemManager.Instance.ItemExplanation[0].text = ItemManager.Instance.equimentItemList[i].ItemGrade;
         ItemManager.Instance.ItemExplanation[1].text = ItemManager.Instance.equimentItemList[i].Name;
         ItemManager.Instance.ItemExplanation[2].text = ItemManager.Instance.equimentItemList[i].Explain;

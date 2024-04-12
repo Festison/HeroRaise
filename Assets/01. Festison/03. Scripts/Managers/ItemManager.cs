@@ -54,6 +54,7 @@ public class ItemManager : SingleTon<ItemManager>
         LoadItemData();
     }
 
+    #region 데이터 저장 로직
     private void InitItemList()
     {
 
@@ -63,7 +64,6 @@ public class ItemManager : SingleTon<ItemManager>
         File.WriteAllText(itempath, "����");
     }
 
-
     private void LoadItemData()
     {
         if (!File.Exists(itempath))
@@ -72,7 +72,9 @@ public class ItemManager : SingleTon<ItemManager>
         }
         string itemdata = File.ReadAllText(itempath);
     }
+    #endregion
 
+    #region 아이템 뽑기및 장착 로직
     public void DrawItem()
     {
         float totalProbability = 0;
@@ -135,41 +137,31 @@ public class ItemManager : SingleTon<ItemManager>
         switch (item.Type)
         {
             case "Weapon":
+                if (!equimentItemList.Contains(item)) equimentItemList[0] = item;
                 EquimentImg[0].sprite = ItemImage.sprite;
                 int parseDamage = (int.Parse(item.Stat));
                 DataManager.Instance.playerData.damage += parseDamage;
-                if (!equimentItemList.Contains(item))
-                {
-                    // 아이템을 리스트에 추가
-                    equimentItemList[0] = item;
-                }
                 break;
             case "Helmet":
+                if (!equimentItemList.Contains(item)) equimentItemList[1] = item;
                 EquimentImg[1].sprite = ItemImage.sprite;
-                if (!equimentItemList.Contains(item))
-                {
-                    // 아이템을 리스트에 추가
-                    equimentItemList[1] = item;
-                }
+                int parseCriticalChance = (int.Parse(item.Stat));
+                DataManager.Instance.playerData.criticalChance += parseCriticalChance;                
                 break;
             case "Armor":
+                if (!equimentItemList.Contains(item)) equimentItemList[2] = item;
                 EquimentImg[2].sprite = ItemImage.sprite;
-                if (!equimentItemList.Contains(item))
-                {
-                    // 아이템을 리스트에 추가
-                    equimentItemList[2] = item;
-                }
+                int parseCriticalDamage = (int.Parse(item.Stat));
+                DataManager.Instance.playerData.criticalDamage += parseCriticalDamage;             
                 break;
             case "Shoes":
+                if (!equimentItemList.Contains(item)) equimentItemList[3] = item;
                 EquimentImg[3].sprite = ItemImage.sprite;
-                if (!equimentItemList.Contains(item))
-                {
-                    // 아이템을 리스트에 추가
-                    equimentItemList[3] = item;
-                }
+                int parseAttackSpeed = (int.Parse(item.Stat));
+                DataManager.Instance.playerData.attackSpeed += parseAttackSpeed;           
                 break;
         }
     }
-
+    #endregion
 
 }
