@@ -21,7 +21,7 @@ namespace Veco
             base.Awake();
             detective = GetComponent<DetectiveComponent>();
             col = GetComponent<Collider2D>();
-            status = new MonsterStatus(so, Time.time, this);
+            status = new MonsterStatus(so, this);
         }
         protected override void Start()
         {

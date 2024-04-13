@@ -39,7 +39,7 @@ namespace Veco
             }
         }
 
-        public MonsterStatus(MonsterStatusSO so, float time, object owner)
+        public MonsterStatus(MonsterStatusSO so, object owner)
         {
             int waveNum;
             if (WaveManager.Instance != null)
@@ -69,7 +69,7 @@ namespace Veco
         [SerializeField] TextMeshProUGUI hpText;
         void OnEnable()
         {
-            if(sm != null)  MonsterInit();
+            MonsterInit();
         }
 
         protected override void Awake()
@@ -78,7 +78,7 @@ namespace Veco
             spriteRenderer = GetComponent<SpriteRenderer>();
             detective = GetComponent<DetectiveComponent>();
             col = GetComponent<Collider2D>();            
-            status = new MonsterStatus(so, Time.time, this);
+            status = new MonsterStatus(so, this);
         }
         protected override void Start()
         {
@@ -125,14 +125,18 @@ namespace Veco
         //몬스터 status 초기화
         protected override void MonsterInit()
         {
-            base.MonsterInit();
-            spriteRenderer.material.color = Color.white;
-            sm.SetState(state.ToString());
-            hpimg.fillAmount = 1f;
-            isAttackCooltime = false;
-            col.enabled = true;
-            status = new MonsterStatus(so, Time.time, this);
+            if (sm != null)
+            {
+                base.MonsterInit();
+                sm.SetState(state.ToString());
+                spriteRenderer.material.color = Color.white;
+                hpimg.fillAmount = 1f;
+                isAttackCooltime = false;
+                col.enabled = true;
+            }
+            status = new MonsterStatus(so, this);
         }
+
 
         public override void Dead()
         {

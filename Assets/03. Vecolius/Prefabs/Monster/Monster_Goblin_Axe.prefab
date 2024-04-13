@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.31, y: -3.31, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 510085869872122970}
@@ -202,11 +202,17 @@ MonoBehaviour:
     maxHp: 0
   state: 0
   isDie: 0
+  attackClip: {fileID: 0}
   so: {fileID: 11400000, guid: 4aa94d8981f080c41b79842fc1064abe, type: 2}
   isAttackCooltime: 0
   detective: {fileID: 0}
   attackCol: {fileID: 2211888246449677684}
   col: {fileID: 8446429250861228131}
+  spriteRenderer: {fileID: 0}
+  damageText: {fileID: 0}
+  hitPos: {fileID: 0}
+  hpimg: {fileID: 0}
+  hpText: {fileID: 0}
 --- !u!114 &2646772426938295736
 MonoBehaviour:
   m_ObjectHideFlags: 0
