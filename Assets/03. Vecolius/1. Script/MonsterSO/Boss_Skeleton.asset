@@ -17,5 +17,5 @@ MonoBehaviour:
   moveSpeed: 0
   attackSpeed: 4
   defaultAttackDamage: 15
-  attackRange: 4
+  attackRange: 1.2
   gold: 30
