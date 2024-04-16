@@ -4,6 +4,7 @@ using UnityEngine;
 using System.IO;
 using Festioson;
 using TMPro;
+using Veco;
 
 // 저장 순서
 // 1. 저장할 데이터를 가져온다.
@@ -21,6 +22,7 @@ public class PlayerItem
     public int maxEnergy;
     public int gold;
     public int gem;
+    public int waveData;
 }
 
 public class DataManager : SingleTon<DataManager>
@@ -29,7 +31,7 @@ public class DataManager : SingleTon<DataManager>
 
     public SkillSo skilldata;
 
-    public PlayerItem PlayerItem = new PlayerItem() { currentEnergy = 1, maxEnergy = 2, gold = 0, gem = 0 };
+    public PlayerItem PlayerItem = new PlayerItem() { currentEnergy = 1, maxEnergy = 2, gold = 0, gem = 0, waveData = 0 };
     public PlayerModel playerData = new PlayerModel();
 
     private float decreasetime = 100f;
@@ -48,7 +50,13 @@ public class DataManager : SingleTon<DataManager>
         json = Path.Combine(Application.dataPath + "/01. Festison/06. Data/", "playerData.json");
         string playerData = JsonUtility.ToJson(this.playerData, true);
         File.WriteAllText(json, playerData);
+
+        string testJson = Path.Combine(Application.dataPath + "/01. Festison/06. Data/", "playerItemData.json");
+        string playerItemData = JsonUtility.ToJson(this.PlayerItem, true);
+        File.WriteAllText(testJson, playerItemData);
+
         LoadData();
+        WaveManager.Instance.InvokeWaveStart();
     }
 
     private void Update()
