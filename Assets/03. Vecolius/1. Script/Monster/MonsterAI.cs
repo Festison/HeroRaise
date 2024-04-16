@@ -144,6 +144,7 @@ namespace Veco
             col.enabled = false;
             attackCol.enabled = false;
             WaveManager.Instance.WaveMonsterCount++;
+            DataManager.Instance.PlayerItem.gold += 1000;
 
             StopCoroutine(attackCo);
             ChangeMonsterState(MonsterState.die);

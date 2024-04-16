@@ -22,6 +22,7 @@ public class PlayerItem
     public int gold;
     public int gem;
 }
+
 public class DataManager : SingleTon<DataManager>
 {
     public TextMeshProUGUI[] itemText;
@@ -79,7 +80,9 @@ public class DataManager : SingleTon<DataManager>
     public IEnumerator SaveDataCo()
     {
         string playerData = JsonUtility.ToJson(this.playerData, true);
+        string playerItem = JsonUtility.ToJson(this.PlayerItem, true);
         File.WriteAllText(path, playerData);
+        File.WriteAllText(path, playerItem);
         Debug.Log("데이터 저장");
         yield return new WaitForSeconds(2f);
     }
@@ -88,6 +91,8 @@ public class DataManager : SingleTon<DataManager>
     {      
         string playerDataString = JsonUtility.ToJson(playerData, true);
         File.WriteAllText(path, playerDataString);
+        string playerItemString = JsonUtility.ToJson(PlayerItem, true);
+        File.WriteAllText(path, playerItemString);
     }
 
     public void LoadData()
@@ -100,6 +105,8 @@ public class DataManager : SingleTon<DataManager>
 
         string data = File.ReadAllText(path);
         playerData = JsonUtility.FromJson<PlayerModel>(data);
+        string Itemdata = File.ReadAllText(path);
+        PlayerItem = JsonUtility.FromJson<PlayerItem>(Itemdata);
     }
 
     public void GameExit()

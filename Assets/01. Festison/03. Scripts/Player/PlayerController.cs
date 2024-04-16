@@ -18,7 +18,7 @@ namespace Festioson
         private PlayerView playerView;
         private event Action StartLogic;
         [SerializeField] LayerMask monsterLayer;
-        private bool isDamage=false;
+        private bool isDamage = false;
 
         private void Start()
         {
@@ -42,12 +42,16 @@ namespace Festioson
         }
 
         public void LevelUp()
-        {
-            DataManager.Instance.playerData.Level++;
-            DataManager.Instance.playerData.MaxHp += 10;
-            DataManager.Instance.playerData.Hp += 10;
-            DataManager.Instance.playerData.Damage += 2;
-
+        {          
+            if (DataManager.Instance.PlayerItem.gold > 0)
+            {
+                DataManager.Instance.PlayerItem.gold -= 1000;
+                DataManager.Instance.playerData.Level++;
+                DataManager.Instance.playerData.MaxHp += 10;
+                DataManager.Instance.playerData.Hp += 10;
+                DataManager.Instance.playerData.Damage += 2;
+            }
+            
             playerView.ChangeSkin(skeletonAnimation, DataManager.Instance.playerData.Level);
         }
         #endregion
@@ -72,7 +76,7 @@ namespace Festioson
         float attackCooldown = 0.65f; // 공격 쿨다운 시간 (1초)
 
         public void AttackRayCast()
-        {          
+        {
             if (Time.time - lastAttackTime >= attackCooldown)
             {
                 Debug.DrawRay(transform.position + new Vector3(0, 0.3f, 0), transform.right, Color.yellow);
@@ -81,7 +85,7 @@ namespace Festioson
 
                 foreach (RaycastHit2D hit in hits)
                 {
-                    if (hit.collider.TryGetComponent<IHitable>(out IHitable monster)&& isDamage)
+                    if (hit.collider.TryGetComponent<IHitable>(out IHitable monster) && isDamage)
                     {
                         Attack(monster);
                         Debug.Log("공격");
