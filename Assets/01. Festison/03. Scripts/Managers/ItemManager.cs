@@ -25,6 +25,7 @@ public class Item
     public bool isUsing;
 
 }
+
 public class ItemManager : SingleTon<ItemManager>
 {
     [Header("아이템의 기본 데이터")]
@@ -138,24 +139,28 @@ public class ItemManager : SingleTon<ItemManager>
         {
             case "Weapon":
                 if (!equimentItemList.Contains(item)) equimentItemList[0] = item;
+                if (equimentItemList[0]!=null) DataManager.Instance.playerData.damage -= int.Parse(equimentItemList[0].Stat);
                 EquimentImg[0].sprite = ItemImage.sprite;
                 int parseDamage = (int.Parse(item.Stat));
                 DataManager.Instance.playerData.damage += parseDamage;
                 break;
             case "Helmet":
                 if (!equimentItemList.Contains(item)) equimentItemList[1] = item;
+                if (equimentItemList[1] != null) DataManager.Instance.playerData.criticalChance -= float.Parse(equimentItemList[1].Stat);
                 EquimentImg[1].sprite = ItemImage.sprite;
                 int parseCriticalChance = (int.Parse(item.Stat));
                 DataManager.Instance.playerData.criticalChance += parseCriticalChance;                
                 break;
             case "Armor":
                 if (!equimentItemList.Contains(item)) equimentItemList[2] = item;
+                if (equimentItemList[2] != null) DataManager.Instance.playerData.criticalDamage -= float.Parse(equimentItemList[2].Stat);
                 EquimentImg[2].sprite = ItemImage.sprite;
                 int parseCriticalDamage = (int.Parse(item.Stat));
                 DataManager.Instance.playerData.criticalDamage += parseCriticalDamage;             
                 break;
             case "Shoes":
                 if (!equimentItemList.Contains(item)) equimentItemList[3] = item;
+                if (equimentItemList[3] != null) DataManager.Instance.playerData.attackSpeed -= float.Parse(equimentItemList[3].Stat);
                 EquimentImg[3].sprite = ItemImage.sprite;
                 int parseAttackSpeed = (int.Parse(item.Stat));
                 DataManager.Instance.playerData.attackSpeed += parseAttackSpeed;           
