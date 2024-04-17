@@ -19,6 +19,10 @@ public class UIManager : SingleTon<UIManager>
     public void Start()
     {
         infoBtn.Select();
+    }
+
+    public void Update()
+    {
         HpLerpUI();
     }
 

@@ -62,7 +62,7 @@ public class ItemManager : SingleTon<ItemManager>
     }
     private void SaveItemData()
     {
-        File.WriteAllText(itempath, "����");
+        File.WriteAllText(itempath, "아이템 데이터 저장");
     }
 
     private void LoadItemData()
@@ -138,29 +138,33 @@ public class ItemManager : SingleTon<ItemManager>
         switch (item.Type)
         {
             case "Weapon":
+                if (equimentItemList[0].isUsing) DataManager.Instance.playerData.damage -= int.Parse(equimentItemList[0].Stat);
                 if (!equimentItemList.Contains(item)) equimentItemList[0] = item;
-                if (equimentItemList[0]!=null) DataManager.Instance.playerData.damage -= int.Parse(equimentItemList[0].Stat);
+                equimentItemList[0].isUsing = true;
                 EquimentImg[0].sprite = ItemImage.sprite;
                 int parseDamage = (int.Parse(item.Stat));
                 DataManager.Instance.playerData.damage += parseDamage;
                 break;
             case "Helmet":
+                if (equimentItemList[1].isUsing) DataManager.Instance.playerData.criticalChance -= float.Parse(equimentItemList[1].Stat);
                 if (!equimentItemList.Contains(item)) equimentItemList[1] = item;
-                if (equimentItemList[1] != null) DataManager.Instance.playerData.criticalChance -= float.Parse(equimentItemList[1].Stat);
+                equimentItemList[1].isUsing = true;
                 EquimentImg[1].sprite = ItemImage.sprite;
                 int parseCriticalChance = (int.Parse(item.Stat));
                 DataManager.Instance.playerData.criticalChance += parseCriticalChance;                
                 break;
             case "Armor":
+                if (equimentItemList[2].isUsing) DataManager.Instance.playerData.criticalDamage -= float.Parse(equimentItemList[2].Stat);
                 if (!equimentItemList.Contains(item)) equimentItemList[2] = item;
-                if (equimentItemList[2] != null) DataManager.Instance.playerData.criticalDamage -= float.Parse(equimentItemList[2].Stat);
+                equimentItemList[2].isUsing = true;
                 EquimentImg[2].sprite = ItemImage.sprite;
                 int parseCriticalDamage = (int.Parse(item.Stat));
                 DataManager.Instance.playerData.criticalDamage += parseCriticalDamage;             
                 break;
             case "Shoes":
+                if (equimentItemList[3].isUsing) DataManager.Instance.playerData.attackSpeed -= float.Parse(equimentItemList[3].Stat);
                 if (!equimentItemList.Contains(item)) equimentItemList[3] = item;
-                if (equimentItemList[3] != null) DataManager.Instance.playerData.attackSpeed -= float.Parse(equimentItemList[3].Stat);
+                equimentItemList[3].isUsing = true;
                 EquimentImg[3].sprite = ItemImage.sprite;
                 int parseAttackSpeed = (int.Parse(item.Stat));
                 DataManager.Instance.playerData.attackSpeed += parseAttackSpeed;           

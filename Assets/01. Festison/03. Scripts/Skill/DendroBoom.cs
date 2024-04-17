@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using Veco;
 
-public class Lightning : Skill
+public class DendroBoom : Skill
 {
     WaitForSeconds waitForSeconds = new WaitForSeconds(2f);
 
@@ -18,15 +18,15 @@ public class Lightning : Skill
     }
 
     float lastAttackTime = 0f; // 마지막 공격 시간을 저장할 변수
-    float attackCooldown = 0.3f; // 공격 쿨다운 시간 (1초)
+    float attackCooldown = 2f; // 공격 쿨다운 시간 (1초)
     float rayDistance = 2f;
     public void SkillAttackRayCast()
     {
         if (Time.time - lastAttackTime >= attackCooldown)
         {
-            Debug.DrawRay(transform.position + new Vector3(-1.5f, 0.3f, 0), transform.right + new Vector3(2f,0,0), Color.red);
+            Debug.DrawRay(transform.position + new Vector3(-1.5f, -0.7f, 0), transform.right + new Vector3(2f, 0, 0), Color.red);
 
-            RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position + new Vector3(-1.5f, 0.3f, 0), transform.right + new Vector3(2f, 0, 0), rayDistance, LayerMask.GetMask("Monster"));
+            RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position + new Vector3(-1.5f, -0.7f, 0), transform.right + new Vector3(2f, 0, 0), rayDistance, LayerMask.GetMask("Monster"));
 
             foreach (RaycastHit2D hit in hits)
             {
@@ -43,5 +43,4 @@ public class Lightning : Skill
     {
         hitable.Hit(10);
     }
-
 }

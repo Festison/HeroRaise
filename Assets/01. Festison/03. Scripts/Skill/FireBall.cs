@@ -36,13 +36,14 @@ public class FireBall : Skill, IMoveable
 
     void Update()
     {
-        StartCoroutine(DelayCo());
+        StartCoroutine(DelayCo());       
     }
 
     IEnumerator DelayCo()
     {
         yield return waitForSeconds;
         Move();
+        SkillAttackRayCast();
     }
 
     public void Move()
@@ -50,23 +51,29 @@ public class FireBall : Skill, IMoveable
         Rigidbody2D.AddForce(transform.forward * Speed, ForceMode2D.Impulse);
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    float lastAttackTime = 0f; // 마지막 공격 시간을 저장할 변수
+    float attackCooldown = 0.1f; // 공격 쿨다운 시간 (1초)
+    public void SkillAttackRayCast()
     {
-        float lastAttackTime = 0f; // 마지막 공격 시간을 저장할 변수
-        float attackCooldown = 1f; // 공격 쿨다운 시간 (1초)
-
         if (Time.time - lastAttackTime >= attackCooldown)
         {
-            if (collision.TryGetComponent<IHitable>(out IHitable monster))
+            Debug.DrawRay(transform.position, transform.forward, Color.blue);
+
+            RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, transform.forward, 0.5f, LayerMask.GetMask("Monster"));
+
+            foreach (RaycastHit2D hit in hits)
             {
-                Attack(monster);
-                Debug.Log("스킬 충돌");
+                if (hit.collider.TryGetComponent(out IHitable monster))
+                {
+                    Attack(monster);
+                    lastAttackTime = Time.time; // 공격 시간을 업데이트
+                }
             }
-        }     
+        }
     }
 
     public override void Attack(IHitable hitable)
     {
-        hitable.Hit(DataManager.Instance.playerData.Damage);
+        hitable.Hit(10);
     }
 }

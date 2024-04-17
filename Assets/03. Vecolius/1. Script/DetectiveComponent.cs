@@ -38,7 +38,6 @@ namespace Veco
             RaycastHit2D[] cols = Physics2D.RaycastAll(transform.position, Vector3.left, detectiveRange, TargetLayer);
             if (cols.Length > 0)
             {
-                Debug.Log(cols[0].transform.name);
                 isFind = true;
             }
         }

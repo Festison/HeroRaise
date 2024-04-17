@@ -85,10 +85,9 @@ namespace Festioson
 
                 foreach (RaycastHit2D hit in hits)
                 {
-                    if (hit.collider.TryGetComponent<IHitable>(out IHitable monster) && isDamage)
+                    if (hit.collider.TryGetComponent(out IHitable monster) && isDamage)
                     {
                         Attack(monster);
-                        Debug.Log("공격");
                         lastAttackTime = Time.time; // 공격 시간을 업데이트
                     }
                 }
@@ -111,7 +110,6 @@ namespace Festioson
 
         public void Hit(int damage)
         {
-            Debug.Log("플레이어 피격");
             DataManager.Instance.playerData.Hp -= damage;
             UIManager.Instance.HpLerpUI();
         }

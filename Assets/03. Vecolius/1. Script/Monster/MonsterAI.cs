@@ -181,12 +181,11 @@ namespace Veco
         public void MonsterUI()
         {
             hpText.text = status.Hp.ToString();
-            hpimg.fillAmount = Mathf.Lerp(hpimg.fillAmount, status.Hp / status.maxHp, Time.deltaTime * 0.3f);
+            hpimg.fillAmount = Mathf.Lerp(hpimg.fillAmount, status.Hp / status.maxHp, Time.deltaTime * 0.35f);
         }
 
         public void Hit(int damage)
         {
-            Debug.Log("맞은 데미지 : " + damage);
             damageText.GetComponent<DamageText>().damage = damage;
             damageText.SetActive(true);           
             damageText.transform.position = hitPos.position;
@@ -196,7 +195,6 @@ namespace Veco
 
         IEnumerator HitCo()
         {
-            Debug.Log("피격 코루틴 호출");
             spriteRenderer.material.color = Color.red;
             yield return new WaitForSeconds(0.1f);
 

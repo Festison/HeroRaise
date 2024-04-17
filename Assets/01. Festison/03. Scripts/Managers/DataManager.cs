@@ -19,7 +19,7 @@ using Veco;
 public class PlayerItem
 {
     public int currentEnergy;
-    public int maxEnergy;
+    public readonly int maxEnergy = 2;
     public int gold;
     public int gem;
     public int waveData;
@@ -31,37 +31,43 @@ public class DataManager : SingleTon<DataManager>
 
     public SkillSo skilldata;
 
-    public PlayerItem PlayerItem = new PlayerItem() { currentEnergy = 1, maxEnergy = 2, gold = 0, gem = 0, waveData = 0 };
+    public PlayerItem PlayerItem = new PlayerItem() { currentEnergy = 1, gold = 0, gem = 0, waveData = 0 };
     public PlayerModel playerData = new PlayerModel();
 
     private float decreasetime = 100f;
 
     private string path;
+    string json;
+    string testJson;
 
     protected override void Awake()
     {
         base.Awake();
+
         // 유니티에서 자동으로 생성해주는 폴더를 경로로 사용
         path = Application.persistentDataPath + "/Datasave.txt";
     }
     private void Start()
     {
-        string json;
+        
         json = Path.Combine(Application.dataPath + "/01. Festison/06. Data/", "playerData.json");
         string playerData = JsonUtility.ToJson(this.playerData, true);
         File.WriteAllText(json, playerData);
 
-        string testJson = Path.Combine(Application.dataPath + "/01. Festison/06. Data/", "playerItemData.json");
+        testJson = Path.Combine(Application.dataPath + "/01. Festison/06. Data/", "playerItemData.json");
         string playerItemData = JsonUtility.ToJson(this.PlayerItem, true);
         File.WriteAllText(testJson, playerItemData);
 
-        LoadData();
+
+        LoadItemData();
+        LoadPlayerData();
         WaveManager.Instance.InvokeWaveStart();
     }
 
     private void Update()
     {
-        StartCoroutine(SaveDataCo());
+        StartCoroutine(SavePlayerDataCo());
+        StartCoroutine(SaveItemDataCo());
 
         if (PlayerItem.currentEnergy < 2)
         {
@@ -81,39 +87,51 @@ public class DataManager : SingleTon<DataManager>
         playerData.attackSpeed = 1.0f;
         playerData.criticalChance = 5.0f;
         playerData.criticalDamage = 1.25f;
-        SaveData();
-        LoadData();
+        SavePlayerData();
+        LoadPlayerData();
     }
 
-    public IEnumerator SaveDataCo()
+    public IEnumerator SavePlayerDataCo()
     {
         string playerData = JsonUtility.ToJson(this.playerData, true);
-        string playerItem = JsonUtility.ToJson(this.PlayerItem, true);
-        File.WriteAllText(path, playerData);
-        File.WriteAllText(path, playerItem);
-        Debug.Log("데이터 저장");
+        File.WriteAllText(json, playerData);
         yield return new WaitForSeconds(2f);
     }
 
-    public void SaveData()
-    {      
-        string playerDataString = JsonUtility.ToJson(playerData, true);
-        File.WriteAllText(path, playerDataString);
-        string playerItemString = JsonUtility.ToJson(PlayerItem, true);
-        File.WriteAllText(path, playerItemString);
+    public IEnumerator SaveItemDataCo()
+    {
+        string playerItem = JsonUtility.ToJson(this.PlayerItem, true);
+        File.WriteAllText(testJson, playerItem);
+        yield return new WaitForSeconds(2f);
     }
 
-    public void LoadData()
+    public void SavePlayerData()
     {
-        if (!File.Exists(path))
+        string playerDataString = JsonUtility.ToJson(playerData, true);
+        File.WriteAllText(json, playerDataString);
+    }
+
+    public void SaveItemData()
+    {
+        string playerItemString = JsonUtility.ToJson(PlayerItem, true);
+        File.WriteAllText(testJson, playerItemString);
+    }
+
+    public void LoadPlayerData()
+    {
+        if (!File.Exists(json))
         {
             InitData();
             return;
         }
 
-        string data = File.ReadAllText(path);
-        playerData = JsonUtility.FromJson<PlayerModel>(data);
-        string Itemdata = File.ReadAllText(path);
+        string data = File.ReadAllText(json);
+        playerData = JsonUtility.FromJson<PlayerModel>(data);       
+    }
+
+    public void LoadItemData()
+    {
+        string Itemdata = File.ReadAllText(testJson);
         PlayerItem = JsonUtility.FromJson<PlayerItem>(Itemdata);
     }
 
@@ -121,7 +139,8 @@ public class DataManager : SingleTon<DataManager>
     {
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
-        SaveData();
+        SavePlayerData();
+        SaveItemData();
 #else
         Application.Quit();
         SaveData();
@@ -135,6 +154,7 @@ public class DataManager : SingleTon<DataManager>
         itemText[0].text = PlayerItem.currentEnergy + " / " + PlayerItem.maxEnergy;
         itemText[1].text = PlayerItem.gold.ToString();
         itemText[2].text = PlayerItem.gem.ToString(); ;
+        itemText[4].text = "Stage " + (PlayerItem.waveData + 1).ToString();
 
         int minutes = (int)decreasetime / 60; // 분
         int seconds = (int)decreasetime % 60; // 초
