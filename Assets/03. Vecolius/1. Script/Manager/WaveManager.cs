@@ -36,7 +36,12 @@ namespace Veco
         WaitForSeconds waitforSecond;
 
         public int WaveNumber => waveIndex + 1;                //웨이브 몇번째
-        public int WaveIndex => waveIndex;
+        public int WaveIndex
+        {
+            get=> waveIndex;
+            set => waveIndex = value;
+        }
+
         public int WaveMonsterCount
         {
             get => waveMonsterCount;
@@ -48,6 +53,7 @@ namespace Veco
                     StopCoroutine(spawnCo);
                     waveMonsterCount = 0;
                     waveIndex++;
+                    DataManager.Instance.PlayerItem.waveData++;
 
                     Invoke("WaveStart", delayToWaveStart);
                 }
@@ -60,8 +66,10 @@ namespace Veco
             spawnMonsterList = new List<GameObject>();
             //spawnCo = SpawnCo();
 
-            Invoke("WaveStart", delayToWaveStart);
-            //StartCoroutine(spawnCo);
+            //Debug.Log("waveIndex : "+DataManager.Instance.PlayerItem.waveData);
+            //waveIndex = DataManager.Instance.PlayerItem.waveData;
+
+            //Invoke("WaveStart", delayToWaveStart);
         }
 
         private void Update()
@@ -70,6 +78,11 @@ namespace Veco
                 GameObject.FindAnyObjectByType<MonsterStateMono>().Dead();
         }
 
+        public void InvokeWaveStart()
+        {
+            waveIndex = DataManager.Instance.PlayerItem.waveData;
+            Invoke("WaveStart", delayToWaveStart);
+        }
         public void WaveStart()
         {
             spawnMonsterList.Clear();
