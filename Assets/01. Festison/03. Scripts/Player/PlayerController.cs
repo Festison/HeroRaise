@@ -33,12 +33,15 @@ namespace Festioson
         private void FixedUpdate()
         {
             AttackRayCast();
+
+            
         }
         #region 이벤트 로직
         public void ViewUpdate()
         {
             playerView.UpdateUI(DataManager.Instance.playerData);
             playerView.ChangeSkin(skeletonAnimation, DataManager.Instance.playerData.Level);
+            skeletonAnimation.timeScale = DataManager.Instance.playerData.attackSpeed;
         }
 
         public void LevelUp()
@@ -110,8 +113,9 @@ namespace Festioson
 
         public void Hit(int damage)
         {
-            DataManager.Instance.playerData.Hp -= damage;
+            DataManager.Instance.playerData.Hp -= 2;
             UIManager.Instance.HpLerpUI();
+            ViewUpdate();
         }
         #endregion
     }

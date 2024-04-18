@@ -15,6 +15,7 @@ public class SkillData
     public float coolTime;
     public int level;
     public int count;
+    public int LevelUpCount = 2;
     public float percent;
     public bool isGetSkill;
     public bool isUseSkill;

@@ -84,7 +84,7 @@ public class SkillManager : SingleTon<SkillManager>
                 skillExplanation[1].text = "Lv" + skillSo.skillData[i].level.ToString();
                 skillExplanation[2].text = skillSo.skillData[i].skillName;
                 skillExplanation[3].text = skillSo.skillData[i].skillExplanation + "   " + "데미지 : " + skillSo.skillData[i].damage.ToString();
-                skillExplanation[5].text = skillSo.skillData[i].count.ToString() + " / " + "2";
+                skillExplanation[5].text = skillSo.skillData[i].count.ToString() + " / " + skillSo.skillData[i].LevelUpCount.ToString();
                 useSkillText.text = "장착될 슬롯 : " + (currentIndex + 1).ToString() + "번 째 ";
                 skillSo.skillData[i].isGetSkill = true;
 
@@ -179,6 +179,16 @@ public class SkillManager : SingleTon<SkillManager>
             case "BlackNova":
                 SkillEffect[8].SetActive(true);
                 break;
+        }
+    }
+
+    public void SkillLevelUp()
+    {
+        if (skillSo.skillData[skillNumber].count >= skillSo.skillData[skillNumber].LevelUpCount && DataManager.Instance.PlayerItem.gold > 10000)
+        {
+            skillSo.skillData[skillNumber].damage *= 2;
+            skillSo.skillData[skillNumber].LevelUpCount *= 2;
+            DataManager.Instance.PlayerItem.gold -= 10000;
         }
     }
 }

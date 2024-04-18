@@ -119,7 +119,8 @@ namespace Veco
                 ChangeMonsterState(MonsterState.run);
                 transform.Translate(Vector3.left * so.moveSpeed);
             }
-            MonsterUI();
+            hpText.text = status.Hp.ToString();
+
         }
 
         //몬스터 status 초기화
@@ -179,9 +180,8 @@ namespace Veco
         }
 
         public void MonsterUI()
-        {
-            hpText.text = status.Hp.ToString();
-            hpimg.fillAmount = Mathf.Lerp(hpimg.fillAmount, status.Hp / status.maxHp, Time.deltaTime * 0.35f);
+        {          
+            hpimg.fillAmount = Mathf.Lerp(hpimg.fillAmount, status.Hp / status.maxHp, Time.deltaTime * 10f);
         }
 
         public void Hit(int damage)
@@ -191,6 +191,7 @@ namespace Veco
             damageText.transform.position = hitPos.position;
             status.Hp -= damage;
             StartCoroutine(HitCo());
+            MonsterUI();
         }
 
         IEnumerator HitCo()

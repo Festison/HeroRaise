@@ -38,7 +38,7 @@ namespace Festioson
             playerTextView[2].text = "공격력 : " + playerData.Damage;
             playerTextView[3].text = "공격속도 : " + playerData.AttackSpeed;
             playerTextView[4].text = "치명타 확률 : " + playerData.CriticalChance + "%";
-            playerTextView[5].text = "치명타 데미지 : " + playerData.CriticalDamage * 100 + "%";
+            playerTextView[5].text = "치명타 데미지 : " + playerData.CriticalDamage + "%";
         }
 
         public void ChangeSkin(SkeletonAnimation skeletonAnimation, int level)
@@ -73,8 +73,8 @@ namespace Festioson
                 skeletonAnimation.skeleton.SetSkin("p6");
                 playerImage.sprite = Resources.Load<Sprite>("p6") as Sprite;
             }
-            
-            
+
+
 
             skeletonAnimation.skeleton.SetSlotsToSetupPose();
         }

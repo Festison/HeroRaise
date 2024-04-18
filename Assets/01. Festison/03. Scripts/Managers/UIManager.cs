@@ -7,7 +7,7 @@ using DG.Tweening;
 public class UIManager : SingleTon<UIManager>
 {
     // [Header("첫 클릭 확인 UI")] public GameObject dotUi;
-    [Header("캐릭터 HP 슬라이더")] public Slider hpSlider;
+    [Header("캐릭터 HP 슬라이더")] public Image hpImage;
     [Header("메뉴 UI")] public GameObject menu;
     [Header("메뉴 UI 버튼")] public Button menuBtn;
     [SerializeField] private bool isSetmenu = false;
@@ -28,7 +28,7 @@ public class UIManager : SingleTon<UIManager>
 
     public void HpLerpUI()
     {
-        hpSlider.value = Mathf.Lerp(hpSlider.value, DataManager.Instance.playerData.Hp / DataManager.Instance.playerData.MaxHp, Time.deltaTime * 10f);
+        hpImage.fillAmount = Mathf.Lerp(hpImage.fillAmount, DataManager.Instance.playerData.Hp / DataManager.Instance.playerData.MaxHp, Time.deltaTime * 10f);
     }
 
     public void OnClickMenu()

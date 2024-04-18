@@ -134,7 +134,7 @@ public class ItemManager : SingleTon<ItemManager>
     }
 
     public void EquimentItem()
-    {      
+    {
         switch (item.Type)
         {
             case "Weapon":
@@ -151,7 +151,7 @@ public class ItemManager : SingleTon<ItemManager>
                 equimentItemList[1].isUsing = true;
                 EquimentImg[1].sprite = ItemImage.sprite;
                 int parseCriticalChance = (int.Parse(item.Stat));
-                DataManager.Instance.playerData.criticalChance += parseCriticalChance;                
+                DataManager.Instance.playerData.criticalChance += parseCriticalChance;
                 break;
             case "Armor":
                 if (equimentItemList[2].isUsing) DataManager.Instance.playerData.criticalDamage -= float.Parse(equimentItemList[2].Stat);
@@ -159,15 +159,15 @@ public class ItemManager : SingleTon<ItemManager>
                 equimentItemList[2].isUsing = true;
                 EquimentImg[2].sprite = ItemImage.sprite;
                 int parseCriticalDamage = (int.Parse(item.Stat));
-                DataManager.Instance.playerData.criticalDamage += parseCriticalDamage;             
+                DataManager.Instance.playerData.criticalDamage += parseCriticalDamage;
                 break;
             case "Shoes":
-                if (equimentItemList[3].isUsing) DataManager.Instance.playerData.attackSpeed -= float.Parse(equimentItemList[3].Stat);
+                if (equimentItemList[3].isUsing) DataManager.Instance.playerData.attackSpeed -= (float.Parse(equimentItemList[3].Stat) * 0.01f);
                 if (!equimentItemList.Contains(item)) equimentItemList[3] = item;
                 equimentItemList[3].isUsing = true;
                 EquimentImg[3].sprite = ItemImage.sprite;
                 int parseAttackSpeed = (int.Parse(item.Stat));
-                DataManager.Instance.playerData.attackSpeed += parseAttackSpeed;           
+                DataManager.Instance.playerData.attackSpeed += (parseAttackSpeed * 0.01f);
                 break;
         }
     }

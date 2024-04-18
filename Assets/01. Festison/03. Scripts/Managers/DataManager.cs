@@ -16,6 +16,7 @@ using Veco;
 // 2. 제이슨을 역직렬화를 통해 데이터로 변환시킨다.
 // 3. 불러온 데이터를 사용한다.
 
+[System.Serializable]
 public class PlayerItem
 {
     public int currentEnergy;
@@ -31,34 +32,24 @@ public class DataManager : SingleTon<DataManager>
 
     public SkillSo skilldata;
 
-    public PlayerItem PlayerItem = new PlayerItem() { currentEnergy = 1, gold = 0, gem = 0, waveData = 0 };
+    public PlayerItem PlayerItem = new PlayerItem();
     public PlayerModel playerData = new PlayerModel();
 
     private float decreasetime = 100f;
 
-    private string path;
-    string json;
-    string testJson;
+    private string playerpath, itempath;
 
     protected override void Awake()
     {
         base.Awake();
 
         // 유니티에서 자동으로 생성해주는 폴더를 경로로 사용
-        path = Application.persistentDataPath + "/Datasave.txt";
+        playerpath = Application.persistentDataPath + "/PlayerDatasave.txt";
+        itempath = Application.persistentDataPath + "/ItemDatasave.txt";
+        InitData();
     }
     private void Start()
     {
-        
-        json = Path.Combine(Application.dataPath + "/01. Festison/06. Data/", "playerData.json");
-        string playerData = JsonUtility.ToJson(this.playerData, true);
-        File.WriteAllText(json, playerData);
-
-        testJson = Path.Combine(Application.dataPath + "/01. Festison/06. Data/", "playerItemData.json");
-        string playerItemData = JsonUtility.ToJson(this.PlayerItem, true);
-        File.WriteAllText(testJson, playerItemData);
-
-
         LoadItemData();
         LoadPlayerData();
         WaveManager.Instance.InvokeWaveStart();
@@ -86,7 +77,11 @@ public class DataManager : SingleTon<DataManager>
         playerData.damage = 10;
         playerData.attackSpeed = 1.0f;
         playerData.criticalChance = 5.0f;
-        playerData.criticalDamage = 1.25f;
+        playerData.criticalDamage = 125f;
+        PlayerItem.currentEnergy = 1;
+        PlayerItem.gold = 0;
+        PlayerItem.gem = 0;
+        PlayerItem.waveData = 0;
         SavePlayerData();
         LoadPlayerData();
     }
@@ -94,44 +89,44 @@ public class DataManager : SingleTon<DataManager>
     public IEnumerator SavePlayerDataCo()
     {
         string playerData = JsonUtility.ToJson(this.playerData, true);
-        File.WriteAllText(json, playerData);
+        File.WriteAllText(playerpath, playerData);
         yield return new WaitForSeconds(2f);
     }
 
     public IEnumerator SaveItemDataCo()
     {
         string playerItem = JsonUtility.ToJson(this.PlayerItem, true);
-        File.WriteAllText(testJson, playerItem);
+        File.WriteAllText(itempath, playerItem);
         yield return new WaitForSeconds(2f);
     }
 
     public void SavePlayerData()
     {
         string playerDataString = JsonUtility.ToJson(playerData, true);
-        File.WriteAllText(json, playerDataString);
+        File.WriteAllText(playerpath, playerDataString);
     }
 
     public void SaveItemData()
     {
         string playerItemString = JsonUtility.ToJson(PlayerItem, true);
-        File.WriteAllText(testJson, playerItemString);
+        File.WriteAllText(itempath, playerItemString);
     }
 
     public void LoadPlayerData()
     {
-        if (!File.Exists(json))
+        if (!File.Exists(playerpath))
         {
             InitData();
             return;
         }
 
-        string data = File.ReadAllText(json);
-        playerData = JsonUtility.FromJson<PlayerModel>(data);       
+        string data = File.ReadAllText(playerpath);
+        playerData = JsonUtility.FromJson<PlayerModel>(data);
     }
 
     public void LoadItemData()
     {
-        string Itemdata = File.ReadAllText(testJson);
+        string Itemdata = File.ReadAllText(itempath);
         PlayerItem = JsonUtility.FromJson<PlayerItem>(Itemdata);
     }
 
@@ -143,7 +138,6 @@ public class DataManager : SingleTon<DataManager>
         SaveItemData();
 #else
         Application.Quit();
-        SaveData();
 #endif
     }
     #endregion
