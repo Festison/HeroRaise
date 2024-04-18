@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b9f626d0853442448058c61c53d09cb, type: 3}
-  m_Name: Boss_Skeleton
+  m_Name: BoarStatusSO
   m_EditorClassIdentifier: 
-  monsterName: "\uC2A4\uCF08\uB808\uD1A4 \uC7A5\uAD70"
-  defaultMaxHp: 1000
-  moveSpeed: 0
-  attackSpeed: 4
-  defaultAttackDamage: 30
-  attackRange: 1.2
-  gold: 30
+  monsterName: "\uBA67\uB3FC\uC9C0"
+  defaultMaxHp: 120
+  moveSpeed: 0.015
+  attackSpeed: 2
+  defaultAttackDamage: 16
+  attackRange: 1
+  gold: 15
