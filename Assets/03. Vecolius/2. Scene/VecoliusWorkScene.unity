@@ -404,6 +404,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45f370914b7ac9442af6a61338610cc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ItemDatabase: {fileID: 0}
+  allItemList: []
+  equimentItemList: []
+  itemSprites: []
+  EquimentImg: []
+  ItemImage: {fileID: 0}
+  ItemoutLineImage: {fileID: 0}
+  ItemExplanation:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &184242489 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7861043765509000398, guid: 13f960c4984a7e24ba7165b6c51eb049,
@@ -664,7 +676,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2061d456a3b824e4390484fb0282acfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hpSlider: {fileID: 0}
+  hpImage: {fileID: 0}
   menu: {fileID: 1109510235518212375}
   menuBtn: {fileID: 1109510236125789963}
   isSetmenu: 0
@@ -2787,6 +2799,12 @@ MonoBehaviour:
   - monsterPrefab: {fileID: 283244731985424569, guid: e663d7ad16d58784e8b33db552e49c52,
       type: 3}
     monsterName: "\uACE0\uBE14\uB9B0 \uCC3D\uBCD1"
+  - monsterPrefab: {fileID: 1709994315134239019, guid: 9de6efbdd2862624db4c8aa4cdb8499d,
+      type: 3}
+    monsterName: "\uD765\uBD84\uD55C \uBA67\uB3FC\uC9C0"
+  - monsterPrefab: {fileID: 4506775918319007002, guid: 1d13c3796ed0afc4ea18ff17be9b1513,
+      type: 3}
+    monsterName: "\uB09C\uD3ED\uD55C \uBA67\uB3FC\uC9C0"
   delayToWaveStart: 2
   waveIndex: 0
   spawnCooltime: 1.5
@@ -2868,6 +2886,11 @@ MonoBehaviour:
   - {fileID: 1037622003287378107}
   - {fileID: 837180546}
   skilldata: {fileID: 11400000, guid: 5d5c59da6cf3b6442b7a667243035c17, type: 2}
+  PlayerItem:
+    currentEnergy: 0
+    gold: 0
+    gem: 0
+    waveData: 0
 --- !u!114 &1298203785 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1592472772482494296, guid: d5a7c0be271a590438d46974ffcdbeb7,
@@ -3225,6 +3248,12 @@ MonoBehaviour:
       type: 3}
     initSize: 10
   - poolingObj: {fileID: 5902668168143376490, guid: dbec67084926cdd42989767a3c95311c,
+      type: 3}
+    initSize: 10
+  - poolingObj: {fileID: 1709994315134239019, guid: 9de6efbdd2862624db4c8aa4cdb8499d,
+      type: 3}
+    initSize: 10
+  - poolingObj: {fileID: 4506775918319007002, guid: 1d13c3796ed0afc4ea18ff17be9b1513,
       type: 3}
     initSize: 10
 --- !u!4 &1440530257
@@ -6291,12 +6320,12 @@ PrefabInstance:
     - target: {fileID: 7855001354338431641, guid: 3443fc0b93a4c744a95caf32567cd71e,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -3.0003679
+      value: -3.000368
       objectReference: {fileID: 0}
     - target: {fileID: 8125105544102143875, guid: 3443fc0b93a4c744a95caf32567cd71e,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000015258783
+      value: -0.000015258782
       objectReference: {fileID: 0}
     - target: {fileID: 8728631772731465423, guid: 3443fc0b93a4c744a95caf32567cd71e,
         type: 3}
@@ -8279,7 +8308,7 @@ PrefabInstance:
     - target: {fileID: 6842579128977367320, guid: 71136178967c636448439beb36a6f75b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -122.39522
+      value: -122.39521
       objectReference: {fileID: 0}
     - target: {fileID: 9126696136757928823, guid: 71136178967c636448439beb36a6f75b,
         type: 3}
