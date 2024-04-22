@@ -7,6 +7,13 @@ using TMPro;
 using System.IO;
 
 [System.Serializable]
+public class Serialization<T>
+{
+    public Serialization(List<T> target) => this.target = target;
+    public List<T> target;
+}
+
+[System.Serializable]
 public class Item
 {
     public Item(string itemGrade, string Type, string Name, string Explain, string Stat, bool isUsing, string Percent)
@@ -30,7 +37,8 @@ public class ItemManager : SingleTon<ItemManager>
 {
     [Header("아이템의 기본 데이터")]
     public TextAsset ItemDatabase;
-    public List<Item> allItemList, equimentItemList;
+    public List<Item> allItemList;
+    public List<Item> equimentItemList;
     public Sprite[] itemSprites;
     private string itempath;
 
@@ -51,18 +59,29 @@ public class ItemManager : SingleTon<ItemManager>
         }
 
         itempath = Application.persistentDataPath + "/MyItemText.txt";
-        SaveItemData();
         LoadItemData();
+        ItemSpriteInit();
+    }
+
+    private void Update()
+    {
+        StartCoroutine((SaveItemDataCo()));
     }
 
     #region 데이터 저장 로직
     private void InitItemList()
     {
-
+        equimentItemList.Add(new Item("D", "Weapon", "나무 단검", "공격력이 5상승한다.", "5", true, "3"));
+        equimentItemList.Add(new Item("D", "Helmet", "나무 투구", "크리티컬 확률이 5퍼센트 상승한다.", "10", true, "3"));
+        equimentItemList.Add(new Item("D", "Armor", "나무 갑옷", "크리티컬 데미지가 10퍼센트 상승한다.", "10", true, "3"));
+        equimentItemList.Add(new Item("D", "Shoes", "나무 신발", "공격속도가 5퍼센트 상승한다", "5", true, "3"));
     }
-    private void SaveItemData()
+
+    public IEnumerator SaveItemDataCo()
     {
-        File.WriteAllText(itempath, "아이템 데이터 저장");
+        string ItemJson = JsonUtility.ToJson(new Serialization<Item>(equimentItemList), true);
+        File.WriteAllText(itempath, ItemJson);
+        yield return new WaitForSeconds(2f);
     }
 
     private void LoadItemData()
@@ -70,8 +89,10 @@ public class ItemManager : SingleTon<ItemManager>
         if (!File.Exists(itempath))
         {
             InitItemList();
+            return;
         }
         string itemdata = File.ReadAllText(itempath);
+        equimentItemList = JsonUtility.FromJson<Serialization<Item>>(itemdata).target;
     }
     #endregion
 
@@ -169,6 +190,31 @@ public class ItemManager : SingleTon<ItemManager>
                 int parseAttackSpeed = (int.Parse(item.Stat));
                 DataManager.Instance.playerData.attackSpeed += (parseAttackSpeed * 0.01f);
                 break;
+        }
+    }
+
+    private Dictionary<string, int> itemSpriteIndexMap;
+    private void ItemSpriteInit()
+    {
+        itemSpriteIndexMap = new Dictionary<string, int>
+        {
+            {"초보자의 장검", 4},
+            {"성기사의 장검", 8},
+            {"초보자의 투구", 5},
+            {"성기사의 투구", 9},
+            {"초보자의 갑옷", 6},
+            {"성기사의 갑옷", 10},
+            {"초보자의 신발", 7},
+            {"성기사의 신발", 11}
+        };
+
+        for (int i = 0; i < equimentItemList.Count && i < EquimentImg.Length; i++)
+        {
+            Item item = equimentItemList[i];
+            if (item != null && itemSpriteIndexMap.TryGetValue(item.Name, out int spriteIndex))
+            {
+                EquimentImg[i].sprite = itemSprites[spriteIndex];
+            }
         }
     }
     #endregion
