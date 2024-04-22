@@ -20,7 +20,10 @@ namespace Veco
         public Action AudioPlay
         {
             get => audioPlay;
-            set => audioPlay += value;
+            set
+            {
+                audioPlay += value;
+            }
         }
 
         void OnEnable()
