@@ -24,7 +24,7 @@ public class Lightning : Skill
     {
         if (Time.time - lastAttackTime >= attackCooldown)
         {
-            Debug.DrawRay(transform.position + new Vector3(-1.5f, 0.3f, 0), transform.right + new Vector3(2f,0,0), Color.red);
+            Debug.DrawRay(transform.position + new Vector3(-1.5f, 0.3f, 0), transform.right + new Vector3(2f, 0, 0), Color.red);
 
             RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position + new Vector3(-1.5f, 0.3f, 0), transform.right + new Vector3(2f, 0, 0), rayDistance, LayerMask.GetMask("Monster"));
 
@@ -41,7 +41,7 @@ public class Lightning : Skill
 
     public override void Attack(IHitable hitable)
     {
-        hitable.Hit(10);
+        hitable.Hit(DataManager.Instance.playerData.damage + SkillManager.Instance.skillSo.skillData[0].damage);
     }
 
 }

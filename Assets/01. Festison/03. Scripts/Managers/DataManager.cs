@@ -28,15 +28,13 @@ public class PlayerItem
 
 public class DataManager : SingleTon<DataManager>
 {
-    public TextMeshProUGUI[] itemText;
+    [Header("플레이어 자원 텍스트")] public TextMeshProUGUI[] itemText;
 
-    public SkillSo skilldata;
-
+    // 데이터 생성자
     public PlayerItem PlayerItem = new PlayerItem();
     public PlayerModel playerData = new PlayerModel();
 
-    private float decreasetime = 100f;
-
+    // 데이터 경로
     private string playerpath, itempath;
 
     protected override void Awake()
@@ -46,7 +44,6 @@ public class DataManager : SingleTon<DataManager>
         // 유니티에서 자동으로 생성해주는 폴더를 경로로 사용
         playerpath = Application.persistentDataPath + "/PlayerDatasave.txt";
         itempath = Application.persistentDataPath + "/ItemDatasave.txt";
-        InitData();
     }
     private void Start()
     {
@@ -82,8 +79,6 @@ public class DataManager : SingleTon<DataManager>
         PlayerItem.gold = 0;
         PlayerItem.gem = 0;
         PlayerItem.waveData = 0;
-        SavePlayerData();
-        LoadPlayerData();
     }
 
     public IEnumerator SavePlayerDataCo()
@@ -126,6 +121,12 @@ public class DataManager : SingleTon<DataManager>
 
     public void LoadItemData()
     {
+        if (!File.Exists(itempath))
+        {
+            InitData();
+            return;
+        }
+
         string Itemdata = File.ReadAllText(itempath);
         PlayerItem = JsonUtility.FromJson<PlayerItem>(Itemdata);
     }
@@ -143,6 +144,7 @@ public class DataManager : SingleTon<DataManager>
     #endregion
 
     #region UI 관련 코드
+    private float decreasetime = 100f;
     public void UpdateText()
     {
         itemText[0].text = PlayerItem.currentEnergy + " / " + PlayerItem.maxEnergy;

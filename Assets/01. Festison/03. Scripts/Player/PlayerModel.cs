@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 // Model
 // 게임의 데이터가 저장되는 스크립트
@@ -9,6 +6,7 @@ using UnityEngine;
 
 namespace Festioson
 {
+    [System.Serializable]
     public class PlayerModel
     {
         public int level;

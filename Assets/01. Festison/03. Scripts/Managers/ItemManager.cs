@@ -71,10 +71,10 @@ public class ItemManager : SingleTon<ItemManager>
     #region 데이터 저장 로직
     private void InitItemList()
     {
-        equimentItemList.Add(new Item("D", "Weapon", "나무 단검", "공격력이 5상승한다.", "5", true, "3"));
-        equimentItemList.Add(new Item("D", "Helmet", "나무 투구", "크리티컬 확률이 5퍼센트 상승한다.", "10", true, "3"));
-        equimentItemList.Add(new Item("D", "Armor", "나무 갑옷", "크리티컬 데미지가 10퍼센트 상승한다.", "10", true, "3"));
-        equimentItemList.Add(new Item("D", "Shoes", "나무 신발", "공격속도가 5퍼센트 상승한다", "5", true, "3"));
+        equimentItemList.Add(new Item("D", "Weapon", "나무 단검", "공격력이 5상승한다.", "5", true, "5"));
+        equimentItemList.Add(new Item("D", "Helmet", "나무 투구", "크리티컬 확률이 5퍼센트 상승한다.", "10", true, "5"));
+        equimentItemList.Add(new Item("D", "Armor", "나무 갑옷", "크리티컬 데미지가 10퍼센트 상승한다.", "10", true, "5"));
+        equimentItemList.Add(new Item("D", "Shoes", "나무 신발", "공격속도가 10퍼센트 상승한다", "10", true, "5"));
     }
 
     public IEnumerator SaveItemDataCo()
@@ -199,13 +199,17 @@ public class ItemManager : SingleTon<ItemManager>
         itemSpriteIndexMap = new Dictionary<string, int>
         {
             {"초보자의 장검", 4},
-            {"성기사의 장검", 8},
             {"초보자의 투구", 5},
-            {"성기사의 투구", 9},
             {"초보자의 갑옷", 6},
-            {"성기사의 갑옷", 10},
             {"초보자의 신발", 7},
-            {"성기사의 신발", 11}
+            {"성기사의 장검", 8},            
+            {"성기사의 투구", 9},            
+            {"성기사의 갑옷", 10},            
+            {"성기사의 신발", 11},
+            {"황제의 장검", 12},
+            {"황제의 투구", 13},
+            {"황제의 갑옷", 14},
+            {"황제의 신발", 15}
         };
 
         for (int i = 0; i < equimentItemList.Count && i < EquimentImg.Length; i++)

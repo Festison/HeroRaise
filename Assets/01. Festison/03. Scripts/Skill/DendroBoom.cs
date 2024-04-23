@@ -41,6 +41,6 @@ public class DendroBoom : Skill
 
     public override void Attack(IHitable hitable)
     {
-        hitable.Hit(10);
+        hitable.Hit(DataManager.Instance.playerData.damage + SkillManager.Instance.skillSo.skillData[2].damage);
     }
 }

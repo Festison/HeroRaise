@@ -29,13 +29,13 @@ namespace Festioson
             StartLogic();
         }
 
-
         private void FixedUpdate()
         {
             AttackRayCast();
 
             
         }
+
         #region 이벤트 로직
         public void ViewUpdate()
         {

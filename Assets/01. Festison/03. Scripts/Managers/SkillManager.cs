@@ -184,11 +184,21 @@ public class SkillManager : SingleTon<SkillManager>
 
     public void SkillLevelUp()
     {
-        if (skillSo.skillData[skillNumber].count >= skillSo.skillData[skillNumber].LevelUpCount && DataManager.Instance.PlayerItem.gold > 10000)
+        if (skillSo.skillData[skillNumber].count >= skillSo.skillData[skillNumber].LevelUpCount && DataManager.Instance.PlayerItem.gold >= 10000)
         {
+            skillSo.skillData[skillNumber].level += 1;
             skillSo.skillData[skillNumber].damage *= 2;
             skillSo.skillData[skillNumber].LevelUpCount *= 2;
+            skillSo.skillData[skillNumber].count = 0;
             DataManager.Instance.PlayerItem.gold -= 10000;
+
+            skillImage.sprite = skillSo.skillData[skillNumber].icon;
+            skillExplanation[0].text = Instance.skillSo.skillData[skillNumber].skillGrade.ToString();
+            skillExplanation[1].text = "Lv" + Instance.skillSo.skillData[skillNumber].level.ToString();
+            skillExplanation[2].text = skillSo.skillData[skillNumber].skillName;
+            skillExplanation[3].text = skillSo.skillData[skillNumber].skillExplanation + "  " + "데미지 : " + skillSo.skillData[skillNumber].damage.ToString();
+            skillExplanation[5].text = skillSo.skillData[skillNumber].count.ToString() + " / " + skillSo.skillData[skillNumber].LevelUpCount.ToString();
+            useSkillText.text = "장착될 슬롯 : " + (currentIndex + 1).ToString() + "번 째 ";
         }
     }
 }

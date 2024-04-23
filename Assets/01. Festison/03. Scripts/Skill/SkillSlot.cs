@@ -36,7 +36,8 @@ public class SkillSlot : Slot
         SkillManager.Instance.skillExplanation[0].text = SkillManager.Instance.skillSo.skillData[i].skillGrade.ToString();
         SkillManager.Instance.skillExplanation[1].text = "Lv" + SkillManager.Instance.skillSo.skillData[i].level.ToString();
         SkillManager.Instance.skillExplanation[2].text = SkillManager.Instance.skillSo.skillData[i].skillName;
-        SkillManager.Instance.skillExplanation[3].text = SkillManager.Instance.skillSo.skillData[i].skillExplanation + "데미지 : " + SkillManager.Instance.skillSo.skillData[i].damage.ToString();
+        SkillManager.Instance.skillExplanation[3].text = SkillManager.Instance.skillSo.skillData[i].skillExplanation + "  " + "데미지 : " + SkillManager.Instance.skillSo.skillData[i].damage.ToString();
+        SkillManager.Instance.skillExplanation[5].text = SkillManager.Instance.skillSo.skillData[i].count.ToString() + " / " + SkillManager.Instance.skillSo.skillData[i].LevelUpCount.ToString();
         SkillManager.Instance.useSkillText.text = "장착될 슬롯 : " + (SkillManager.Instance.currentIndex + 1).ToString() + "번 째 ";
 
         if (SkillManager.Instance.skillSo.skillData[i].isGetSkill)

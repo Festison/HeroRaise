@@ -71,12 +71,6 @@ namespace Veco
             //Invoke("WaveStart", delayToWaveStart);
         }
 
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-                GameObject.FindAnyObjectByType<MonsterStateMono>().Dead();
-        }
-
         public void InvokeWaveStart()
         {
             waveIndex = DataManager.Instance.PlayerItem.waveData;
@@ -87,8 +81,6 @@ namespace Veco
             spawnMonsterList.Clear();
             waveSpawnCount = defaultMonsterSpawnCount + waveIndex;
             monsterSpawnCount = waveSpawnCount;
-
-            Debug.Log(WaveNumber + "번째 웨이브 : " + monsterSpawnCount);
 
             SpawnMonsterSave();
             spawnCo = MonsterSpawnCo();
@@ -116,7 +108,6 @@ namespace Veco
                 spawnMonsterObj.SetActive(true);
                 //spawnMonsterObj.GetComponent<MonsterAI>().MonsterInit();
 
-                Debug.Log(spawnMonsterObj.name + "소환");
 
                 monsterSpawnCount--;
 
