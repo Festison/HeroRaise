@@ -34,12 +34,12 @@ namespace Veco
         {
             audioSource = GetComponent<AudioSource>();
         }
-        public void SoundPlay(AudioClip clip, AudioMixer mixer)
+        public void SoundPlay(string clipAddress, AudioMixer mixer)
         {
-            LoadAsset(clip.name);
+            LoadAsset(clipAddress);
             audioSource.outputAudioMixerGroup = mixer.FindMatchingGroups("SFX")[0];
             audioSource.loop = false;
-            Invoke("ReturnPool", clip.length);
+            //Invoke("ReturnPool", clip.length);
         }
 
         public void ReturnPool()
@@ -50,11 +50,12 @@ namespace Veco
 
         public void LoadAsset(string namePath)
         {
-            Addressables.LoadAssetAsync<AudioClip>("testSFX").Completed += (clip) =>
+            Addressables.LoadAssetAsync<AudioClip>(namePath).Completed += (AsyncOperationHandle<AudioClip> clip) =>
             {
                 handle = clip;
                 audioSource.clip = clip.Result;
                 audioSource.Play();
+                Invoke("ReturnPool", clip.Result.length);
             };
         }
 

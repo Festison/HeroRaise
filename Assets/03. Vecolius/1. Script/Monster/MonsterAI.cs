@@ -59,9 +59,12 @@ namespace Veco
         [SerializeField] bool isAttackCooltime;
         IEnumerator attackCo;
 
+        [Header("Collider")]
         [SerializeField] DetectiveComponent detective;
         public Collider2D attackCol;
         [SerializeField] Collider2D col;
+
+        [Header("Hit UI")]
         [SerializeField] SpriteRenderer spriteRenderer;
         [SerializeField] GameObject damageText;
         [SerializeField] Transform hitPos;
@@ -94,6 +97,7 @@ namespace Veco
             sm.AddState(MonsterState.die.ToString(), new MonsterDieState());
 
             sm.GetState(MonsterState.attack.ToString()).onEnter += () => { attackCol.enabled = true; };
+            sm.GetState(MonsterState.attack.ToString()).onEnter += () => { SoundManager.Instance.SFXPlay("testSFX"); };
             sm.GetState(MonsterState.attack.ToString()).onExit += () => { attackCol.enabled = false; };
 
             state = MonsterState.idle;
@@ -166,17 +170,10 @@ namespace Veco
             while (!isAttackCooltime)
             {
                 ChangeMonsterState(MonsterState.attack);
-                AttackSoundPlay();
                 isAttackCooltime = true;
                 yield return new WaitForSeconds(attackCooltime);
                 isAttackCooltime = false;
             }
-        }
-
-        void AttackSoundPlay()
-        {
-            if(attackClip != null)
-                SoundManager.Instance.SFXPlay(attackClip);
         }
 
         public void MonsterUI()

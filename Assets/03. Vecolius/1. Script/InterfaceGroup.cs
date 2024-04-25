@@ -41,7 +41,7 @@ namespace Veco
         ///  SoundComponent AudioSource Setting Method in SoundObj 
         /// </summary>
         /// <param name="clip"> clip to play</param>
-        void SoundPlay(AudioClip clip, AudioMixer mixer);
+        void SoundPlay(string clipAddress, AudioMixer mixer);
         void ReturnPool(); 
     }
 

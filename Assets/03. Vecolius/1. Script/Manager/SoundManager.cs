@@ -48,20 +48,19 @@ namespace Veco
             }
         }
 
-        public void SFXPlay(AudioClip clip, Transform audioPos = null)     //SFX Play
+        public void SFXPlay(string clipAddress)     //SFX Play
         {
             GameObject soundObj = ObjectPoolManager.Instance.PopObj(this.soundObj, transform.position, transform.rotation);
             soundObj.SetActive(true);
             if (soundObj.TryGetComponent(out IPlayClipable play))
-                play.SoundPlay(clip, mixer);
+                play.SoundPlay(clipAddress, mixer);
             else
-                Debug.Log("Interface 참조 못함");
+                Debug.Log("Cannot refer to the IPlayClipable Interface");
         }
 
         public void BgSoundPlay(AudioClip clip)     //BgSound Play
         {
             bgSound.outputAudioMixerGroup = mixer.FindMatchingGroups("BGSound")[0];
-            //bgSound.clip = clip;
             LoadAsset(clip.name);
             bgSound.loop = true;
             bgSound.volume = 0.1f;
