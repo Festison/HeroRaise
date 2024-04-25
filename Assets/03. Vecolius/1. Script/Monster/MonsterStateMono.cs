@@ -33,7 +33,6 @@ namespace Veco
         public override void Update()
         {
             base.Update();
-            //Debug.Log("이동모드");
         }
     }
 
@@ -63,8 +62,6 @@ namespace Veco
         [SerializeField] protected MonsterStatus status;
         [SerializeField] protected MonsterState state;
         [SerializeField] protected bool isDie;
-
-        [SerializeField] protected AudioClip attackClip;
 
         public Animator Animator => animator;
         public MonsterStatus MonsterStatus => status;
