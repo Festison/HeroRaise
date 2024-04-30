@@ -3,17 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
-[System.Serializable]
-public class SkillDataContainer
-{
-    public List<SkillData> skillData;
-    public SkillDataContainer(List<SkillData> skillData)
-    {
-        this.skillData = skillData;
-    }
-}
-
+using System.IO;
 
 public class SkillManager : SingleTon<SkillManager>
 {
@@ -33,6 +23,7 @@ public class SkillManager : SingleTon<SkillManager>
     [Header("스킬데이터를 저장할 임시 변수")] public int skillNumber = -1;
     #endregion
 
+    private string dataPath;
     public void Start()
     {
         for (int i = 0; i < skillSo.skillData.Count; i++)
@@ -43,21 +34,23 @@ public class SkillManager : SingleTon<SkillManager>
                 skillSlotimages[i].color = Color.white;
             }
         }
-
+        dataPath = Path.Combine(Application.persistentDataPath, "skillData.json");
+        LoadSkillData();
     }
 
-    public void SaveSkills()
+    public void SaveSkillData()
     {
-        string skillDataJson = JsonUtility.ToJson(new SkillDataContainer(skillSo.skillData));
-        PlayerPrefs.SetString("SkillData", skillDataJson);
-        PlayerPrefs.Save();
+        string json = JsonUtility.ToJson(skillSo);
+        File.WriteAllText(dataPath, json);
     }
 
-    public void LoadSkills()
+    public void LoadSkillData()
     {
-        string skillDataJson = PlayerPrefs.GetString("SkillData", "{}");
-        SkillDataContainer loadedData = JsonUtility.FromJson<SkillDataContainer>(skillDataJson);
-        skillSo.skillData = new List<SkillData>(loadedData.skillData);
+        if (File.Exists(dataPath))
+        {
+            string json = File.ReadAllText(dataPath);
+            JsonUtility.FromJsonOverwrite(json, skillSo);
+        }
     }
 
     #region 스킬 이벤트 로직
@@ -123,7 +116,7 @@ public class SkillManager : SingleTon<SkillManager>
                 skillNumber = i;
                 break;
 
-                SaveSkills();
+                SaveSkillData();
             }
         }
     }
