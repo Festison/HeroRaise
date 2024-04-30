@@ -4,6 +4,17 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+
+[System.Serializable]
+public class SkillDataContainer
+{
+    public List<SkillData> skillData;
+    public SkillDataContainer(List<SkillData> skillData)
+    {
+        this.skillData = skillData;
+    }
+}
 
 public class SkillManager : SingleTon<SkillManager>
 {
@@ -26,6 +37,9 @@ public class SkillManager : SingleTon<SkillManager>
     private string dataPath;
     public void Start()
     {
+        dataPath = Path.Combine(Application.persistentDataPath, "skillData.json");
+        LoadSkillData();
+
         for (int i = 0; i < skillSo.skillData.Count; i++)
         {
             skillSo.skillData[i].isUseSkill = false;
@@ -33,28 +47,39 @@ public class SkillManager : SingleTon<SkillManager>
             {
                 skillSlotimages[i].color = Color.white;
             }
-        }
-        dataPath = Path.Combine(Application.persistentDataPath, "skillData.json");
-        LoadSkillData();
+        }    
     }
 
+    // 데이터 저장
     public void SaveSkillData()
     {
-        string json = JsonUtility.ToJson(skillSo);
+        string json = JsonUtility.ToJson(new SkillDataContainer(skillSo.skillData), true);
         File.WriteAllText(dataPath, json);
     }
 
+    // 데이터 로드
     public void LoadSkillData()
     {
         if (File.Exists(dataPath))
         {
             string json = File.ReadAllText(dataPath);
-            JsonUtility.FromJsonOverwrite(json, skillSo);
+            SkillDataContainer loadedData = JsonUtility.FromJson<SkillDataContainer>(json);
+            skillSo.skillData = loadedData.skillData;
+        }
+        else
+        {
+            SaveSkillData();
         }
     }
 
-    #region 스킬 이벤트 로직
-    public void DrawGrade()
+    private void OnApplicationQuit()
+    {
+        SaveSkillData();
+    }
+    
+
+#region 스킬 이벤트 로직
+public void DrawGrade()
     {
         float totalProbability = 0;
 
@@ -116,7 +141,6 @@ public class SkillManager : SingleTon<SkillManager>
                 skillNumber = i;
                 break;
 
-                SaveSkillData();
             }
         }
     }

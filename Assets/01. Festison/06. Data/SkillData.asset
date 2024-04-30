@@ -32,7 +32,7 @@ MonoBehaviour:
     damage: 8
     coolTime: 10
     level: 1
-    count: 1
+    count: 0
     LevelUpCount: 2
     percent: 17.5
     isGetSkill: 0
