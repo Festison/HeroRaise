@@ -4,8 +4,20 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+[System.Serializable]
+public class SkillDataContainer
+{
+    public List<SkillData> skillData;
+    public SkillDataContainer(List<SkillData> skillData)
+    {
+        this.skillData = skillData;
+    }
+}
+
+
 public class SkillManager : SingleTon<SkillManager>
 {
+    #region 스킬 매니저 변수
     [Header("스킬의 기본 데이터")] public SkillSo skillSo;
 
     [Header("스킬 설명 이미지")]
@@ -18,8 +30,8 @@ public class SkillManager : SingleTon<SkillManager>
     public Image[] skillSlotimages = new Image[10];
     public Image[] useSkillSlotimages = new Image[4];
 
-
     [Header("스킬데이터를 저장할 임시 변수")] public int skillNumber = -1;
+    #endregion
 
     public void Start()
     {
@@ -34,6 +46,21 @@ public class SkillManager : SingleTon<SkillManager>
 
     }
 
+    public void SaveSkills()
+    {
+        string skillDataJson = JsonUtility.ToJson(new SkillDataContainer(skillSo.skillData));
+        PlayerPrefs.SetString("SkillData", skillDataJson);
+        PlayerPrefs.Save();
+    }
+
+    public void LoadSkills()
+    {
+        string skillDataJson = PlayerPrefs.GetString("SkillData", "{}");
+        SkillDataContainer loadedData = JsonUtility.FromJson<SkillDataContainer>(skillDataJson);
+        skillSo.skillData = new List<SkillData>(loadedData.skillData);
+    }
+
+    #region 스킬 이벤트 로직
     public void DrawGrade()
     {
         float totalProbability = 0;
@@ -95,6 +122,8 @@ public class SkillManager : SingleTon<SkillManager>
 
                 skillNumber = i;
                 break;
+
+                SaveSkills();
             }
         }
     }
@@ -201,4 +230,5 @@ public class SkillManager : SingleTon<SkillManager>
             useSkillText.text = "장착될 슬롯 : " + (currentIndex + 1).ToString() + "번 째 ";
         }
     }
+    #endregion
 }
