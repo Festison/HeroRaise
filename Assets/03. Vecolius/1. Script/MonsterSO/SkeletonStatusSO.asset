@@ -15,7 +15,7 @@ MonoBehaviour:
   monsterName: "\uC2A4\uCF08\uB808\uD1A4"
   defaultMaxHp: 70
   moveSpeed: 0.01
-  attackSpeed: 2
+  attackSpeed: 2.2
   defaultAttackDamage: 4
   attackRange: 1.1
   gold: 7
