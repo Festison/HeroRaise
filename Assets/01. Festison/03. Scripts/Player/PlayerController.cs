@@ -106,9 +106,23 @@ namespace Festioson
         {
             isDamage = false;
         }
+
+        float CriticalCalculation()
+        {
+            PlayerModel data = DataManager.Instance.playerData;
+            float trueDamage = data.Damage;
+            if (UnityEngine.Random.Range(0, 1000) <= data.CriticalChance * 10)
+            {
+                Debug.Log("player가 치명타 공격!" + trueDamage * (data.CriticalDamage / 100));
+                return trueDamage * (data.CriticalDamage / 100);
+            }
+            else
+                return trueDamage;
+        }
+
         public void Attack(IHitable hitable)
         {
-            hitable.Hit(DataManager.Instance.playerData.Damage);
+            hitable.Hit((int)CriticalCalculation());
         }
 
         public void Hit(int damage)
