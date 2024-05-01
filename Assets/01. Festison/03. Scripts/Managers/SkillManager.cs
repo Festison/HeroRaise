@@ -3,9 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+
+[System.Serializable]
+public class SkillDataContainer
+{
+    public List<SkillData> skillData;
+    public SkillDataContainer(List<SkillData> skillData)
+    {
+        this.skillData = skillData;
+    }
+}
 
 public class SkillManager : SingleTon<SkillManager>
 {
+    #region 스킬 매니저 변수
     [Header("스킬의 기본 데이터")] public SkillSo skillSo;
 
     [Header("스킬 설명 이미지")]
@@ -18,11 +31,15 @@ public class SkillManager : SingleTon<SkillManager>
     public Image[] skillSlotimages = new Image[10];
     public Image[] useSkillSlotimages = new Image[4];
 
-
     [Header("스킬데이터를 저장할 임시 변수")] public int skillNumber = -1;
+    #endregion
 
+    private string dataPath;
     public void Start()
     {
+        dataPath = Path.Combine(Application.persistentDataPath, "skillData.json");
+        LoadSkillData();
+
         for (int i = 0; i < skillSo.skillData.Count; i++)
         {
             skillSo.skillData[i].isUseSkill = false;
@@ -30,11 +47,39 @@ public class SkillManager : SingleTon<SkillManager>
             {
                 skillSlotimages[i].color = Color.white;
             }
-        }
-
+        }    
     }
 
-    public void DrawGrade()
+    // 데이터 저장
+    public void SaveSkillData()
+    {
+        string json = JsonUtility.ToJson(new SkillDataContainer(skillSo.skillData), true);
+        File.WriteAllText(dataPath, json);
+    }
+
+    // 데이터 로드
+    public void LoadSkillData()
+    {
+        if (File.Exists(dataPath))
+        {
+            string json = File.ReadAllText(dataPath);
+            SkillDataContainer loadedData = JsonUtility.FromJson<SkillDataContainer>(json);
+            skillSo.skillData = loadedData.skillData;
+        }
+        else
+        {
+            SaveSkillData();
+        }
+    }
+
+    private void OnApplicationQuit()
+    {
+        SaveSkillData();
+    }
+    
+
+#region 스킬 이벤트 로직
+public void DrawGrade()
     {
         float totalProbability = 0;
 
@@ -95,6 +140,7 @@ public class SkillManager : SingleTon<SkillManager>
 
                 skillNumber = i;
                 break;
+
             }
         }
     }
@@ -201,4 +247,5 @@ public class SkillManager : SingleTon<SkillManager>
             useSkillText.text = "장착될 슬롯 : " + (currentIndex + 1).ToString() + "번 째 ";
         }
     }
+    #endregion
 }

@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/01. Festison/01. Scene/FestisonMainScene.unity
+    guid: 3287768671cc29f47a720a79413e7333
+  - enabled: 1
     path: Assets/01. Festison/01. Scene/FestisonUIScene.unity
     guid: 862dfad60db784e18b3f86ec58785669
   m_configObjects:

@@ -31,6 +31,7 @@ MonoBehaviour:
     - 8ad93bbf5660b4dada81d8b657b55e11
     - 3cfd2d356457dc74f8bc13abd49c2dfc
     - b2165fbc1d575ee4098e242f632ed259
+    - 3287768671cc29f47a720a79413e7333
     values:
     - goDatasByGlobalId:
         keys: []
@@ -108,50 +109,8 @@ MonoBehaviour:
         - iColor: 0
           icon: 
       goDatasByInstanceId:
-        keys: 56810000628100001a8100004680000040810000a88100002a81000066a3000072a300002aa3000056a2000050a30000b8a300003aa30000c6a90000d2a900008aa90000b6a80000b0a9000018aa00009aa900001cbb000028bb0000e0ba00000cba000006bb00005cbe0000
+        keys: 7e8c00008a8c0000428c00006c8b0000688c0000c08f0000
         values:
-        - iColor: 6
-          icon: Canvas Icon
-        - iColor: 8
-          icon: cs Script Icon
-        - iColor: 4
-          icon: Camera Icon
-        - iColor: 0
-          icon: ParticleSystem Icon
-        - iColor: 2
-          icon: Favorite
-        - iColor: 1
-          icon: AvatarMask On Icon
-        - iColor: 2
-          icon: Favorite
-        - iColor: 6
-          icon: Canvas Icon
-        - iColor: 8
-          icon: cs Script Icon
-        - iColor: 4
-          icon: Camera Icon
-        - iColor: 0
-          icon: ParticleSystem Icon
-        - iColor: 2
-          icon: Favorite
-        - iColor: 1
-          icon: AvatarMask On Icon
-        - iColor: 2
-          icon: Favorite
-        - iColor: 6
-          icon: Canvas Icon
-        - iColor: 8
-          icon: cs Script Icon
-        - iColor: 4
-          icon: Camera Icon
-        - iColor: 0
-          icon: ParticleSystem Icon
-        - iColor: 2
-          icon: Favorite
-        - iColor: 1
-          icon: AvatarMask On Icon
-        - iColor: 2
-          icon: Favorite
         - iColor: 6
           icon: Canvas Icon
         - iColor: 8
@@ -212,3 +171,24 @@ MonoBehaviour:
       goDatasByInstanceId:
         keys: 
         values: []
+    - goDatasByGlobalId:
+        keys:
+        - GlobalObjectId_V1-2-3287768671cc29f47a720a79413e7333-1722776143-0
+        - GlobalObjectId_V1-2-3287768671cc29f47a720a79413e7333-1751339318-0
+        - GlobalObjectId_V1-2-3287768671cc29f47a720a79413e7333-1413655042-0
+        values:
+        - iColor: 6
+          icon: Canvas Icon
+        - iColor: 2
+          icon: cs Script Icon
+        - iColor: 4
+          icon: Camera Icon
+      goDatasByInstanceId:
+        keys: 96a30000a2a300005aa30000
+        values:
+        - iColor: 6
+          icon: Canvas Icon
+        - iColor: 2
+          icon: cs Script Icon
+        - iColor: 4
+          icon: Camera Icon
