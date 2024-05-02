@@ -42,12 +42,16 @@ namespace Veco
         /// </summary>
         /// <param name="clip"> clip to play</param>
         void SoundPlay(string clipAddress, AudioMixer mixer);
-        void ReturnPool(); 
     }
 
     public interface IAddressable
     {
         public void LoadAsset(string namePath);
         public void UnloadAsset();
+    }
+
+    public interface IPoolingable
+    {
+        public void ReturnPool(); 
     }
 }

@@ -76,6 +76,7 @@ namespace Veco
             waveIndex = DataManager.Instance.PlayerItem.waveData;
             Invoke("WaveStart", delayToWaveStart);
         }
+
         public void WaveStart()
         {
             spawnMonsterList.Clear();
