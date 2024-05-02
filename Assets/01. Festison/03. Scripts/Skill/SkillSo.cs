@@ -19,7 +19,6 @@ public class SkillData
     public float percent;
     public bool isGetSkill;
     public bool isUseSkill;
-    public Sprite icon;
 }
 
 [CreateAssetMenu(menuName = "Player/SkillData", order = int.MaxValue)]
