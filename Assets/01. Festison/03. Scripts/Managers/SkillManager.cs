@@ -20,6 +20,7 @@ public class SkillManager : SingleTon<SkillManager>
 {
     #region 스킬 매니저 변수
     [Header("스킬의 기본 데이터")] public SkillSo skillSo;
+    public Sprite[] skilldataImage = new Sprite[10];
 
     [Header("스킬 설명 이미지")]
     public Image skillImage;
@@ -81,67 +82,81 @@ public class SkillManager : SingleTon<SkillManager>
 #region 스킬 이벤트 로직
 public void DrawGrade()
     {
-        float totalProbability = 0;
-
-        // 확률의 총 합을 계산합니다.
-        foreach (SkillData data in skillSo.skillData)
+        if (DataManager.instance.PlayerItem.gem < 100)
         {
-            totalProbability += data.percent;
+            outLineImage.color = Color.gray;
+            skillExplanation[2].color = Color.gray;
+            skillExplanation[4].color = Color.gray;
+            skillImage.sprite = ItemManager.Instance.defaultItemSprite;
+            skillExplanation[0].text = "D";
+            skillExplanation[2].text = "젬이 부족합니다.";
+            skillExplanation[3].text = "젬이 부족합니다.";
         }
 
-        // 랜덤으로 선택된 값에 따라 등급을 선택합니다.
-        float randomValue = Random.Range(0f, totalProbability);
-        float cumulativeProb = 0;
-
-        for (int i = 0; i < skillSo.skillData.Count; i++)
+        if (DataManager.Instance.PlayerItem.gem >= 100)
         {
-            cumulativeProb += skillSo.skillData[i].percent;
+            float totalProbability = 0;
 
-            if (randomValue <= cumulativeProb)
+            // 확률의 총 합을 계산합니다.
+            foreach (SkillData data in skillSo.skillData)
             {
-                switch (skillSo.skillData[i].skillGrade)
-                {
-                    case SkillGrade.A:
-                        outLineImage.color = Color.red;
-                        skillExplanation[2].color = Color.red;
-                        skillExplanation[4].color = Color.red;
-                        break;
-                    case SkillGrade.B:
-                        outLineImage.color = new Color(134 / 255f, 0, 255 / 255f);
-                        skillExplanation[2].color = new Color(134, 0, 255);
-                        skillExplanation[4].color = new Color(134, 0, 255);
-                        break;
-                    case SkillGrade.C:
-                        outLineImage.color = new Color(71, 138, 255);
-                        skillExplanation[2].color = new Color(71, 138, 255);
-                        skillExplanation[4].color = new Color(71, 138, 255);
-                        break;
-                    case SkillGrade.D:
-                        outLineImage.color = Color.gray;
-                        skillExplanation[2].color = Color.gray;
-                        skillExplanation[4].color = Color.gray;
-                        break;
-                }
-
-                skillSo.skillData[i].count++;
-                skillImage.sprite = skillSo.skillData[i].icon;
-                skillExplanation[0].text = skillSo.skillData[i].skillGrade.ToString();
-                skillExplanation[1].text = "Lv" + skillSo.skillData[i].level.ToString();
-                skillExplanation[2].text = skillSo.skillData[i].skillName;
-                skillExplanation[3].text = skillSo.skillData[i].skillExplanation + "   " + "데미지 : " + skillSo.skillData[i].damage.ToString();
-                skillExplanation[5].text = skillSo.skillData[i].count.ToString() + " / " + skillSo.skillData[i].LevelUpCount.ToString();
-                useSkillText.text = "장착될 슬롯 : " + (currentIndex + 1).ToString() + "번 째 ";
-                skillSo.skillData[i].isGetSkill = true;
-
-                if (skillSo.skillData[i].isGetSkill)
-                {
-                    skillSlotimages[i].color = Color.white;
-                }
-
-                skillNumber = i;
-                break;
-
+                totalProbability += data.percent;
             }
+
+            // 랜덤으로 선택된 값에 따라 등급을 선택합니다.
+            float randomValue = Random.Range(0f, totalProbability);
+            float cumulativeProb = 0;
+
+            for (int i = 0; i < skillSo.skillData.Count; i++)
+            {
+                cumulativeProb += skillSo.skillData[i].percent;
+
+                if (randomValue <= cumulativeProb)
+                {
+                    switch (skillSo.skillData[i].skillGrade)
+                    {
+                        case SkillGrade.A:
+                            outLineImage.color = Color.red;
+                            skillExplanation[2].color = Color.red;
+                            skillExplanation[4].color = Color.red;
+                            break;
+                        case SkillGrade.B:
+                            outLineImage.color = new Color(134 / 255f, 0, 255 / 255f);
+                            skillExplanation[2].color = new Color(134, 0, 255);
+                            skillExplanation[4].color = new Color(134, 0, 255);
+                            break;
+                        case SkillGrade.C:
+                            outLineImage.color = new Color(71, 138, 255);
+                            skillExplanation[2].color = new Color(71, 138, 255);
+                            skillExplanation[4].color = new Color(71, 138, 255);
+                            break;
+                        case SkillGrade.D:
+                            outLineImage.color = Color.gray;
+                            skillExplanation[2].color = Color.gray;
+                            skillExplanation[4].color = Color.gray;
+                            break;
+                    }
+
+                    skillSo.skillData[i].count++;
+                    skillImage.sprite = skilldataImage[i];
+                    skillExplanation[0].text = skillSo.skillData[i].skillGrade.ToString();
+                    skillExplanation[1].text = "Lv" + skillSo.skillData[i].level.ToString();
+                    skillExplanation[2].text = skillSo.skillData[i].skillName;
+                    skillExplanation[3].text = skillSo.skillData[i].skillExplanation + "   " + "데미지 : " + skillSo.skillData[i].damage.ToString();
+                    skillExplanation[5].text = skillSo.skillData[i].count.ToString() + " / " + skillSo.skillData[i].LevelUpCount.ToString();
+                    useSkillText.text = "장착될 슬롯 : " + (currentIndex + 1).ToString() + "번 째 ";
+                    skillSo.skillData[i].isGetSkill = true;
+
+                    if (skillSo.skillData[i].isGetSkill)
+                    {
+                        skillSlotimages[i].color = Color.white;
+                    }
+
+                    skillNumber = i;
+                    DataManager.Instance.PlayerItem.gem -= 100;
+                    break;
+                }
+            }       
         }
     }
 
@@ -150,13 +165,13 @@ public void DrawGrade()
     // 스킬 장착 로직
     public void EquipmentSkill()
     {
-        if (skillSo.skillData[skillNumber].isGetSkill)
+        if (skillSo.skillData[skillNumber].isGetSkill && skillExplanation[3].text != "젬이 부족합니다.")
         {
             bool isEquipmentSkill = false;
 
             for (int i = 0; i < useSkillSlotimages.Length; i++)
             {
-                if (useSkillSlotimages[i].sprite == skillSo.skillData[skillNumber].icon)
+                if (useSkillSlotimages[i].sprite == skilldataImage[skillNumber])
                 {
                     isEquipmentSkill = true;
                     break;
@@ -189,7 +204,7 @@ public void DrawGrade()
     {
         skillSo.skillData[skillNumber].isUseSkill = true;
         useSkillSlotimages[index].enabled = true;
-        useSkillSlotimages[index].sprite = skillSo.skillData[skillNumber].icon;
+        useSkillSlotimages[index].sprite = skilldataImage[skillNumber];
     }
 
     [Header("스킬 이펙트를 저장 할 리스트")] public List<GameObject> SkillEffect = new List<GameObject>();
@@ -230,7 +245,7 @@ public void DrawGrade()
 
     public void SkillLevelUp()
     {
-        if (skillSo.skillData[skillNumber].count >= skillSo.skillData[skillNumber].LevelUpCount && DataManager.Instance.PlayerItem.gold >= 10000)
+        if (skillSo.skillData[skillNumber].count >= skillSo.skillData[skillNumber].LevelUpCount && DataManager.Instance.PlayerItem.gold >= 10000 && skillExplanation[3].text != "젬이 부족합니다.")
         {
             skillSo.skillData[skillNumber].level += 1;
             skillSo.skillData[skillNumber].damage *= 2;
@@ -238,7 +253,7 @@ public void DrawGrade()
             skillSo.skillData[skillNumber].count = 0;
             DataManager.Instance.PlayerItem.gold -= 10000;
 
-            skillImage.sprite = skillSo.skillData[skillNumber].icon;
+            skillImage.sprite = skilldataImage[skillNumber];
             skillExplanation[0].text = Instance.skillSo.skillData[skillNumber].skillGrade.ToString();
             skillExplanation[1].text = "Lv" + Instance.skillSo.skillData[skillNumber].level.ToString();
             skillExplanation[2].text = skillSo.skillData[skillNumber].skillName;

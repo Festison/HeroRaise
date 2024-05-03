@@ -32,7 +32,7 @@ public class SkillSlot : Slot
                 break;
         }
 
-        SkillManager.Instance.skillImage.sprite = SkillManager.Instance.skillSo.skillData[i].icon;
+        SkillManager.Instance.skillImage.sprite = SkillManager.Instance.skilldataImage[i];
         SkillManager.Instance.skillExplanation[0].text = SkillManager.Instance.skillSo.skillData[i].skillGrade.ToString();
         SkillManager.Instance.skillExplanation[1].text = "Lv" + SkillManager.Instance.skillSo.skillData[i].level.ToString();
         SkillManager.Instance.skillExplanation[2].text = SkillManager.Instance.skillSo.skillData[i].skillName;
