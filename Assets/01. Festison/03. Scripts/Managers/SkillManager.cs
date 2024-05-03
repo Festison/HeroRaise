@@ -211,10 +211,16 @@ public void DrawGrade()
 
     public void UseSkill(int i)
     {
+        Skill skill;
         switch (useSkillSlotimages[i].sprite.name)
         {
             case "Lightning":
-                SkillEffect[0].SetActive(true);
+                skill = SkillEffect[0].GetComponent<Skill>();
+                if (skill.IsUseable)
+                {
+                    SkillEffect[0].SetActive(true);
+                    skill.SkillCoolTimeCo();
+                }
                 break;
             case "FireBall":
                 SkillEffect[1].SetActive(true);
