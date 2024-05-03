@@ -5,35 +5,7 @@ using Veco;
 
 public abstract class Skill : MonoBehaviour, IAttackable
 {
-    //스킬 쿨타임
-    protected float coolTime;
-    public float CoolTime
-    {
-        get { return coolTime; }
-        set
-        {
-            if(coolTime < 0)    coolTime = 0;
-        }
-    }
-
-    //스킬 사용 가능여부
-    public bool IsUseable
-    {
-        get => coolTime < 0;
-    }
-
     public abstract void Attack(IHitable hitable);
-
-    //쿨타임 코루틴
-    public IEnumerator SkillCoolTimeCo()
-    {
-        while(CoolTime > 0)
-        {
-            float deltaTIme = Time.deltaTime;
-            yield return new WaitForSeconds(deltaTIme);
-            CoolTime -= deltaTIme;
-        }
-    }
 }
 
 public class FireBall : Skill, IMoveable

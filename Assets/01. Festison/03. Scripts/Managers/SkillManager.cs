@@ -211,15 +211,13 @@ public void DrawGrade()
 
     public void UseSkill(int i)
     {
-        Skill skill;
         switch (useSkillSlotimages[i].sprite.name)
         {
             case "Lightning":
-                skill = SkillEffect[0].GetComponent<Skill>();
-                if (skill.IsUseable)
+                if (skillSo.skillData[0].isUseSkill)
                 {
                     SkillEffect[0].SetActive(true);
-                    skill.SkillCoolTimeCo();
+                    StartCoroutine(SkillCoolTimeCo(skillSo.skillData[0].coolTime, 0));
                 }
                 break;
             case "FireBall":
@@ -267,6 +265,21 @@ public void DrawGrade()
             skillExplanation[5].text = skillSo.skillData[skillNumber].count.ToString() + " / " + skillSo.skillData[skillNumber].LevelUpCount.ToString();
             useSkillText.text = "장착될 슬롯 : " + (currentIndex + 1).ToString() + "번 째 ";
         }
+    }
+
+    //쿨타임 코루틴
+    public IEnumerator SkillCoolTimeCo(float time, int skillIndex)
+    {
+        float coolTime = time;
+        skillSo.skillData[skillIndex].isUseSkill = false;
+        while (coolTime > 0)
+        {
+            float deltaTime = Time.deltaTime;
+            yield return new WaitForSeconds(deltaTime);
+            coolTime -= deltaTime;
+        }
+        Debug.Log(skillSo.skillData[skillIndex].skillName + " 사용 가능");
+        skillSo.skillData[skillIndex].isUseSkill = true;
     }
     #endregion
 }
