@@ -9,7 +9,7 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 
 namespace Veco
 {
-    public class SoundComponent : MonoBehaviour, IPlayClipable, IAddressable
+    public class SoundComponent : MonoBehaviour, IPlayClipable, IAddressable, IPoolingalbe
     {
         [SerializeField] AudioSource audioSource;
         AsyncOperationHandle handle;

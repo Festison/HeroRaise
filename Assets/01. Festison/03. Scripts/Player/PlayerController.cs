@@ -107,6 +107,7 @@ namespace Festioson
             isDamage = false;
         }
 
+        //플레이어 치명타 기본공격
         float CriticalCalculation()
         {
             PlayerModel data = DataManager.Instance.playerData;

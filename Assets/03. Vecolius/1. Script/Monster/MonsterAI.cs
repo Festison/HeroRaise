@@ -53,7 +53,7 @@ namespace Veco
             this.damage = (int)(so.defaultAttackDamage * waveNum);
         }
     }
-    public class MonsterAI : MonsterStateMono, IHitable 
+    public class MonsterAI : MonsterStateMono, IHitable, IPoolingalbe
     {
         [SerializeField] MonsterStatusSO so;
         [SerializeField] bool isAttackCooltime;
@@ -162,8 +162,9 @@ namespace Veco
 
         public void GameObjectDead()
         {
-            ObjectPoolManager.Instance.ReturnPool(gameObject);
+            ReturnPool();
         }
+
 
         IEnumerator MonsterAttackCo(float attackCooltime)
         {
@@ -179,6 +180,11 @@ namespace Veco
         public void MonsterUI()
         {          
             hpimg.fillAmount = Mathf.Lerp(hpimg.fillAmount, status.Hp / status.maxHp, Time.deltaTime * 10f);
+        }
+
+        public void ReturnPool()
+        {
+            ObjectPoolManager.Instance.ReturnPool(gameObject);
         }
 
         public void Hit(int damage)
