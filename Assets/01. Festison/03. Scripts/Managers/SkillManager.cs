@@ -35,20 +35,26 @@ public class SkillManager : SingleTon<SkillManager>
     [Header("스킬데이터를 저장할 임시 변수")] public int skillNumber = -1;
     #endregion
 
-    private string dataPath;
     public void Start()
     {
         dataPath = Path.Combine(Application.persistentDataPath, "skillData.json");
         LoadSkillData();
+        InitializeSkillSlots();
+    }
 
-        for (int i = 0; i < skillSo.skillData.Count; i++)
+    #region 스킬 데이터 로직
+    private string dataPath;
+
+    private void InitializeSkillSlots()
+    {
+        for (int i = 0; i<skillSo.skillData.Count; i++)
         {
             skillSo.skillData[i].isUseSkill = false;
             if (skillSo.skillData[i].isGetSkill)
             {
                 skillSlotimages[i].color = Color.white;
             }
-        }    
+        }
     }
 
     // 데이터 저장
@@ -77,10 +83,10 @@ public class SkillManager : SingleTon<SkillManager>
     {
         SaveSkillData();
     }
-    
+    #endregion
 
-#region 스킬 이벤트 로직
-public void DrawGrade()
+    #region 스킬 이벤트 로직
+    public void DrawGrade()
     {
         if (DataManager.instance.PlayerItem.gem < 100)
         {
@@ -156,7 +162,7 @@ public void DrawGrade()
                     DataManager.Instance.PlayerItem.gem -= 100;
                     break;
                 }
-            }       
+            }
         }
     }
 
@@ -180,12 +186,6 @@ public void DrawGrade()
 
             if (!isEquipmentSkill)
             {
-                // 다른 스킬을 장착하기 전에 모든 스킬의 isUseSkill을 false로 설정
-                foreach (var skill in skillSo.skillData)
-                {
-                    skill.isUseSkill = false;
-                }
-
                 if (currentIndex < useSkillSlotimages.Length)
                 {
                     SkillIndex(currentIndex);
@@ -206,47 +206,6 @@ public void DrawGrade()
         useSkillSlotimages[index].enabled = true;
         useSkillSlotimages[index].sprite = skilldataImage[skillNumber];
     }
-
-    [Header("스킬 이펙트를 저장 할 리스트")] public List<GameObject> SkillEffect = new List<GameObject>();
-
-    public void UseSkill(int i)
-    {
-        switch (useSkillSlotimages[i].sprite.name)
-        {
-            case "Lightning":
-                if (skillSo.skillData[0].isUseSkill)
-                {
-                    SkillEffect[0].SetActive(true);
-                    StartCoroutine(SkillCoolTimeCo(skillSo.skillData[0].coolTime, 0));
-                }
-                break;
-            case "FireBall":
-                SkillEffect[1].SetActive(true);
-                break;
-            case "Dendro":
-                SkillEffect[2].SetActive(true);
-                break;
-            case "Hydro":
-                SkillEffect[3].SetActive(true);
-                break;
-            case "IceNova":
-                SkillEffect[4].SetActive(true);
-                break;
-            case "StromPath":
-                SkillEffect[5].SetActive(true);
-                break;
-            case "Healing":
-                SkillEffect[6].SetActive(true);
-                break;
-            case "BlackHole":
-                SkillEffect[7].SetActive(true);
-                break;
-            case "BlackNova":
-                SkillEffect[8].SetActive(true);
-                break;
-        }
-    }
-
     public void SkillLevelUp()
     {
         if (skillSo.skillData[skillNumber].count >= skillSo.skillData[skillNumber].LevelUpCount && DataManager.Instance.PlayerItem.gold >= 10000 && skillExplanation[3].text != "젬이 부족합니다.")
@@ -267,19 +226,65 @@ public void DrawGrade()
         }
     }
 
+    [Header("스킬 이펙트를 저장 할 리스트")] public List<GameObject> SkillEffect = new List<GameObject>();
+    [Header("스킬 스크립트 리스트")] public List<Skill> skills = new List<Skill>();
+    [Header("스킬쿨타임 이미지")] public Image[] skillCoolTimeImg;
+    [Header("스킬쿨타임 텍스트")] public TextMeshProUGUI[] skillcoolTimeText;
+    public void UseSkill(int i)
+    {
+        switch (useSkillSlotimages[i].sprite.name)
+        {
+            case "Lightning":
+                if (skillSo.skillData[0].isUseSkill)
+                {
+                    SkillEffect[0].SetActive(true);
+                    StartCoroutine(SkillCoolTimeCo(skillSo.skillData[0].coolTime, i));
+                }
+                break;
+            case "FireBall":
+                if (skillSo.skillData[1].isUseSkill)
+                {
+                    SkillEffect[1].SetActive(true);
+                    StartCoroutine(SkillCoolTimeCo(skillSo.skillData[1].coolTime, i));
+                }
+                break;
+            case "Dendro":
+                if (skillSo.skillData[2].isUseSkill)
+                {
+                    SkillEffect[2].SetActive(true);
+                    StartCoroutine(SkillCoolTimeCo(skillSo.skillData[2].coolTime, i));
+                }
+                break;
+            case "Hydro":
+                if (skillSo.skillData[3].isUseSkill)
+                {
+                    SkillEffect[3].SetActive(true);
+                    StartCoroutine(SkillCoolTimeCo(skillSo.skillData[3].coolTime, i));
+                }
+                break;  
+        }
+        
+    }
+
     //쿨타임 코루틴
     public IEnumerator SkillCoolTimeCo(float time, int skillIndex)
     {
         float coolTime = time;
         skillSo.skillData[skillIndex].isUseSkill = false;
+        skillCoolTimeImg[skillIndex].enabled = true;
+        skillCoolTimeImg[skillIndex].fillAmount = 1;
         while (coolTime > 0)
         {
-            float deltaTime = Time.deltaTime;
-            yield return new WaitForSeconds(deltaTime);
-            coolTime -= deltaTime;
+            yield return new WaitForSeconds(1f);
+            coolTime -= 1.0f;
+            skillcoolTimeText[skillIndex].text = $"{coolTime:F0}";
+            skillCoolTimeImg[skillIndex].fillAmount = coolTime / time;
         }
-        Debug.Log(skillSo.skillData[skillIndex].skillName + " 사용 가능");
+
+        skillcoolTimeText[skillIndex].text = " ";
+        skillCoolTimeImg[skillIndex].enabled = false;
         skillSo.skillData[skillIndex].isUseSkill = true;
     }
+
     #endregion
 }

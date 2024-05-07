@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using Veco;
 
-public abstract class Skill : MonoBehaviour, IAttackable
+public abstract class Skill : MonoBehaviour, IAttackable, ISkillEffect
 {
+    public abstract void ActivateSkillEffect();
+
     public abstract void Attack(IHitable hitable);
 }
 
@@ -36,7 +38,7 @@ public class FireBall : Skill, IMoveable
 
     void Update()
     {
-        StartCoroutine(DelayCo());       
+        StartCoroutine(DelayCo());
     }
 
     IEnumerator DelayCo()
@@ -75,5 +77,10 @@ public class FireBall : Skill, IMoveable
     public override void Attack(IHitable hitable)
     {
         hitable.Hit(DataManager.Instance.playerData.damage + SkillManager.Instance.skillSo.skillData[1].damage);
+    }
+
+    public override void ActivateSkillEffect()
+    {
+        SkillManager.Instance.SkillEffect[1].SetActive(true);
     }
 }

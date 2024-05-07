@@ -44,4 +44,8 @@ public class Lightning : Skill
         hitable.Hit(DataManager.Instance.playerData.damage + SkillManager.Instance.skillSo.skillData[0].damage);
     }
 
+    public override void ActivateSkillEffect()
+    {
+        SkillManager.Instance.SkillEffect[0].SetActive(true);
+    }
 }

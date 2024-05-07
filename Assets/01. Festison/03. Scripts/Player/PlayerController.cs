@@ -31,9 +31,7 @@ namespace Festioson
 
         private void FixedUpdate()
         {
-            AttackRayCast();
-
-            
+            AttackRayCast();          
         }
 
         #region 이벤트 로직
@@ -62,6 +60,7 @@ namespace Festioson
         #region 상태 로직
         public void SkillAnimation()
         {
+            isDamage = false;
             skeletonAnimation.AnimationName = "skill";
             Invoke("DefalutAniamtion", 2.167f);
             animator.Play("skill");

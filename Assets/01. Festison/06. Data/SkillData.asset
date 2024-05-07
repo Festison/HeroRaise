@@ -17,46 +17,46 @@ MonoBehaviour:
     skillName: "\uB77C\uC774\uD2B8\uB2DD"
     skillExplanation: "\uB9F5 \uC804\uBC29\uC5D0 \uBC88\uAC1C\uB97C \uB5A8\uC5B4\uD2B8\uB9BD\uB2C8\uB2E4."
     damage: 30
-    coolTime: 10
+    coolTime: 20
     level: 1
-    count: 0
+    count: 1
     LevelUpCount: 2
-    percent: 17.5
-    isGetSkill: 0
+    percent: 25
+    isGetSkill: 1
     isUseSkill: 0
   - skillGrade: 3
     skillName: "\uD30C\uC774\uC5B4\uBCFC"
     skillExplanation: "\uC77C\uC9C1\uC120 \uC0C1\uC73C\uB85C\uD654\uC5FC\uAD6C\uB97C
       \uC3E9\uB2C8\uB2E4."
     damage: 8
-    coolTime: 10
+    coolTime: 20
     level: 1
-    count: 0
+    count: 1
     LevelUpCount: 2
-    percent: 17.5
-    isGetSkill: 0
+    percent: 25
+    isGetSkill: 1
     isUseSkill: 0
   - skillGrade: 3
     skillName: "\uB9AC\uD504 \uBD90"
     skillExplanation: "\uC804\uBC29\uC5D0 \uD480\uC18D\uC131 \uD3ED\uBC1C\uC744 \uC77C\uC73C\uD0B5\uB2C8\uB2E4."
     damage: 50
-    coolTime: 10
+    coolTime: 20
     level: 1
-    count: 0
+    count: 2
     LevelUpCount: 2
-    percent: 17.5
-    isGetSkill: 0
+    percent: 25
+    isGetSkill: 1
     isUseSkill: 0
   - skillGrade: 3
     skillName: "\uD558\uC774\uB4DC\uB85C \uD38C\uD504"
     skillExplanation: "\uB9F5 \uC804\uBC29\uC5D0 \uBB3C\uAE30\uB465\uC744 \uC77C\uC73C\uD0B5\uB2C8\uB2E4."
     damage: 100
-    coolTime: 2
+    coolTime: 30
     level: 1
-    count: 0
+    count: 3
     LevelUpCount: 2
-    percent: 17.5
-    isGetSkill: 0
+    percent: 25
+    isGetSkill: 1
     isUseSkill: 0
   - skillGrade: 2
     skillName: "\uC544\uC774\uC2A4 \uB178\uBC14"
@@ -66,7 +66,7 @@ MonoBehaviour:
     level: 1
     count: 0
     LevelUpCount: 2
-    percent: 7
+    percent: 0
     isGetSkill: 0
     isUseSkill: 0
   - skillGrade: 2
@@ -75,10 +75,10 @@ MonoBehaviour:
     damage: 10
     coolTime: 2
     level: 1
-    count: 0
+    count: 1
     LevelUpCount: 2
-    percent: 7
-    isGetSkill: 0
+    percent: 0
+    isGetSkill: 1
     isUseSkill: 0
   - skillGrade: 2
     skillName: "\uD790\uB9C1"
@@ -88,7 +88,7 @@ MonoBehaviour:
     level: 1
     count: 0
     LevelUpCount: 2
-    percent: 7
+    percent: 0
     isGetSkill: 0
     isUseSkill: 0
   - skillGrade: 1
@@ -100,7 +100,7 @@ MonoBehaviour:
     level: 1
     count: 0
     LevelUpCount: 2
-    percent: 4
+    percent: 0
     isGetSkill: 0
     isUseSkill: 0
   - skillGrade: 1
@@ -110,10 +110,10 @@ MonoBehaviour:
     damage: 5
     coolTime: 2
     level: 1
-    count: 0
+    count: 2
     LevelUpCount: 2
-    percent: 4
-    isGetSkill: 0
+    percent: 0
+    isGetSkill: 1
     isUseSkill: 0
   - skillGrade: 0
     skillName: "\uBE14\uB799 \uB178\uBC14"
@@ -124,6 +124,6 @@ MonoBehaviour:
     level: 1
     count: 0
     LevelUpCount: 2
-    percent: 1
+    percent: 0
     isGetSkill: 0
     isUseSkill: 0

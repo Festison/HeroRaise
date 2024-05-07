@@ -43,4 +43,9 @@ public class Hydro : Skill
     {
         hitable.Hit(DataManager.Instance.playerData.damage + SkillManager.Instance.skillSo.skillData[3].damage);
     }
+
+    public override void ActivateSkillEffect()
+    {
+        SkillManager.Instance.SkillEffect[3].SetActive(true);
+    }
 }

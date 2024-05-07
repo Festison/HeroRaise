@@ -43,4 +43,9 @@ public class DendroBoom : Skill
     {
         hitable.Hit(DataManager.Instance.playerData.damage + SkillManager.Instance.skillSo.skillData[2].damage);
     }
+
+    public override void ActivateSkillEffect()
+    {
+        SkillManager.Instance.SkillEffect[2].SetActive(true);
+    }
 }

@@ -95,6 +95,7 @@ MonoBehaviour:
         - GlobalObjectId_V1-2-862dfad60db784e18b3f86ec58785669-278659839-0
         - GlobalObjectId_V1-2-862dfad60db784e18b3f86ec58785669-1578834144-0
         - GlobalObjectId_V1-2-862dfad60db784e18b3f86ec58785669-8098333439275654244-0
+        - GlobalObjectId_V1-2-862dfad60db784e18b3f86ec58785669-496101346-0
         values:
         - iColor: 6
           icon: Canvas Icon
@@ -108,8 +109,10 @@ MonoBehaviour:
           icon: Favorite
         - iColor: 0
           icon: 
+        - iColor: 0
+          icon: 
       goDatasByInstanceId:
-        keys: 7e8c00008a8c0000428c00006c8b0000688c0000c08f0000
+        keys: b48d0000c08d0000608d00006c8c0000948d0000049100008a83fdff44faffff
         values:
         - iColor: 6
           icon: Canvas Icon
@@ -121,6 +124,10 @@ MonoBehaviour:
           icon: ParticleSystem Icon
         - iColor: 2
           icon: Favorite
+        - iColor: 0
+          icon: 
+        - iColor: 0
+          icon: 
         - iColor: 0
           icon: 
     - goDatasByGlobalId:
@@ -184,11 +191,5 @@ MonoBehaviour:
         - iColor: 4
           icon: Camera Icon
       goDatasByInstanceId:
-        keys: 96a30000a2a300005aa30000
-        values:
-        - iColor: 6
-          icon: Canvas Icon
-        - iColor: 2
-          icon: cs Script Icon
-        - iColor: 4
-          icon: Camera Icon
+        keys: 
+        values: []
