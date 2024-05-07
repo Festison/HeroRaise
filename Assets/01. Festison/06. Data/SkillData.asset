@@ -50,7 +50,7 @@ MonoBehaviour:
   - skillGrade: 3
     skillName: "\uD558\uC774\uB4DC\uB85C \uD38C\uD504"
     skillExplanation: "\uB9F5 \uC804\uBC29\uC5D0 \uBB3C\uAE30\uB465\uC744 \uC77C\uC73C\uD0B5\uB2C8\uB2E4."
-    damage: 50
+    damage: 100
     coolTime: 2
     level: 1
     count: 0
