@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class UIManager : SingleTon<UIManager>
 {
@@ -16,9 +17,14 @@ public class UIManager : SingleTon<UIManager>
 
     [Header("스킬 UI")] public GameObject[] skillUI;
 
+    [Header("보스 입장 테스트")] public Button bossBtn;
+
+    public int index;
+
     public void Start()
     {
         infoBtn.Select();
+        SceneManager.activeSceneChanged += activeScene;
     }
 
     public void Update()
@@ -57,5 +63,16 @@ public class UIManager : SingleTon<UIManager>
         menu.SetActive(false);
         isSetmenu = false;
         menuBtn.enabled = true;
+    }
+
+    public void BossStage(int index)
+    {
+        this.index = index;
+        SceneManager.LoadScene("BossStageScene");
+    }
+
+    public void activeScene(Scene s1, Scene s2)
+    {
+        Debug.Log("씬 이동");
     }
 }
