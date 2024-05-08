@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 
 [System.Serializable]
 public class SkillDataContainer
@@ -262,8 +261,7 @@ public class SkillManager : SingleTon<SkillManager>
                     StartCoroutine(SkillCoolTimeCo(skillSo.skillData[3].coolTime, i));
                 }
                 break;  
-        }
-        
+        }   
     }
 
     //쿨타임 코루틴

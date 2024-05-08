@@ -141,7 +141,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uB77C\uC774\uD2B8\uB2DD"
+  m_text: "\uC82C\uC774 \uBD80\uC871\uD569\uB2C8\uB2E4."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 812d6e0dd16cd8d4eb1ecaf78b8158a5, type: 2}
   m_sharedMaterial: {fileID: -4787158858871870399, guid: 812d6e0dd16cd8d4eb1ecaf78b8158a5,
@@ -205,7 +205,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -181.7236, y: 91.73684, z: -284.3733, w: -148.65968}
+  m_margin: {x: -275.74533, y: 91.73684, z: -398.2615, w: -148.65968}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -368,7 +368,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lv 100
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ca247a3092b7b404dbaa6f4ab43e450c, type: 2}
   m_sharedMaterial: {fileID: -403277894513911722, guid: ca247a3092b7b404dbaa6f4ab43e450c,
@@ -961,7 +961,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8735159451113120859}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SkillManager, Assembly-CSharp
+        m_MethodName: SkillLevelUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2286721912157622095
 GameObject:
   m_ObjectHideFlags: 0
@@ -1325,6 +1337,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3965340841077473969
 GameObject:
   m_ObjectHideFlags: 0
@@ -1525,7 +1549,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uAC15\uD654 \uBE44\uC6A9 : \n1000000 Gold"
+  m_text: "\uAC15\uD654 \uBE44\uC6A9 : \n10000 Gold"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 812d6e0dd16cd8d4eb1ecaf78b8158a5, type: 2}
   m_sharedMaterial: {fileID: -4787158858871870399, guid: 812d6e0dd16cd8d4eb1ecaf78b8158a5,
@@ -1606,7 +1630,7 @@ GameObject:
   - component: {fileID: 5425154039362569692}
   - component: {fileID: 5339444306312122670}
   - component: {fileID: 919011223497382455}
-  - component: {fileID: 3969153038014630469}
+  - component: {fileID: 6676834007309871607}
   m_Layer: 5
   m_Name: SkillSetUI
   m_TagString: Untagged
@@ -1677,7 +1701,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3969153038014630469
+--- !u!114 &6676834007309871607
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1724,7 +1748,7 @@ MonoBehaviour:
   tweenTargetIsTargetGO: 1
   delay: 0
   duration: 1
-  easeType: 2
+  easeType: 6
   easeCurve:
     serializedVersion: 2
     m_Curve:
@@ -1753,19 +1777,19 @@ MonoBehaviour:
   loops: 1
   id: 
   isRelative: 0
-  isFrom: 1
+  isFrom: 0
   isIndependentUpdate: 0
   autoKill: 1
   autoGenerate: 1
   isActive: 1
   isValid: 0
-  target: {fileID: 919011223497382455}
-  animationType: 8
-  targetType: 3
+  target: {fileID: 0}
+  animationType: 0
+  targetType: 0
   forcedTargetType: 0
   autoPlay: 1
   useTargetAsV3: 0
-  endValueFloat: 1
+  endValueFloat: 0
   endValueV3: {x: 0, y: 0, z: 0}
   endValueV2: {x: 0, y: 0}
   endValueColor: {r: 1, g: 1, b: 1, a: 1}
@@ -1777,10 +1801,10 @@ MonoBehaviour:
     width: 0
     height: 0
   endValueTransform: {fileID: 0}
-  optionalBool0: 1
-  optionalBool1: 1
-  optionalFloat0: 90
-  optionalInt0: 10
+  optionalBool0: 0
+  optionalBool1: 0
+  optionalFloat0: 0
+  optionalInt0: 0
   optionalRotationMode: 0
   optionalScrambleMode: 0
   optionalShakeRandomnessMode: 0
@@ -1850,7 +1874,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2 / 2
+  m_text: 100 / 100
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ca247a3092b7b404dbaa6f4ab43e450c, type: 2}
   m_sharedMaterial: {fileID: -403277894513911722, guid: ca247a3092b7b404dbaa6f4ab43e450c,
@@ -1955,7 +1979,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 1.5999756}
+  m_AnchoredPosition: {x: 0, y: 1.6000977}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4728464223923685822
@@ -1986,7 +2010,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4c2e103ee53f2497b8222fa8db303c8f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 89bfccdb1e78040ae8aaca59d00f20c9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2047,7 +2071,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -361.1, y: 245.90002}
+  m_AnchoredPosition: {x: -351.5, y: 251.79999}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &4587853401875627363
@@ -2116,7 +2140,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.07136264, y: 0.21731628}
   m_AnchorMax: {x: 0.9585683, y: 0.30231628}
-  m_AnchoredPosition: {x: -77, y: 93}
+  m_AnchoredPosition: {x: -63.000244, y: 93}
   m_SizeDelta: {x: -636, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8655327712751823387
@@ -2147,8 +2171,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uB9F5 \uC804\uBC29\uC5D0 \uBC88\uAC1C\uB97C \uB5A8\uC5B4\uD2B8\uB9BD\uB2C8\uB2E4. 
-    \uB370\uBBF8\uC9C0 :10\n"
+  m_text: "\uC82C\uC774 \uBD80\uC871\uD569\uB2C8\uB2E4."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 812d6e0dd16cd8d4eb1ecaf78b8158a5, type: 2}
   m_sharedMaterial: {fileID: -4787158858871870399, guid: 812d6e0dd16cd8d4eb1ecaf78b8158a5,

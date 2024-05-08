@@ -62,6 +62,7 @@ public class DataManager : SingleTon<DataManager>
             ChangeTime();
         }
 
+        UpdateText();
     }
 
 
