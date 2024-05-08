@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Veco
 {
@@ -45,7 +46,11 @@ namespace Veco
         void Update()
         {
             sm.Update();
-            if (isDie) return;
+            if (isDie)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+                return;
+            }
 
             if (detective.IsFind && !isAttackCooltime)
             {
