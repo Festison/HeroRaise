@@ -340,7 +340,6 @@ MonoBehaviour:
     maxHp: 0
   state: 0
   isDie: 0
-  attackClip: {fileID: 0}
   so: {fileID: 11400000, guid: 75f5a4a585fb4d841ae79464cc899c7b, type: 2}
   isAttackCooltime: 0
   detective: {fileID: 0}

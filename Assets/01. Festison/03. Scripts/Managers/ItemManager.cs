@@ -181,8 +181,6 @@ public class ItemManager : SingleTon<ItemManager>
 
     public void EquimentItem()
     {
-        if (ItemExplanation[2].text != "젬이 부족합니다.")
-        {
             switch (item.Type)
             {
                 case "Weapon":
@@ -216,8 +214,7 @@ public class ItemManager : SingleTon<ItemManager>
                     EquimentImg[3].sprite = ItemImage.sprite;
                     int parseAttackSpeed = (int.Parse(item.Stat));
                     DataManager.Instance.playerData.attackSpeed += (parseAttackSpeed * 0.01f);
-                    break;
-            }
+                    break;         
         }
     }
 

@@ -124,7 +124,7 @@ namespace Veco
                 transform.Translate(Vector3.left * so.moveSpeed);
             }
             hpText.text = status.Hp.ToString();
-
+            MonsterUI();
         }
 
         //몬스터 status 초기화
@@ -179,7 +179,7 @@ namespace Veco
 
         public void MonsterUI()
         {          
-            hpimg.fillAmount = Mathf.Lerp(hpimg.fillAmount, status.Hp / status.maxHp, Time.deltaTime * 10f);
+            hpimg.fillAmount = Mathf.Lerp(hpimg.fillAmount, status.Hp / status.maxHp, Time.deltaTime * 1f);
         }
 
         public void ReturnPool()
@@ -193,8 +193,7 @@ namespace Veco
             damageText.SetActive(true);           
             damageText.transform.position = hitPos.position;
             status.Hp -= damage;
-            StartCoroutine(HitCo());
-            MonsterUI();
+            StartCoroutine(HitCo());            
         }
 
         IEnumerator HitCo()
