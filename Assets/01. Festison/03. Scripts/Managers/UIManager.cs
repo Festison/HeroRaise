@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : SingleTon<UIManager>
 {
+    #region UI 변수
     // [Header("첫 클릭 확인 UI")] public GameObject dotUi;
     [Header("캐릭터 HP 슬라이더")] public Image hpImage;
     [Header("메뉴 UI")] public GameObject menu;
@@ -21,6 +22,8 @@ public class UIManager : SingleTon<UIManager>
 
     public int index;
 
+    #endregion
+
     public void Start()
     {
         infoBtn.Select();
@@ -31,12 +34,6 @@ public class UIManager : SingleTon<UIManager>
     {
         HpLerpUI();
     }
-
-    public void HpLerpUI()
-    {
-        hpImage.fillAmount = Mathf.Lerp(hpImage.fillAmount, DataManager.Instance.playerData.Hp / DataManager.Instance.playerData.MaxHp, Time.deltaTime * 10f);
-    }
-
     public void OnClickMenu()
     {
         //dotUi.SetActive(false);
@@ -53,6 +50,12 @@ public class UIManager : SingleTon<UIManager>
             menu.transform.DOScale(0f, 0.5f).OnComplete(SetFalseMenu);
         }
     }
+
+    public void HpLerpUI()
+    {
+        hpImage.fillAmount = Mathf.Lerp(hpImage.fillAmount, DataManager.Instance.playerData.Hp / DataManager.Instance.playerData.MaxHp, Time.deltaTime * 3f);
+    }
+    
     public void SetActiveMenu()
     {
         isSetmenu = true;

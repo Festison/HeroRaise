@@ -31,7 +31,12 @@ namespace Festioson
 
         private void FixedUpdate()
         {
-            AttackRayCast();          
+            AttackRayCast();
+
+            if (DataManager.Instance.playerData.hp <= 0)
+            {
+                Dead();
+            }
         }
 
         #region 이벤트 로직
@@ -43,7 +48,7 @@ namespace Festioson
         }
 
         public void LevelUp()
-        {          
+        {
             if (DataManager.Instance.PlayerItem.gold > 0)
             {
                 DataManager.Instance.PlayerItem.gold -= 1000;
@@ -52,7 +57,7 @@ namespace Festioson
                 DataManager.Instance.playerData.Hp += 10;
                 DataManager.Instance.playerData.Damage += 2;
             }
-            
+
             playerView.ChangeSkin(skeletonAnimation, DataManager.Instance.playerData.Level);
         }
         #endregion
@@ -130,6 +135,17 @@ namespace Festioson
             DataManager.Instance.playerData.Hp -= 2;
             UIManager.Instance.HpLerpUI();
             ViewUpdate();
+        }
+
+        public void Dead()
+        {
+            isDamage = false;
+            animator.Play("skill");
+            skeletonAnimation.AnimationName = "landing";
+            DataManager.Instance.PlayerItem.waveData = 0;
+            WaveManager.Instance.WaveIndex = 0;
+            DataManager.Instance.playerData.hp = DataManager.Instance.playerData.maxHp;
+            Invoke("DefalutAniamtion", 2.167f);
         }
         #endregion
     }

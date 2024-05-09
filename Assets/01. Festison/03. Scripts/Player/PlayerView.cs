@@ -5,14 +5,6 @@ using Spine.Unity;
 using TMPro;
 using Festioson;
 using UnityEngine.UI;
-
-// View
-// 게임 내 외적으로 보이는 모든 요소를 조작한다.
-// Controller에서 받은 데이터를 화면에 출력한다.
-// Model에 대한 정보를 따로 저장해서는 안됨.
-// Model이나 Controller에 대한 정보를 가지면 안됨.
-// 재사용이 가능하면 최고!
-
 public interface ISkinChanger
 {
     void ChangeSkin(SkeletonAnimation skeletonAnimation, int level);
@@ -22,6 +14,13 @@ public interface IView
 {
     public void UpdateUI(PlayerModel playerData);
 }
+
+// View
+// 게임 내 외적으로 보이는 모든 요소를 조작한다.
+// Controller에서 받은 데이터를 화면에 출력한다.
+// Model에 대한 정보를 따로 저장해서는 안됨.
+// Model이나 Controller에 대한 정보를 가지면 안됨.
+// 재사용이 가능하면 최고!
 
 namespace Festioson
 {

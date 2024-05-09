@@ -19,7 +19,7 @@ MonoBehaviour:
     damage: 30
     coolTime: 20
     level: 1
-    count: 1
+    count: 4
     LevelUpCount: 2
     percent: 25
     isGetSkill: 1
@@ -31,7 +31,7 @@ MonoBehaviour:
     damage: 8
     coolTime: 20
     level: 1
-    count: 1
+    count: 2
     LevelUpCount: 2
     percent: 25
     isGetSkill: 1
@@ -42,7 +42,7 @@ MonoBehaviour:
     damage: 50
     coolTime: 20
     level: 1
-    count: 2
+    count: 5
     LevelUpCount: 2
     percent: 25
     isGetSkill: 1
@@ -53,7 +53,7 @@ MonoBehaviour:
     damage: 100
     coolTime: 30
     level: 1
-    count: 3
+    count: 5
     LevelUpCount: 2
     percent: 25
     isGetSkill: 1

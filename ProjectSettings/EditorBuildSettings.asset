@@ -6,11 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/04.JeongSeoggi/01.Scene/JeongSeokScene.unity
-    guid: 7ebc8c950ac3704438ec474f184cc39e
+    path: Assets/01. Festison/01. Scene/FestisonMainScene.unity
+    guid: 3287768671cc29f47a720a79413e7333
   - enabled: 1
-    path: Assets/04.JeongSeoggi/01.Scene/BossStageScene.unity
-    guid: a02a0913284977d40b2f8ca6ca0f1c52
+    path: Assets/01. Festison/01. Scene/FestisonUIScene.unity
+    guid: 862dfad60db784e18b3f86ec58785669
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 28568e23a0183bf41b8560711d96caef,
       type: 2}

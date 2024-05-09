@@ -178,6 +178,7 @@ public class SkillManager : SingleTon<SkillManager>
             {
                 if (useSkillSlotimages[i].sprite == skilldataImage[skillNumber])
                 {
+                    skillSo.skillData[skillNumber].isUseSkill = true;
                     isEquipmentSkill = true;
                     break;
                 }
